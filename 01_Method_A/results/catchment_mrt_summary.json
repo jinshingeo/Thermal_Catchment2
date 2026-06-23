@@ -1,0 +1,988 @@
+{
+  "model": "mrt_direct_hard_cut",
+  "mrt_source": "S-DoT IDW + SOLWEIG (Lindberg & Grimmond 2011)",
+  "weather_period": "2025-07-28 ~ 2025-08-03",
+  "thresholds": {
+    "low": 50.0,
+    "mid": 55.0,
+    "high": 58.0
+  },
+  "time_budget_min": 15,
+  "walk_speed_kmh": 4.5,
+  "references": [
+    "Thorsson et al. (2007) — MRT>50°C: strong heat stress (검토 필요)",
+    "55°C 임계값: 경험적 기준 (문헌 근거 교수님 논의 후 확정)"
+  ],
+  "low": {
+    "왕십리역": {
+      "h07": {
+        "classic_nodes": 1470,
+        "thermal_nodes": 1470,
+        "lost_count": 0,
+        "reduction_pct": 0.0,
+        "classic_length_m": 83834.3,
+        "thermal_length_m": 83834.3,
+        "lost_length_m": 0.0,
+        "reduction_pct_len": 0.0,
+        "hot_edges_removed": 0
+      },
+      "h10": {
+        "classic_nodes": 1470,
+        "thermal_nodes": 453,
+        "lost_count": 1017,
+        "reduction_pct": 69.2,
+        "classic_length_m": 83834.3,
+        "thermal_length_m": 25570.9,
+        "lost_length_m": 58263.4,
+        "reduction_pct_len": 69.5,
+        "hot_edges_removed": 2299
+      },
+      "h13": {
+        "classic_nodes": 1470,
+        "thermal_nodes": 63,
+        "lost_count": 1407,
+        "reduction_pct": 95.7,
+        "classic_length_m": 83834.3,
+        "thermal_length_m": 4031.7,
+        "lost_length_m": 79802.7,
+        "reduction_pct_len": 95.2,
+        "hot_edges_removed": 5637
+      },
+      "h16": {
+        "classic_nodes": 1470,
+        "thermal_nodes": 83,
+        "lost_count": 1387,
+        "reduction_pct": 94.4,
+        "classic_length_m": 83834.3,
+        "thermal_length_m": 4866.4,
+        "lost_length_m": 78968.0,
+        "reduction_pct_len": 94.2,
+        "hot_edges_removed": 5137
+      }
+    },
+    "행당역": {
+      "h07": {
+        "classic_nodes": 1123,
+        "thermal_nodes": 1123,
+        "lost_count": 0,
+        "reduction_pct": 0.0,
+        "classic_length_m": 71008.3,
+        "thermal_length_m": 71008.3,
+        "lost_length_m": 0.0,
+        "reduction_pct_len": 0.0,
+        "hot_edges_removed": 0
+      },
+      "h10": {
+        "classic_nodes": 1123,
+        "thermal_nodes": 221,
+        "lost_count": 902,
+        "reduction_pct": 80.3,
+        "classic_length_m": 71008.3,
+        "thermal_length_m": 13790.4,
+        "lost_length_m": 57217.9,
+        "reduction_pct_len": 80.6,
+        "hot_edges_removed": 2299
+      },
+      "h13": {
+        "classic_nodes": 1123,
+        "thermal_nodes": 1,
+        "lost_count": 1122,
+        "reduction_pct": 99.9,
+        "classic_length_m": 71008.3,
+        "thermal_length_m": 0,
+        "lost_length_m": 71008.3,
+        "reduction_pct_len": 100.0,
+        "hot_edges_removed": 5637
+      },
+      "h16": {
+        "classic_nodes": 1123,
+        "thermal_nodes": 75,
+        "lost_count": 1048,
+        "reduction_pct": 93.3,
+        "classic_length_m": 71008.3,
+        "thermal_length_m": 5665.8,
+        "lost_length_m": 65342.5,
+        "reduction_pct_len": 92.0,
+        "hot_edges_removed": 5137
+      }
+    },
+    "응봉역": {
+      "h07": {
+        "classic_nodes": 891,
+        "thermal_nodes": 891,
+        "lost_count": 0,
+        "reduction_pct": 0.0,
+        "classic_length_m": 55984.1,
+        "thermal_length_m": 55984.1,
+        "lost_length_m": 0.0,
+        "reduction_pct_len": 0.0,
+        "hot_edges_removed": 0
+      },
+      "h10": {
+        "classic_nodes": 891,
+        "thermal_nodes": 190,
+        "lost_count": 701,
+        "reduction_pct": 78.7,
+        "classic_length_m": 55984.1,
+        "thermal_length_m": 11769.4,
+        "lost_length_m": 44214.7,
+        "reduction_pct_len": 79.0,
+        "hot_edges_removed": 2299
+      },
+      "h13": {
+        "classic_nodes": 891,
+        "thermal_nodes": 17,
+        "lost_count": 874,
+        "reduction_pct": 98.1,
+        "classic_length_m": 55984.1,
+        "thermal_length_m": 779.9,
+        "lost_length_m": 55204.2,
+        "reduction_pct_len": 98.6,
+        "hot_edges_removed": 5637
+      },
+      "h16": {
+        "classic_nodes": 891,
+        "thermal_nodes": 74,
+        "lost_count": 817,
+        "reduction_pct": 91.7,
+        "classic_length_m": 55984.1,
+        "thermal_length_m": 3578.6,
+        "lost_length_m": 52405.5,
+        "reduction_pct_len": 93.6,
+        "hot_edges_removed": 5137
+      }
+    },
+    "뚝섬역": {
+      "h07": {
+        "classic_nodes": 753,
+        "thermal_nodes": 753,
+        "lost_count": 0,
+        "reduction_pct": 0.0,
+        "classic_length_m": 59847.3,
+        "thermal_length_m": 59847.3,
+        "lost_length_m": 0.0,
+        "reduction_pct_len": 0.0,
+        "hot_edges_removed": 0
+      },
+      "h10": {
+        "classic_nodes": 753,
+        "thermal_nodes": 250,
+        "lost_count": 503,
+        "reduction_pct": 66.8,
+        "classic_length_m": 59847.3,
+        "thermal_length_m": 21366.9,
+        "lost_length_m": 38480.4,
+        "reduction_pct_len": 64.3,
+        "hot_edges_removed": 2299
+      },
+      "h13": {
+        "classic_nodes": 753,
+        "thermal_nodes": 1,
+        "lost_count": 752,
+        "reduction_pct": 99.9,
+        "classic_length_m": 59847.3,
+        "thermal_length_m": 0,
+        "lost_length_m": 59847.3,
+        "reduction_pct_len": 100.0,
+        "hot_edges_removed": 5637
+      },
+      "h16": {
+        "classic_nodes": 753,
+        "thermal_nodes": 1,
+        "lost_count": 752,
+        "reduction_pct": 99.9,
+        "classic_length_m": 59847.3,
+        "thermal_length_m": 0,
+        "lost_length_m": 59847.3,
+        "reduction_pct_len": 100.0,
+        "hot_edges_removed": 5137
+      }
+    },
+    "성수역": {
+      "h07": {
+        "classic_nodes": 644,
+        "thermal_nodes": 644,
+        "lost_count": 0,
+        "reduction_pct": 0.0,
+        "classic_length_m": 57682.4,
+        "thermal_length_m": 57682.4,
+        "lost_length_m": 0.0,
+        "reduction_pct_len": 0.0,
+        "hot_edges_removed": 0
+      },
+      "h10": {
+        "classic_nodes": 644,
+        "thermal_nodes": 413,
+        "lost_count": 231,
+        "reduction_pct": 35.9,
+        "classic_length_m": 57682.4,
+        "thermal_length_m": 37103.0,
+        "lost_length_m": 20579.4,
+        "reduction_pct_len": 35.7,
+        "hot_edges_removed": 2299
+      },
+      "h13": {
+        "classic_nodes": 644,
+        "thermal_nodes": 1,
+        "lost_count": 643,
+        "reduction_pct": 99.8,
+        "classic_length_m": 57682.4,
+        "thermal_length_m": 0,
+        "lost_length_m": 57682.4,
+        "reduction_pct_len": 100.0,
+        "hot_edges_removed": 5637
+      },
+      "h16": {
+        "classic_nodes": 644,
+        "thermal_nodes": 1,
+        "lost_count": 643,
+        "reduction_pct": 99.8,
+        "classic_length_m": 57682.4,
+        "thermal_length_m": 0,
+        "lost_length_m": 57682.4,
+        "reduction_pct_len": 100.0,
+        "hot_edges_removed": 5137
+      }
+    },
+    "서울숲역": {
+      "h07": {
+        "classic_nodes": 736,
+        "thermal_nodes": 736,
+        "lost_count": 0,
+        "reduction_pct": 0.0,
+        "classic_length_m": 58346.0,
+        "thermal_length_m": 58346.0,
+        "lost_length_m": 0.0,
+        "reduction_pct_len": 0.0,
+        "hot_edges_removed": 0
+      },
+      "h10": {
+        "classic_nodes": 736,
+        "thermal_nodes": 128,
+        "lost_count": 608,
+        "reduction_pct": 82.6,
+        "classic_length_m": 58346.0,
+        "thermal_length_m": 10751.0,
+        "lost_length_m": 47595.0,
+        "reduction_pct_len": 81.6,
+        "hot_edges_removed": 2299
+      },
+      "h13": {
+        "classic_nodes": 736,
+        "thermal_nodes": 1,
+        "lost_count": 735,
+        "reduction_pct": 99.9,
+        "classic_length_m": 58346.0,
+        "thermal_length_m": 0,
+        "lost_length_m": 58346.0,
+        "reduction_pct_len": 100.0,
+        "hot_edges_removed": 5637
+      },
+      "h16": {
+        "classic_nodes": 736,
+        "thermal_nodes": 1,
+        "lost_count": 735,
+        "reduction_pct": 99.9,
+        "classic_length_m": 58346.0,
+        "thermal_length_m": 0,
+        "lost_length_m": 58346.0,
+        "reduction_pct_len": 100.0,
+        "hot_edges_removed": 5137
+      }
+    },
+    "옥수역": {
+      "h07": {
+        "classic_nodes": 205,
+        "thermal_nodes": 205,
+        "lost_count": 0,
+        "reduction_pct": 0.0,
+        "classic_length_m": 18520.8,
+        "thermal_length_m": 18520.8,
+        "lost_length_m": 0.0,
+        "reduction_pct_len": 0.0,
+        "hot_edges_removed": 0
+      },
+      "h10": {
+        "classic_nodes": 205,
+        "thermal_nodes": 62,
+        "lost_count": 143,
+        "reduction_pct": 69.8,
+        "classic_length_m": 18520.8,
+        "thermal_length_m": 5169.2,
+        "lost_length_m": 13351.6,
+        "reduction_pct_len": 72.1,
+        "hot_edges_removed": 2299
+      },
+      "h13": {
+        "classic_nodes": 205,
+        "thermal_nodes": 20,
+        "lost_count": 185,
+        "reduction_pct": 90.2,
+        "classic_length_m": 18520.8,
+        "thermal_length_m": 1011.6,
+        "lost_length_m": 17509.1,
+        "reduction_pct_len": 94.5,
+        "hot_edges_removed": 5637
+      },
+      "h16": {
+        "classic_nodes": 205,
+        "thermal_nodes": 20,
+        "lost_count": 185,
+        "reduction_pct": 90.2,
+        "classic_length_m": 18520.8,
+        "thermal_length_m": 1011.6,
+        "lost_length_m": 17509.1,
+        "reduction_pct_len": 94.5,
+        "hot_edges_removed": 5137
+      }
+    }
+  },
+  "mid": {
+    "왕십리역": {
+      "h07": {
+        "classic_nodes": 1470,
+        "thermal_nodes": 1470,
+        "lost_count": 0,
+        "reduction_pct": 0.0,
+        "classic_length_m": 83834.3,
+        "thermal_length_m": 83834.3,
+        "lost_length_m": 0.0,
+        "reduction_pct_len": 0.0,
+        "hot_edges_removed": 0
+      },
+      "h10": {
+        "classic_nodes": 1470,
+        "thermal_nodes": 1470,
+        "lost_count": 0,
+        "reduction_pct": 0.0,
+        "classic_length_m": 83834.3,
+        "thermal_length_m": 83834.3,
+        "lost_length_m": 0.0,
+        "reduction_pct_len": 0.0,
+        "hot_edges_removed": 1
+      },
+      "h13": {
+        "classic_nodes": 1470,
+        "thermal_nodes": 438,
+        "lost_count": 1032,
+        "reduction_pct": 70.2,
+        "classic_length_m": 83834.3,
+        "thermal_length_m": 24794.9,
+        "lost_length_m": 59039.5,
+        "reduction_pct_len": 70.4,
+        "hot_edges_removed": 2350
+      },
+      "h16": {
+        "classic_nodes": 1470,
+        "thermal_nodes": 1468,
+        "lost_count": 2,
+        "reduction_pct": 0.1,
+        "classic_length_m": 83834.3,
+        "thermal_length_m": 83748.7,
+        "lost_length_m": 85.6,
+        "reduction_pct_len": 0.1,
+        "hot_edges_removed": 32
+      }
+    },
+    "행당역": {
+      "h07": {
+        "classic_nodes": 1123,
+        "thermal_nodes": 1123,
+        "lost_count": 0,
+        "reduction_pct": 0.0,
+        "classic_length_m": 71008.3,
+        "thermal_length_m": 71008.3,
+        "lost_length_m": 0.0,
+        "reduction_pct_len": 0.0,
+        "hot_edges_removed": 0
+      },
+      "h10": {
+        "classic_nodes": 1123,
+        "thermal_nodes": 1123,
+        "lost_count": 0,
+        "reduction_pct": 0.0,
+        "classic_length_m": 71008.3,
+        "thermal_length_m": 71008.3,
+        "lost_length_m": 0.0,
+        "reduction_pct_len": 0.0,
+        "hot_edges_removed": 1
+      },
+      "h13": {
+        "classic_nodes": 1123,
+        "thermal_nodes": 352,
+        "lost_count": 771,
+        "reduction_pct": 68.7,
+        "classic_length_m": 71008.3,
+        "thermal_length_m": 22733.3,
+        "lost_length_m": 48275.0,
+        "reduction_pct_len": 68.0,
+        "hot_edges_removed": 2350
+      },
+      "h16": {
+        "classic_nodes": 1123,
+        "thermal_nodes": 1123,
+        "lost_count": 0,
+        "reduction_pct": 0.0,
+        "classic_length_m": 71008.3,
+        "thermal_length_m": 71008.3,
+        "lost_length_m": 0.0,
+        "reduction_pct_len": 0.0,
+        "hot_edges_removed": 32
+      }
+    },
+    "응봉역": {
+      "h07": {
+        "classic_nodes": 891,
+        "thermal_nodes": 891,
+        "lost_count": 0,
+        "reduction_pct": 0.0,
+        "classic_length_m": 55984.1,
+        "thermal_length_m": 55984.1,
+        "lost_length_m": 0.0,
+        "reduction_pct_len": 0.0,
+        "hot_edges_removed": 0
+      },
+      "h10": {
+        "classic_nodes": 891,
+        "thermal_nodes": 891,
+        "lost_count": 0,
+        "reduction_pct": 0.0,
+        "classic_length_m": 55984.1,
+        "thermal_length_m": 55984.1,
+        "lost_length_m": 0.0,
+        "reduction_pct_len": 0.0,
+        "hot_edges_removed": 1
+      },
+      "h13": {
+        "classic_nodes": 891,
+        "thermal_nodes": 212,
+        "lost_count": 679,
+        "reduction_pct": 76.2,
+        "classic_length_m": 55984.1,
+        "thermal_length_m": 13061.4,
+        "lost_length_m": 42922.7,
+        "reduction_pct_len": 76.7,
+        "hot_edges_removed": 2350
+      },
+      "h16": {
+        "classic_nodes": 891,
+        "thermal_nodes": 883,
+        "lost_count": 8,
+        "reduction_pct": 0.9,
+        "classic_length_m": 55984.1,
+        "thermal_length_m": 55646.5,
+        "lost_length_m": 337.6,
+        "reduction_pct_len": 0.6,
+        "hot_edges_removed": 32
+      }
+    },
+    "뚝섬역": {
+      "h07": {
+        "classic_nodes": 753,
+        "thermal_nodes": 753,
+        "lost_count": 0,
+        "reduction_pct": 0.0,
+        "classic_length_m": 59847.3,
+        "thermal_length_m": 59847.3,
+        "lost_length_m": 0.0,
+        "reduction_pct_len": 0.0,
+        "hot_edges_removed": 0
+      },
+      "h10": {
+        "classic_nodes": 753,
+        "thermal_nodes": 753,
+        "lost_count": 0,
+        "reduction_pct": 0.0,
+        "classic_length_m": 59847.3,
+        "thermal_length_m": 59847.3,
+        "lost_length_m": 0.0,
+        "reduction_pct_len": 0.0,
+        "hot_edges_removed": 1
+      },
+      "h13": {
+        "classic_nodes": 753,
+        "thermal_nodes": 206,
+        "lost_count": 547,
+        "reduction_pct": 72.6,
+        "classic_length_m": 59847.3,
+        "thermal_length_m": 17984.1,
+        "lost_length_m": 41863.2,
+        "reduction_pct_len": 70.0,
+        "hot_edges_removed": 2350
+      },
+      "h16": {
+        "classic_nodes": 753,
+        "thermal_nodes": 748,
+        "lost_count": 5,
+        "reduction_pct": 0.7,
+        "classic_length_m": 59847.3,
+        "thermal_length_m": 59517.9,
+        "lost_length_m": 329.4,
+        "reduction_pct_len": 0.6,
+        "hot_edges_removed": 32
+      }
+    },
+    "성수역": {
+      "h07": {
+        "classic_nodes": 644,
+        "thermal_nodes": 644,
+        "lost_count": 0,
+        "reduction_pct": 0.0,
+        "classic_length_m": 57682.4,
+        "thermal_length_m": 57682.4,
+        "lost_length_m": 0.0,
+        "reduction_pct_len": 0.0,
+        "hot_edges_removed": 0
+      },
+      "h10": {
+        "classic_nodes": 644,
+        "thermal_nodes": 644,
+        "lost_count": 0,
+        "reduction_pct": 0.0,
+        "classic_length_m": 57682.4,
+        "thermal_length_m": 57682.4,
+        "lost_length_m": 0.0,
+        "reduction_pct_len": 0.0,
+        "hot_edges_removed": 1
+      },
+      "h13": {
+        "classic_nodes": 644,
+        "thermal_nodes": 385,
+        "lost_count": 259,
+        "reduction_pct": 40.2,
+        "classic_length_m": 57682.4,
+        "thermal_length_m": 35612.3,
+        "lost_length_m": 22070.1,
+        "reduction_pct_len": 38.3,
+        "hot_edges_removed": 2350
+      },
+      "h16": {
+        "classic_nodes": 644,
+        "thermal_nodes": 644,
+        "lost_count": 0,
+        "reduction_pct": 0.0,
+        "classic_length_m": 57682.4,
+        "thermal_length_m": 57682.4,
+        "lost_length_m": 0.0,
+        "reduction_pct_len": 0.0,
+        "hot_edges_removed": 32
+      }
+    },
+    "서울숲역": {
+      "h07": {
+        "classic_nodes": 736,
+        "thermal_nodes": 736,
+        "lost_count": 0,
+        "reduction_pct": 0.0,
+        "classic_length_m": 58346.0,
+        "thermal_length_m": 58346.0,
+        "lost_length_m": 0.0,
+        "reduction_pct_len": 0.0,
+        "hot_edges_removed": 0
+      },
+      "h10": {
+        "classic_nodes": 736,
+        "thermal_nodes": 736,
+        "lost_count": 0,
+        "reduction_pct": 0.0,
+        "classic_length_m": 58346.0,
+        "thermal_length_m": 58346.0,
+        "lost_length_m": 0.0,
+        "reduction_pct_len": 0.0,
+        "hot_edges_removed": 1
+      },
+      "h13": {
+        "classic_nodes": 736,
+        "thermal_nodes": 119,
+        "lost_count": 617,
+        "reduction_pct": 83.8,
+        "classic_length_m": 58346.0,
+        "thermal_length_m": 9952.8,
+        "lost_length_m": 48393.2,
+        "reduction_pct_len": 82.9,
+        "hot_edges_removed": 2350
+      },
+      "h16": {
+        "classic_nodes": 736,
+        "thermal_nodes": 731,
+        "lost_count": 5,
+        "reduction_pct": 0.7,
+        "classic_length_m": 58346.0,
+        "thermal_length_m": 58016.7,
+        "lost_length_m": 329.4,
+        "reduction_pct_len": 0.6,
+        "hot_edges_removed": 32
+      }
+    },
+    "옥수역": {
+      "h07": {
+        "classic_nodes": 205,
+        "thermal_nodes": 205,
+        "lost_count": 0,
+        "reduction_pct": 0.0,
+        "classic_length_m": 18520.8,
+        "thermal_length_m": 18520.8,
+        "lost_length_m": 0.0,
+        "reduction_pct_len": 0.0,
+        "hot_edges_removed": 0
+      },
+      "h10": {
+        "classic_nodes": 205,
+        "thermal_nodes": 205,
+        "lost_count": 0,
+        "reduction_pct": 0.0,
+        "classic_length_m": 18520.8,
+        "thermal_length_m": 18520.8,
+        "lost_length_m": 0.0,
+        "reduction_pct_len": 0.0,
+        "hot_edges_removed": 1
+      },
+      "h13": {
+        "classic_nodes": 205,
+        "thermal_nodes": 93,
+        "lost_count": 112,
+        "reduction_pct": 54.6,
+        "classic_length_m": 18520.8,
+        "thermal_length_m": 7636.8,
+        "lost_length_m": 10883.9,
+        "reduction_pct_len": 58.8,
+        "hot_edges_removed": 2350
+      },
+      "h16": {
+        "classic_nodes": 205,
+        "thermal_nodes": 205,
+        "lost_count": 0,
+        "reduction_pct": 0.0,
+        "classic_length_m": 18520.8,
+        "thermal_length_m": 18520.8,
+        "lost_length_m": 0.0,
+        "reduction_pct_len": 0.0,
+        "hot_edges_removed": 32
+      }
+    }
+  },
+  "high": {
+    "왕십리역": {
+      "h07": {
+        "classic_nodes": 1470,
+        "thermal_nodes": 1470,
+        "lost_count": 0,
+        "reduction_pct": 0.0,
+        "classic_length_m": 83834.3,
+        "thermal_length_m": 83834.3,
+        "lost_length_m": 0.0,
+        "reduction_pct_len": 0.0,
+        "hot_edges_removed": 0
+      },
+      "h10": {
+        "classic_nodes": 1470,
+        "thermal_nodes": 1470,
+        "lost_count": 0,
+        "reduction_pct": 0.0,
+        "classic_length_m": 83834.3,
+        "thermal_length_m": 83834.3,
+        "lost_length_m": 0.0,
+        "reduction_pct_len": 0.0,
+        "hot_edges_removed": 0
+      },
+      "h13": {
+        "classic_nodes": 1470,
+        "thermal_nodes": 1036,
+        "lost_count": 434,
+        "reduction_pct": 29.5,
+        "classic_length_m": 83834.3,
+        "thermal_length_m": 58990.7,
+        "lost_length_m": 24843.6,
+        "reduction_pct_len": 29.6,
+        "hot_edges_removed": 919
+      },
+      "h16": {
+        "classic_nodes": 1470,
+        "thermal_nodes": 1470,
+        "lost_count": 0,
+        "reduction_pct": 0.0,
+        "classic_length_m": 83834.3,
+        "thermal_length_m": 83834.3,
+        "lost_length_m": 0.0,
+        "reduction_pct_len": 0.0,
+        "hot_edges_removed": 0
+      }
+    },
+    "행당역": {
+      "h07": {
+        "classic_nodes": 1123,
+        "thermal_nodes": 1123,
+        "lost_count": 0,
+        "reduction_pct": 0.0,
+        "classic_length_m": 71008.3,
+        "thermal_length_m": 71008.3,
+        "lost_length_m": 0.0,
+        "reduction_pct_len": 0.0,
+        "hot_edges_removed": 0
+      },
+      "h10": {
+        "classic_nodes": 1123,
+        "thermal_nodes": 1123,
+        "lost_count": 0,
+        "reduction_pct": 0.0,
+        "classic_length_m": 71008.3,
+        "thermal_length_m": 71008.3,
+        "lost_length_m": 0.0,
+        "reduction_pct_len": 0.0,
+        "hot_edges_removed": 0
+      },
+      "h13": {
+        "classic_nodes": 1123,
+        "thermal_nodes": 878,
+        "lost_count": 245,
+        "reduction_pct": 21.8,
+        "classic_length_m": 71008.3,
+        "thermal_length_m": 55329.7,
+        "lost_length_m": 15678.6,
+        "reduction_pct_len": 22.1,
+        "hot_edges_removed": 919
+      },
+      "h16": {
+        "classic_nodes": 1123,
+        "thermal_nodes": 1123,
+        "lost_count": 0,
+        "reduction_pct": 0.0,
+        "classic_length_m": 71008.3,
+        "thermal_length_m": 71008.3,
+        "lost_length_m": 0.0,
+        "reduction_pct_len": 0.0,
+        "hot_edges_removed": 0
+      }
+    },
+    "응봉역": {
+      "h07": {
+        "classic_nodes": 891,
+        "thermal_nodes": 891,
+        "lost_count": 0,
+        "reduction_pct": 0.0,
+        "classic_length_m": 55984.1,
+        "thermal_length_m": 55984.1,
+        "lost_length_m": 0.0,
+        "reduction_pct_len": 0.0,
+        "hot_edges_removed": 0
+      },
+      "h10": {
+        "classic_nodes": 891,
+        "thermal_nodes": 891,
+        "lost_count": 0,
+        "reduction_pct": 0.0,
+        "classic_length_m": 55984.1,
+        "thermal_length_m": 55984.1,
+        "lost_length_m": 0.0,
+        "reduction_pct_len": 0.0,
+        "hot_edges_removed": 0
+      },
+      "h13": {
+        "classic_nodes": 891,
+        "thermal_nodes": 350,
+        "lost_count": 541,
+        "reduction_pct": 60.7,
+        "classic_length_m": 55984.1,
+        "thermal_length_m": 21001.2,
+        "lost_length_m": 34982.9,
+        "reduction_pct_len": 62.5,
+        "hot_edges_removed": 919
+      },
+      "h16": {
+        "classic_nodes": 891,
+        "thermal_nodes": 891,
+        "lost_count": 0,
+        "reduction_pct": 0.0,
+        "classic_length_m": 55984.1,
+        "thermal_length_m": 55984.1,
+        "lost_length_m": 0.0,
+        "reduction_pct_len": 0.0,
+        "hot_edges_removed": 0
+      }
+    },
+    "뚝섬역": {
+      "h07": {
+        "classic_nodes": 753,
+        "thermal_nodes": 753,
+        "lost_count": 0,
+        "reduction_pct": 0.0,
+        "classic_length_m": 59847.3,
+        "thermal_length_m": 59847.3,
+        "lost_length_m": 0.0,
+        "reduction_pct_len": 0.0,
+        "hot_edges_removed": 0
+      },
+      "h10": {
+        "classic_nodes": 753,
+        "thermal_nodes": 753,
+        "lost_count": 0,
+        "reduction_pct": 0.0,
+        "classic_length_m": 59847.3,
+        "thermal_length_m": 59847.3,
+        "lost_length_m": 0.0,
+        "reduction_pct_len": 0.0,
+        "hot_edges_removed": 0
+      },
+      "h13": {
+        "classic_nodes": 753,
+        "thermal_nodes": 402,
+        "lost_count": 351,
+        "reduction_pct": 46.6,
+        "classic_length_m": 59847.3,
+        "thermal_length_m": 36884.4,
+        "lost_length_m": 22962.9,
+        "reduction_pct_len": 38.4,
+        "hot_edges_removed": 919
+      },
+      "h16": {
+        "classic_nodes": 753,
+        "thermal_nodes": 753,
+        "lost_count": 0,
+        "reduction_pct": 0.0,
+        "classic_length_m": 59847.3,
+        "thermal_length_m": 59847.3,
+        "lost_length_m": 0.0,
+        "reduction_pct_len": 0.0,
+        "hot_edges_removed": 0
+      }
+    },
+    "성수역": {
+      "h07": {
+        "classic_nodes": 644,
+        "thermal_nodes": 644,
+        "lost_count": 0,
+        "reduction_pct": 0.0,
+        "classic_length_m": 57682.4,
+        "thermal_length_m": 57682.4,
+        "lost_length_m": 0.0,
+        "reduction_pct_len": 0.0,
+        "hot_edges_removed": 0
+      },
+      "h10": {
+        "classic_nodes": 644,
+        "thermal_nodes": 644,
+        "lost_count": 0,
+        "reduction_pct": 0.0,
+        "classic_length_m": 57682.4,
+        "thermal_length_m": 57682.4,
+        "lost_length_m": 0.0,
+        "reduction_pct_len": 0.0,
+        "hot_edges_removed": 0
+      },
+      "h13": {
+        "classic_nodes": 644,
+        "thermal_nodes": 634,
+        "lost_count": 10,
+        "reduction_pct": 1.6,
+        "classic_length_m": 57682.4,
+        "thermal_length_m": 56940.0,
+        "lost_length_m": 742.4,
+        "reduction_pct_len": 1.3,
+        "hot_edges_removed": 919
+      },
+      "h16": {
+        "classic_nodes": 644,
+        "thermal_nodes": 644,
+        "lost_count": 0,
+        "reduction_pct": 0.0,
+        "classic_length_m": 57682.4,
+        "thermal_length_m": 57682.4,
+        "lost_length_m": 0.0,
+        "reduction_pct_len": 0.0,
+        "hot_edges_removed": 0
+      }
+    },
+    "서울숲역": {
+      "h07": {
+        "classic_nodes": 736,
+        "thermal_nodes": 736,
+        "lost_count": 0,
+        "reduction_pct": 0.0,
+        "classic_length_m": 58346.0,
+        "thermal_length_m": 58346.0,
+        "lost_length_m": 0.0,
+        "reduction_pct_len": 0.0,
+        "hot_edges_removed": 0
+      },
+      "h10": {
+        "classic_nodes": 736,
+        "thermal_nodes": 736,
+        "lost_count": 0,
+        "reduction_pct": 0.0,
+        "classic_length_m": 58346.0,
+        "thermal_length_m": 58346.0,
+        "lost_length_m": 0.0,
+        "reduction_pct_len": 0.0,
+        "hot_edges_removed": 0
+      },
+      "h13": {
+        "classic_nodes": 736,
+        "thermal_nodes": 286,
+        "lost_count": 450,
+        "reduction_pct": 61.1,
+        "classic_length_m": 58346.0,
+        "thermal_length_m": 25492.1,
+        "lost_length_m": 32853.9,
+        "reduction_pct_len": 56.3,
+        "hot_edges_removed": 919
+      },
+      "h16": {
+        "classic_nodes": 736,
+        "thermal_nodes": 736,
+        "lost_count": 0,
+        "reduction_pct": 0.0,
+        "classic_length_m": 58346.0,
+        "thermal_length_m": 58346.0,
+        "lost_length_m": 0.0,
+        "reduction_pct_len": 0.0,
+        "hot_edges_removed": 0
+      }
+    },
+    "옥수역": {
+      "h07": {
+        "classic_nodes": 205,
+        "thermal_nodes": 205,
+        "lost_count": 0,
+        "reduction_pct": 0.0,
+        "classic_length_m": 18520.8,
+        "thermal_length_m": 18520.8,
+        "lost_length_m": 0.0,
+        "reduction_pct_len": 0.0,
+        "hot_edges_removed": 0
+      },
+      "h10": {
+        "classic_nodes": 205,
+        "thermal_nodes": 205,
+        "lost_count": 0,
+        "reduction_pct": 0.0,
+        "classic_length_m": 18520.8,
+        "thermal_length_m": 18520.8,
+        "lost_length_m": 0.0,
+        "reduction_pct_len": 0.0,
+        "hot_edges_removed": 0
+      },
+      "h13": {
+        "classic_nodes": 205,
+        "thermal_nodes": 162,
+        "lost_count": 43,
+        "reduction_pct": 21.0,
+        "classic_length_m": 18520.8,
+        "thermal_length_m": 14568.0,
+        "lost_length_m": 3952.8,
+        "reduction_pct_len": 21.3,
+        "hot_edges_removed": 919
+      },
+      "h16": {
+        "classic_nodes": 205,
+        "thermal_nodes": 205,
+        "lost_count": 0,
+        "reduction_pct": 0.0,
+        "classic_length_m": 18520.8,
+        "thermal_length_m": 18520.8,
+        "lost_length_m": 0.0,
+        "reduction_pct_len": 0.0,
+        "hot_edges_removed": 0
+      }
+    }
+  }
+}
