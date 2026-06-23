@@ -1,0 +1,279 @@
+TY  - JOUR
+AU  - Moreno, Carlos
+AU  - Allam, Zaheer
+AU  - Chabaud, Didier
+AU  - Gall, Catherine
+AU  - Pratlong, Florent
+TI  - Introducing the "15-Minute City": Sustainability, Resilience and Place Identity in Future Post-Pandemic Cities
+JO  - Smart Cities
+VL  - 4
+IS  - 1
+SP  - 93
+EP  - 111
+PY  - 2021
+DO  - 10.3390/smartcities4010006
+KW  - 15-minute city; TIME_BUDGET 15분 근거
+ER  -
+
+TY  - JOUR
+AU  - Bröde, Peter
+AU  - Fiala, Dusan
+AU  - Błażejczyk, Krzysztof
+AU  - Holmér, Ingvar
+AU  - Jendritzky, Gerd
+AU  - Kampmann, Bernhard
+AU  - Havenith, George
+TI  - Deriving the operational procedure for the Universal Thermal Climate Index (UTCI)
+JO  - International Journal of Biometeorology
+VL  - 56
+IS  - 3
+SP  - 481
+EP  - 494
+PY  - 2012
+DO  - 10.1007/s00484-011-0454-1
+KW  - UTCI; MRT 임계값 55°C 역산 근거; Baseline
+ER  -
+
+TY  - JOUR
+AU  - Fiala, Dusan
+AU  - Havenith, George
+AU  - Bröde, Peter
+AU  - Kampmann, Bernhard
+AU  - Jendritzky, Gerd
+TI  - UTCI-Fiala multi-node model of human heat transfer and temperature regulation
+JO  - International Journal of Biometeorology
+VL  - 56
+IS  - 3
+SP  - 429
+EP  - 441
+PY  - 2012
+DO  - 10.1007/s00484-011-0424-7
+KW  - UTCI 생리 모델
+ER  -
+
+TY  - JOUR
+AU  - Lindberg, Fredrik
+AU  - Holmer, Björn
+AU  - Thorsson, Sofia
+TI  - SOLWEIG 1.0 - Modelling spatial variations of 3D radiant fluxes and mean radiant temperatures in complex urban settings
+JO  - International Journal of Biometeorology
+VL  - 52
+IS  - 7
+SP  - 697
+EP  - 713
+PY  - 2008
+DO  - 10.1007/s00484-008-0162-7
+KW  - SOLWEIG 원전; Method B; Method C
+ER  -
+
+TY  - JOUR
+AU  - Lindberg, Fredrik
+AU  - Grimmond, C. Sue B.
+TI  - The influence of vegetation and building morphology on shadow patterns and mean radiant temperatures in urban areas: model development and evaluation
+JO  - Theoretical and Applied Climatology
+VL  - 105
+IS  - 3
+SP  - 311
+EP  - 323
+PY  - 2011
+DO  - 10.1007/s00704-010-0382-8
+KW  - SVF-MRT 관계; Method A; Method B
+ER  -
+
+TY  - JOUR
+AU  - Lindberg, Fredrik
+AU  - Onomura, Shiho
+AU  - Grimmond, C. Sue B.
+TI  - Influence of ground surface characteristics on the mean radiant temperature in urban areas
+JO  - International Journal of Biometeorology
+VL  - 60
+IS  - 9
+SP  - 1439
+EP  - 1452
+PY  - 2016
+DO  - 10.1007/s00484-016-1135-x
+KW  - SOLWEIG 상세 방법론; MRT 6방향 가중치; Method A 비교 기준
+ER  -
+
+TY  - JOUR
+AU  - Lindberg, Fredrik
+AU  - Grimmond, C. Sue B.
+AU  - Gabey, Andrew
+AU  - Huang, Bei
+AU  - Kent, Christoph W.
+AU  - Sun, Ting
+AU  - Zhang, Zhe
+TI  - Urban Multi-scale Environmental Predictor (UMEP): An integrated tool for city-based climate services
+JO  - Environmental Modelling & Software
+VL  - 99
+SP  - 70
+EP  - 87
+PY  - 2018
+DO  - 10.1016/j.envsoft.2017.09.020
+KW  - UMEP; 합성 DSM; Method B; Method C
+ER  -
+
+TY  - JOUR
+AU  - Thorsson, Sofia
+AU  - Lindberg, Fredrik
+AU  - Eliasson, Ingegärd
+AU  - Holmer, Björn
+TI  - Different methods for estimating the mean radiant temperature in an outdoor urban setting
+JO  - International Journal of Climatology
+VL  - 27
+IS  - 14
+SP  - 1983
+EP  - 1993
+PY  - 2007
+DO  - 10.1002/joc.1537
+KW  - MRT 산출 방법 비교; Method A vs B vs C 이론적 근거
+ER  -
+
+TY  - JOUR
+AU  - Colaninno, Nicola
+AU  - Basu, Rupal
+AU  - Hosseini, Mehdi
+AU  - Alhassan, Abdulaziz
+AU  - Liu, Lili
+AU  - Sevtsuk, Andres
+TI  - A sidewalk-level urban heat risk assessment framework using pedestrian mobility and urban microclimate modeling
+JO  - Environment and Planning B: Urban Analytics and City Science
+VL  - 52
+IS  - 5
+SP  - 1071
+EP  - 1090
+PY  - 2024
+DO  - 10.1177/23998083241272942
+KW  - 선행연구 벤치마크; SOLWEIG LiDAR DSM; Method C 비교
+ER  -
+
+TY  - JOUR
+AU  - Hersbach, Hans
+AU  - Bell, Bill
+AU  - Berrisford, Paul
+TI  - The ERA5 global reanalysis
+JO  - Quarterly Journal of the Royal Meteorological Society
+VL  - 146
+IS  - 730
+SP  - 1999
+EP  - 2049
+PY  - 2020
+DO  - 10.1002/qj.3803
+KW  - ERA5 기상데이터; 기상 입력 비교
+ER  -
+
+TY  - JOUR
+AU  - Erbs, D. G.
+AU  - Klein, S. A.
+AU  - Duffie, J. A.
+TI  - Estimation of the diffuse radiation fraction for hourly, daily and monthly-average global radiation
+JO  - Solar Energy
+VL  - 28
+IS  - 4
+SP  - 293
+EP  - 302
+PY  - 1982
+DO  - 10.1016/0038-092X(82)90302-4
+KW  - GHI 직산분리; Method A
+ER  -
+
+TY  - JOUR
+AU  - Brutsaert, Wilfried
+TI  - On a derivable formula for long-wave radiation from clear skies
+JO  - Water Resources Research
+VL  - 11
+IS  - 5
+SP  - 742
+EP  - 744
+PY  - 1975
+DO  - 10.1029/WR011i005p00742
+KW  - 대기 장파 하향복사; Method A
+ER  -
+
+TY  - JOUR
+AU  - Höppe, Peter
+TI  - A new procedure to determine the mean radiant temperature outdoors
+JO  - Energy and Buildings
+VL  - 19
+IS  - 3
+SP  - 221
+EP  - 230
+PY  - 1992
+DO  - 10.1016/0378-7788(92)90018-I
+KW  - FP=0.308 투영면적계수; Method A
+ER  -
+
+TY  - JOUR
+AU  - Chen, Liang
+AU  - Ng, Edward
+TI  - Outdoor thermal comfort and outdoor activities: A review of research in the past decade
+JO  - Cities
+VL  - 29
+IS  - 2
+SP  - 118
+EP  - 125
+PY  - 2012
+DO  - 10.1016/j.cities.2011.08.006
+KW  - 수목 캐노피 UTCI 감소; CANOPY_COEFF 2.5 근거
+ER  -
+
+TY  - JOUR
+AU  - Shepard, Donald
+TI  - A two-dimensional interpolation function for irregularly-spaced data
+JO  - Proceedings of the 1968 ACM National Conference
+SP  - 517
+EP  - 524
+PY  - 1968
+DO  - 10.1145/800186.810616
+KW  - IDW 공간보간 원전; 기상 보간
+ER  -
+
+TY  - JOUR
+AU  - Hägerstrand, Torsten
+TI  - What about people in regional science?
+JO  - Papers in Regional Science
+VL  - 24
+IS  - 1
+SP  - 7
+EP  - 24
+PY  - 1970
+DO  - 10.1111/j.1435-5597.1970.tb01464.x
+KW  - Space-Time Prism 원전
+ER  -
+
+TY  - JOUR
+AU  - Miller, Harvey J.
+TI  - Modelling accessibility using space-time prism concepts within geographical information systems
+JO  - International Journal of Geographical Information Systems
+VL  - 5
+IS  - 3
+SP  - 287
+EP  - 301
+PY  - 1991
+DO  - 10.1080/02693799108927856
+KW  - 네트워크 기반 PPA; Catchment 방법론
+ER  -
+
+TY  - BOOK
+AU  - Oke, Timothy R.
+TI  - Boundary Layer Climates
+ET  - 2nd edition
+PB  - Routledge
+CY  - London
+PY  - 1987
+KW  - H/W Canyon SVF 공식; ε_w=0.90; Method A
+ER  -
+
+TY  - JOUR
+AU  - 정희지
+AU  - 강전영
+TI  - 영유아 및 소아 의료 인프라의 공간적 접근성에 대한 시간적 불균형 탐색: 서울특별시의 평일 주간, 평일 야간, 주말을 대상으로
+JO  - 한국지도학회지
+VL  - 24
+IS  - 3
+SP  - 61
+EP  - 73
+PY  - 2024
+KW  - TIME_BUDGET 15분 국내 근거
+ER  -
+
