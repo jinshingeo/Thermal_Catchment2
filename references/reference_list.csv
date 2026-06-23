@@ -6,3 +6,5 @@ id,author,year,title,journal,doi,method_tag,use_in_paper,notes,pdf_saved
 005,Erbs D.G. et al.,1982,Estimation of the diffuse radiation fraction for hourly daily and monthly-average global radiation,Solar Energy,10.1016/0038-092X(82)90302-4,Method_A,yes,GHI → 직산 분리 모델,no
 006,Höppe P.,1992,A new procedure to determine the mean radiant temperature outdoors,Weathering and Architecture,10.1016/0378-7788(92)90018-I,Method_A,yes,FP=0.308 서 있는 사람 투영계수,no
 007,Bröde P. et al.,2012,Deriving the operational procedure for the Universal Thermal Climate Index (UTCI),International Journal of Biometeorology,10.1007/s00484-011-0454-1,Baseline,yes,UTCI Very Strong Heat Stress ≥ 38°C 기준,no
+008,정희지 & 강전영,2024,영유아 및 소아 의료 인프라의 공간적 접근성에 대한 시간적 불균형 탐색: 서울특별시의 평일 주간 평일 야간 주말을 대상으로,한국지도학회지 24(3) 61-73,,Method_A,yes,15분 시간예산 국내 근거 문헌,no
+009,Oke T.R.,1982,⚠️ 제목 미확인 — 주간 도시 표면 과열 관련 논문,⚠️ 저널 미확인,⚠️ DOI 미확인,Method_A,yes,벽면 온도 +10K 경험값 근거 — 딥리서치로 서지정보 확인 필요,no
