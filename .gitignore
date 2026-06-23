@@ -1,0 +1,65 @@
+# 대용량 데이터 파일
+*.shp
+*.dbf
+*.shx
+*.prj
+*.cpg
+*.sbn
+*.sbx
+*.fbn
+*.fbx
+*.ain
+*.aih
+*.atx
+*.ixs
+*.mxs
+*.ovr
+*.vat
+*.qix
+*.gpkg
+*.geojson
+*.graphml
+*.tif
+*.tiff
+*.img
+*.vrt
+*.nc
+*.hdf5
+*.h5
+
+# 압축 파일
+*.zip
+*.tar.gz
+*.7z
+
+# 대용량 결과물
+data/
+archive/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+.venv
+venv/
+*.egg-info/
+dist/
+build/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# 개인 설정
+.env
+*.local
+
+# 캐시
+cache/
+*.cache

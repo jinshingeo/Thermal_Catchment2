@@ -1,0 +1,8 @@
+id,author,year,title,journal,doi,method_tag,use_in_paper,notes,pdf_saved
+001,Lindberg F. & Grimmond C.S.B.,2011,The influence of urban form and scale on spatial temperature variations: an empirical-model combination,International Journal of Climatology,10.1002/joc.2230,Method_A,yes,SOLWEIG 원논문 — MRT 산출 수식 기반,yes
+002,Lindberg F. et al.,2016,Weighted mean radiant temperature–a new radiation measurement in urban environments,International Journal of Biometeorology,10.1007/s00484-016-1135-x,Method_A,yes,MRT 6방향 가중치 및 풀 SOLWEIG 방법론,yes
+003,Oke T.R.,1987,Boundary Layer Climates (2nd ed.),Routledge,,Method_A,yes,H/W Canyon SVF 공식 근거,no
+004,Brutsaert W.,1975,On a derivable formula for long-wave radiation from clear skies,Water Resources Research,10.1029/WR011i005p00742,Method_A,yes,대기 장파 하향복사 추정식,no
+005,Erbs D.G. et al.,1982,Estimation of the diffuse radiation fraction for hourly daily and monthly-average global radiation,Solar Energy,10.1016/0038-092X(82)90302-4,Method_A,yes,GHI → 직산 분리 모델,no
+006,Höppe P.,1992,A new procedure to determine the mean radiant temperature outdoors,Weathering and Architecture,10.1016/0378-7788(92)90018-I,Method_A,yes,FP=0.308 서 있는 사람 투영계수,no
+007,Bröde P. et al.,2012,Deriving the operational procedure for the Universal Thermal Climate Index (UTCI),International Journal of Biometeorology,10.1007/s00484-011-0454-1,Baseline,yes,UTCI Very Strong Heat Stress ≥ 38°C 기준,no
