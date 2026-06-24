@@ -277,3 +277,348 @@ PY  - 2024
 KW  - TIME_BUDGET 15분 국내 근거
 ER  -
 
+TY  - JOUR
+AU  - Kántor, Noémi
+AU  - Unger, János
+TI  - The most problematic variable in the course of human-biometeorological comfort assessment — the mean radiant temperature
+JO  - Central European Journal of Geosciences
+VL  - 3
+IS  - 1
+SP  - 90
+EP  - 100
+PY  - 2011
+DO  - 10.2478/s13533-011-0010-x
+KW  - MRT 개념도; real vs fictive environment; 슬라이드 4 인용
+ER  -
+
+TY  - JOUR
+AU  - Dijkstra, Edsger W.
+TI  - A note on two problems in connexion with graphs
+JO  - Numerische Mathematik
+VL  - 1
+IS  - 1
+SP  - 269
+EP  - 271
+PY  - 1959
+DO  - 10.1007/BF01386390
+KW  - 최단경로 알고리즘 원전; Dijkstra; 보행 네트워크
+ER  -
+
+TY  - BOOK
+AU  - Fanger, Povl Ole
+TI  - Thermal Comfort: Analysis and Applications in Environmental Engineering
+PB  - Danish Technical Press
+CY  - Copenhagen
+PY  - 1970
+KW  - α_p=0.70 인체 단파 흡수율; Method A 파라미터
+ER  -
+
+TY  - JOUR
+AU  - Oke, Timothy R.
+TI  - The energetic basis of the urban heat island
+JO  - Quarterly Journal of the Royal Meteorological Society
+VL  - 108
+IS  - 455
+SP  - 1
+EP  - 24
+PY  - 1982
+DO  - 10.1002/qj.49710845502
+KW  - ⚠️벽면온도+10K 원출처 확인 필요; UHI 에너지 수지; Method A
+ER  -
+
+TY  - JOUR
+AU  - Boeing, Geoff
+TI  - OSMnx: New methods for acquiring, constructing, analyzing, and visualizing complex street networks
+JO  - Computers, Environment and Urban Systems
+VL  - 65
+SP  - 126
+EP  - 139
+PY  - 2017
+DO  - 10.1016/j.compenvurbsys.2017.05.004
+KW  - OSM 보행 네트워크; network_type=walk; Method A
+ER  -
+
+TY  - JOUR
+AU  - Geurs, Karst T.
+AU  - van Wee, Bert
+TI  - Accessibility evaluation of land-use and transport strategies: review and research directions
+JO  - Journal of Transport Geography
+VL  - 12
+IS  - 2
+SP  - 127
+EP  - 140
+PY  - 2004
+DO  - 10.1016/j.jtrangeo.2003.10.005
+KW  - 접근성 측정 방법론 리뷰; 네트워크 기반 접근성 배경
+ER  -
+
+TY  - JOUR
+AU  - Basu, Rupal
+AU  - Colaninno, Nicola
+AU  - Alhassan, Abdulaziz
+AU  - Sevtsuk, Andres
+TI  - Hot and bothered: Exploring the effect of heat on pedestrian route choice behavior and accessibility
+JO  - Cities
+VL  - 155
+SP  - 105435
+PY  - 2024
+DO  - 10.1016/j.cities.2024.105435
+KW  - 보행자 열회피 행동; Hard Cut 행동 근거; 접근성 감소; Cities2024_HeatPedestrianRouteChoice.pdf
+ER  -
+
+TY  - JOUR
+AU  - Melnikov, Vladislav R.
+AU  - Christopoulos, George I.
+AU  - Krzhizhanovskaya, Valeria V.
+TI  - Behavioural thermal regulation explains pedestrian path choices in hot urban environments
+JO  - Scientific Reports
+VL  - 12
+SP  - 2441
+PY  - 2022
+DO  - 10.1038/s41598-022-06383-5
+KW  - 보행자 그늘 경로 선택 실증; Hard Cut 행동 타당성
+ER  -
+
+TY  - JOUR
+AU  - Azegami, Yuki
+AU  - Imanishi, Minori
+AU  - Fujiwara, Kohei
+AU  - Kusaka, Hiroyuki
+TI  - Effects of solar radiation in the streets on pedestrian route choice in a city during the summer season
+JO  - Building and Environment
+VL  - 235
+SP  - 110250
+PY  - 2023
+DO  - 10.1016/j.buildenv.2023.110250
+KW  - 보행자 28.2% 그늘 경로 선택; Hard Cut 근거
+ER  -
+
+TY  - JOUR
+AU  - Wolf, Hannah
+AU  - Vierø, Anders Rhodin
+AU  - Szell, Michael
+TI  - CoolWalks for active mobility in urban street networks
+JO  - Scientific Reports
+VL  - 15
+SP  - 14911
+PY  - 2025
+DO  - 10.1038/s41598-025-97200-2
+KW  - 그늘 경로 최적화; 보행 네트워크 열환경; Discussion
+ER  -
+
+TY  - JOUR
+AU  - Ali-Toudert, Fatima
+AU  - Mayer, Helmut
+TI  - Numerical study on the effects of aspect ratio and orientation of an urban street canyon on outdoor thermal comfort
+JO  - Building and Environment
+VL  - 41
+IS  - 1
+SP  - 94
+EP  - 108
+PY  - 2006
+DO  - 10.1016/j.buildenv.2005.01.030
+KW  - H/W Canyon 비율과 열환경; SVF-MRT 관계; Method A 배경
+ER  -
+
+TY  - JOUR
+AU  - Ali-Toudert, Fatima
+AU  - Mayer, Helmut
+TI  - Effects of asymmetry, galleries, overhanging façades and vegetation on thermal comfort in urban street canyons
+JO  - Solar Energy
+VL  - 81
+IS  - 6
+SP  - 742
+EP  - 754
+PY  - 2007
+DO  - 10.1016/j.solener.2006.10.007
+KW  - Canyon 형태 변수와 MRT 공간 분화; Method A 근사 타당성
+ER  -
+
+TY  - JOUR
+AU  - Jia, Shuo
+AU  - Wang, Yupeng
+AU  - Wong, Nyuk Hien
+AU  - Chen, Wanyu
+AU  - Ding, Xin
+TI  - Influences of the thermal environment on pedestrians' thermal perception and travel behavior in hot weather
+JO  - Building and Environment
+VL  - 226
+SP  - 109687
+PY  - 2022
+DO  - 10.1016/j.buildenv.2022.109687
+KW  - ⚠️Chen et al. 2022 후보; 열환경이 보행속도/행동에 미치는 영향; soft penalty 실증
+ER  -
+
+TY  - JOUR
+AU  - Dong, Xiaofei
+TI  - Measuring urban thermal environment from an accessibility-based perspective
+JO  - Geography and Sustainability
+VL  - 5
+IS  - 3
+SP  - 329
+EP  - 342
+PY  - 2024
+DO  - 10.1016/j.geosus.2024.02.004
+KW  - 열환경 접근성 측정; 공급-수요 불일치; Dong2024.pdf
+ER  -
+
+TY  - JOUR
+AU  - Yoon, Daehyun
+AU  - Cha, Dong-Hyun
+AU  - Lee, Myong-In
+TI  - Recent changes in heatwave characteristics over Korea
+JO  - Climate Dynamics
+VL  - 55
+SP  - 1685
+EP  - 1696
+PY  - 2020
+DO  - 10.1007/s00382-020-05420-1
+KW  - 국내 폭염 빈도·강도 증가; 연구 배경 통계
+ER  -
+
+TY  - BOOK
+AU  - Pörtner, Hans-Otto
+TI  - Climate Change 2022: Impacts, Adaptation and Vulnerability (IPCC WGII AR6)
+PB  - Cambridge University Press
+PY  - 2022
+DO  - 10.1017/9781009325844.001
+KW  - 기후변화 폭염 빈도 증가; IPCC AR6; 연구 배경
+ER  -
+
+TY  - JOUR
+AU  - Matheron, Georges
+TI  - Principles of geostatistics
+JO  - Economic Geology
+VL  - 58
+IS  - 8
+SP  - 1246
+EP  - 1266
+PY  - 1963
+DO  - 10.2113/gsecongeo.58.8.1246
+KW  - Kriging 기원 논문; 기상 보간 비교
+ER  -
+
+TY  - JOUR
+AU  - Fitzpatrick, Kay
+AU  - Brewer, Marcus A.
+AU  - Turner, Shane
+TI  - Another look at pedestrian walking speed
+JO  - Transportation Research Record
+VL  - 1982
+SP  - 21
+EP  - 29
+PY  - 2006
+DO  - 10.3141/1982-05
+KW  - ⚠️보행속도 4.5 km/h 후보 근거 — 원문 확인 필요; WALK_SPEED
+ER  -
+
+TY  - JOUR
+AU  - Lee, Jisu
+AU  - Han, Ah-Toong
+TI  - Heat vulnerability and spatial equity of cooling center: Planning implications from the Korean case
+JO  - Urban Climate
+VL  - 55
+SP  - 101869
+PY  - 2024
+DO  - 10.1016/j.uclim.2024.101869
+KW  - 국내 폭염 취약성 × 접근성 공간 불평등; TARR 정책 함의 비교
+ER  -
+
+TY  - JOUR
+AU  - Thorsson, Sofia
+AU  - Lindberg, Fredrik
+AU  - Bjorklund, Jenny
+AU  - Holmer, Björn
+AU  - Rayner, David
+TI  - Potential changes in outdoor thermal comfort conditions in Gothenburg, Sweden due to climate change: the influence of urban geometry
+JO  - International Journal of Climatology
+VL  - 31
+IS  - 2
+SP  - 324
+EP  - 335
+PY  - 2011
+DO  - 10.1002/joc.2231
+KW  - 기후변화×도시형태 열쾌적성 예측 — soft penalty 내용 없음 확인. 논문 인용 제외
+ER  -
+
+TY  - JOUR
+AU  - Thorsson, Sofia
+AU  - Lindqvist, Mattias
+AU  - Lindqvist, Sven
+TI  - Thermal bioclimatic conditions and patterns of behaviour in an urban park in Göteborg, Sweden
+JO  - International Journal of Biometeorology
+VL  - 48
+IS  - 3
+SP  - 149
+EP  - 156
+PY  - 2004
+DO  - 10.1007/s00484-003-0189-8
+KW  - 열환경 수준에 따른 보행자 공원 이용 행동 변화; 2.2절 보행 회피 행동 근거 배경
+ER  -
+
+TY  - JOUR
+AU  - Buo, Isaac
+AU  - Yennello, James
+AU  - Middel, Ariane
+TI  - Cool routes: Real-time human thermal exposure routing
+JO  - Building and Environment
+PY  - 2026
+DO  - 10.1016/j.buildenv.2026.114622
+KW  - SOLWEIG MRT + Dijkstra 최적 경로; Discussion 비교 대상; ASU
+ER  -
+
+TY  - JOUR
+AU  - Wallenberg, Nils
+AU  - Holmer, Björn
+AU  - Lindberg, Fredrik
+AU  - Lönn, Jessika
+AU  - Maesel, Erik
+AU  - Rayner, David
+TI  - A simple step heating approach for wall surface temperature estimation in the SOlar and LongWave Environmental Irradiance Geometry (SOLWEIG) model
+JO  - Geoscientific Model Development
+VL  - 19
+SP  - 1321
+EP  - 1336
+PY  - 2026
+DO  - 10.5194/gmd-19-1321-2026
+KW  - SOLWEIG 벽면 온도 개선; Bogren+Lindberg 기존 경험식 한계; Method A 한계 근거
+ER  -
+
+TY  - COMP
+AU  - Zippenfenig, Patrick
+TI  - Open-Meteo.com Weather API
+PB  - Zenodo
+PY  - 2023
+DO  - 10.5281/ZENODO.7970649
+KW  - ERA5 기반 기상 데이터 API; GHI 입력 데이터 출처
+ER  -
+
+TY  - JOUR
+AU  - 김지수
+AU  - 강민규
+TI  - 스마트서울 도시데이터 센서(S-DoT)를 활용한 미시적 폭염 취약성 평가에 관한 연구
+JO  - 국토계획
+VL  - 57
+IS  - 5
+SP  - 215
+EP  - 234
+PY  - 2022
+DO  - 10.17208/jkpa.2022.10.57.5.215
+KW  - S-DoT 기상 데이터 활용 선례; 3절 데이터 인용
+ER  -
+
+TY  - JOUR
+AU  - Aydin, Elif Esra
+AU  - Chen, Zebin
+AU  - Ortner, F. Peter
+AU  - Tay, Jing Zhi
+AU  - Li, Kelvin
+AU  - Chua, Ryan
+TI  - Universal Thermal Climate Index (UTCI)-adjusted pedestrian accessibility: Urban design exploration for climate-resilience in tropical climates
+JO  - Sustainable Cities and Society
+VL  - 143
+PY  - 2026
+DO  - 10.1016/j.scs.2026.107335
+KW  - 소프트 패널티; UTCI 조정 보행 접근성; 싱가포르; 2.4절
+ER  -
+
