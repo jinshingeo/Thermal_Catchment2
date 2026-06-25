@@ -6,7 +6,7 @@ id,author,year,title,journal,doi,method_tag,use_in_paper,notes,pdf_saved
 005,Erbs D.G. et al.,1982,Estimation of the diffuse radiation fraction for hourly daily and monthly-average global radiation,Solar Energy,10.1016/0038-092X(82)90302-4,Method_A,yes,GHI → K_dir / K_dif 직산 분리 모델,yes
 006,Höppe P.,1992,A new procedure to determine the mean radiant temperature outdoors,Energy and Buildings,10.1016/0378-7788(92)90018-I,Method_A,yes,FP=0.308 서 있는 사람 투영면적계수,no
 007,Bröde P. et al.,2012,Deriving the operational procedure for the Universal Thermal Climate Index (UTCI),International Journal of Biometeorology,10.1007/s00484-011-0454-1,Baseline,yes,UTCI Very Strong Heat Stress ≥ 38°C 기준 — MRT* 역산 근거,yes
-008,정희지 & 강전영,2024,영유아 및 소아 의료 인프라의 공간적 접근성에 대한 시간적 불균형 탐색,한국지도학회지,24(3) 61-73,Method_A,yes,15분 시간예산 국내 근거 문헌,no
+008,정희지 & 강전영,2024,영유아 및 소아 의료 인프라의 공간적 접근성에 대한 시간적 불균형 탐색,한국지도학회지,24(3) 61-73,Method_A,no,KCI 논문 — SCI 논문 인용 부적합. 2.1절은 Geurs & van Wee(2004)로 대체. 제거됨,no
 009,Oke T.R.,1982,The energetic basis of the urban heat island,Quarterly Journal of the Royal Meteorological Society,10.1002/qj.49710845502,배경,no,UHI 에너지 수지 이론 논문 — 벽면 온도 +10K 내용 없음 확인. +10K 인용 출처를 Oke(1987)로 교체할 것,no
 010,Kántor N. & Unger J.,2011,The most problematic variable in the course of human-biometeorological comfort assessment — the mean radiant temperature,Central European Journal of Geosciences,10.2478/s13533-011-0010-x,Baseline,yes,MRT 개념도(real vs fictive environment) — 슬라이드 4 인용 근거 ✅,no
 011,Dijkstra E.W.,1959,A note on two problems in connexion with graphs,Numerische Mathematik,10.1007/BF01386390,Method_A,yes,보행 네트워크 Dijkstra 최단경로 알고리즘 원전 ✅,no
@@ -39,5 +39,6 @@ id,author,year,title,journal,doi,method_tag,use_in_paper,notes,pdf_saved
 038,Thorsson S. et al.,2004,Thermal bioclimatic conditions and patterns of behaviour in an urban park in Göteborg Sweden,International Journal of Biometeorology,10.1007/s00484-003-0189-8,Introduction,yes,열환경 수준에 따른 보행자 공원 이용 행동 변화 실증 — 2.2절 보행 회피 행동 근거 배경 (Thorsson 2011 대체),yes
 039,Wallenberg N. et al.,2026,A simple step heating approach for wall surface temperature estimation in the SOlar and LongWave Environmental Irradiance Geometry (SOLWEIG) model,Geoscientific Model Development,10.5194/gmd-19-1321-2026,Method_A,yes,SOLWEIG 벽면 온도 계산 개선 논문 — 기존 Bogren+Lindberg 경험식(+10K 근사)의 한계 및 개선 근거. Method A 한계 서술 시 인용,yes
 040,Zippenfenig P.,2023,Open-Meteo.com Weather API [Computer software],Zenodo,10.5281/ZENODO.7970649,Data,yes,Open-Meteo ERA5 기반 기상 데이터 API 공식 인용,no
-041,김지수 & 강민규,2022,스마트서울 도시데이터 센서(S-DoT)를 활용한 미시적 폭염 취약성 평가에 관한 연구,국토계획,10.17208/jkpa.2022.10.57.5.215,Data,yes,S-DoT 기상 데이터 활용 국내 학술 선례 — 3절 데이터 인용 근거,no
+041,김지수 & 강민규,2022,스마트서울 도시데이터 센서(S-DoT)를 활용한 미시적 폭염 취약성 평가에 관한 연구,국토계획,10.17208/jkpa.2022.10.57.5.215,Data,no,KCI 논문 — SCI 논문 인용 부적합. 3절 데이터 출처는 Seoul Metropolitan Government(2024) 공공포털로 대체,no
 042,Aydin E.E. et al.,2026,Universal Thermal Climate Index (UTCI)-adjusted pedestrian accessibility: Urban design exploration for climate-resilience in tropical climates,Sustainable Cities and Society,10.1016/j.scs.2026.107335,Introduction,yes,소프트 패널티 방식 최신 사례 (싱가포르 UTCI 조정 보행 접근성) — DOI 확정,yes
+043,Seoul Metropolitan Government,2024,Smart Seoul Data of Things (S-DoT) Open Sensor Network,Open data portal (https://data.seoul.go.kr),,Data,yes,S-DoT 기상 데이터 공식 포털 — KCI 논문(041) 대체 인용,no
