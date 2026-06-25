@@ -48,4 +48,5 @@ id,author,year,title,journal,doi,method_tag,use_in_paper,notes,pdf_saved
 047,Sevtsuk A. & Alhassan A.,2025,Madina: A Python package for urban pedestrian and bicycle network analysis,Journal of Transport Geography 123:104130,10.1016/j.jtrangeo.2025.104130,Method_A,no,보행 네트워크 분석 Python 패키지 — 방법론 비교 배경,yes
 048,Wang Z. et al.,2025,Thermal environment regulation service supply-demand mismatch analysis using H-V2SFCA,Urban Climate 60:102356,10.1016/j.uclim.2025.102356,Discussion,no,녹지 냉각 서비스 공급-수요 2SFCA — Discussion 프레임 비교 가능,yes
 049,Kang S. & Yeon P.,2024,도시숲 UTCI 및 인체 열반응 연구,한국산림휴양학회지 28(4):29-44,,Data,no,KCI 논문 SCI 인용 부적합 — 인용 제외,yes
+051,Tartarini F. & Schiavon S.,2020,pythermalcomfort: A Python package for thermal comfort research,SoftwareX 12:100578,10.1016/j.softx.2020.100578,Method_C,yes,UTCI 역산 계산 라이브러리 — MRT* 55°C 임계값 추정에 사용,no
 050,Bogren J. et al.,2000,The impact of screening on road surface temperature,Meteorological Applications 7:97-104,10.1017/S135048270000150X,Method_A,yes,SOLWEIG 벽면온도 +10K 경험식 원전 — Wallenberg(2026) p.1322에서 재확인. 저자: Bogren/Gustavsson/Karlsson/Postgård,yes
