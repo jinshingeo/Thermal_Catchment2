@@ -72,7 +72,7 @@
 - **Basu et al. (2024)**: SOLWEIG + LiDAR DSM + ERA5 → UTCI 파이프라인 (보스턴)
 - **Wolf et al. (2025)**: OSM 네트워크 + 건물 그늘 → CoolWalkability diurnal profile (08:00~17:00)
 
-## 완독 선행연구 9편 목록
+## 완독 선행연구 19편 목록
 | 논문 | 역할 |
 |------|------|
 | Geurs & van Wee (2004) | 접근성 contour measure 이론 위치 |
@@ -81,11 +81,21 @@
 | Jia et al. (2022) | 소프트 패널티 선례, 13시 근거, SOLWEIG 방법론 |
 | Basu et al. (2024) | 소프트 패널티 선례, walkshed 감소 프레임 |
 | Aydin et al. (2026) | 소프트 패널티 선례, PTT 방식 |
-| Wolf et al. (2025) | CoolWalkability diurnal profile, OSM 활용 선례 |
+| Wolf et al. (2025) | CoolWalkability diurnal profile, 2.5D 건물, 8m 캐노피 |
 | Dong et al. (2024) | 접근성 기반 열환경 평가, NDVI/NDBI 변수 |
 | Buo et al. (2026) | MRT 임피던스 라우팅, SOLWEIG 1m 검증 |
+| Lindberg et al. (2008) | SOLWEIG 1.0 원본 — 모델 구조·수식·검증 (R²=0.94, RMSE=4.8K) |
+| Bröde et al. (2012) | UTCI 운영 절차 원본 — ≥38°C=Very Strong Heat Stress (Table 3, p.489) |
+| Thorsson et al. (2007) | MRT 3가지 방법 비교 — Rayman 한계, 여름 MRT 피크 14~15시 |
+| **Ali-Toudert & Mayer (2006)** | 가로 종횡비·방위 → PET 분포, T_mrt/T_a 공간 차이 최대 40K 실증 |
+| **Ali-Toudert & Mayer (2007)** | 갤러리·식생 → PET 최대 22~24K 감소, T_mrt가 결정적 변수 재확인 |
+| **Kantor & Unger (2011)** | MRT 측정·산출 방법 리뷰, SOLWEIG r=0.96 확인, 흡수계수 표준값 |
+| **Johansson et al. (2014)** | 야외 열쾌적성 기기·방법 표준화 리뷰, UTCI 참조조건, 측정높이 1.1m |
+| **Lindberg et al. (2016)** | SOLWEIG ground cover scheme, 아스팔트 ε=0.95/α=0.18, 그림자 지배 확인 |
+| **Lindberg & Grimmond (2011)** | SOLWEIG 2.0 식생 스킴, τ=0.05(여름), R²=0.91, RMSE=3.1K |
+| **Wallenberg et al. (2026)** | SOLWEIG 벽 T_s step heating, T_mrt ±2.5°C 영향, R²=0.93~0.94 |
 
-스터디노트: `references/study_note_*.md`
+스터디노트: `references/study_note_*.md` (19편 완독)
 이슈 매핑: `references/study_note_이슈매핑_해결방안.md`
 
 ## 폴더 구조
