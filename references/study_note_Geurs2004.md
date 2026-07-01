@@ -91,7 +91,7 @@
 **우리 연구에서의 적용**:
 - Classic Catchment = 15분(시간 예산) + 4.5km/h 기준 등시선 → 전형적인 contour measure
 - Thermal Catchment = Hard Cut 후 재계산한 contour measure
-- **TARR = (Classic − Thermal)/Classic**: 열환경 적용 전후 contour measure 면적 변화율
+- **[검증 지표] = (Classic − Thermal)/Classic**: 열환경 적용 전후 contour measure 면적 변화율 (지표명 미확정)
 
 ---
 
@@ -116,8 +116,8 @@
 
 ### 2. Temporal component 반영 = 우리 연구의 혁신 ← G1 서술 근거
 - Geurs & van Wee: 전통적 contour measure는 temporal 요소 미반영
-- 우리 연구: 폭염 시간대(14시) × 폭염 특보 발효일 → temporal 제약 명시적 반영
-- **차별화 논거**: "전통적 contour measure(Geurs & van Wee, 2004)는 temporal component를 명시적으로 다루지 않으나, 본 연구는 폭염 발생 시간대(14시)를 고정하여 热환경의 시간적 변동성을 반영한다"
+- 우리 연구: 폭염 시간대(13시) × 폭염일 → temporal 제약 명시적 반영
+- **차별화 논거**: "전통적 contour measure(Geurs & van Wee, 2004)는 temporal component를 명시적으로 다루지 않으나, 본 연구는 폭염 발생 시간대(13시)를 고정하여 열환경의 시간적 변동성을 반영한다"
 
 ### 3. 개인 요소(Individual component) → 취약계층 논의
 - 나이, 건강, 소득 등 개인 특성에 따라 접근성 달라짐
@@ -125,11 +125,11 @@
 
 ### 4. 접근성 지표의 이론적 기준 제시
 - 이론적 타당성, 조작 가능성, 해석 가능성, 정책 유용성
-- 우리 TARR이 이 기준에서 어떻게 평가받는지 서술 가능
+- 우리 [검증 지표]가 이 기준에서 어떻게 평가받는지 서술 가능
   - 이론적 타당성: contour measure (검증된 방법)
   - 조작 가능성: 높음 (GIS + 네트워크 분석)
   - 해석 가능성: 높음 (%, 직관적)
-  - 정책 유용성: 높음 (역세권 면적 기반)
+  - 정책 유용성: 높음 (TCA 면적 기반)
 
 ---
 
@@ -141,7 +141,7 @@
 | 시간 요소 | 명시적 다루지 않음 | **폭염 시간대 반영** (혁신) |
 | 개인 요소 | 이론적 기술 | 집계 수준 (미반영, 한계) |
 | 교통 비용 | 이동 시간/거리 | 이동 시간 + **열환경 제약** |
-| 스케일 | 이론 리뷰 | 성동구 7개 역 |
+| 스케일 | 이론 리뷰 | 서울 전역 (성동구 파일럿 기반) |
 
 ---
 

@@ -68,17 +68,23 @@ C^α_i(t) = Σⱼ(Λ^α,*(i→j)(0) − Λ^α,*(i→j)({Sab}))
 
 ## 데이터 및 공간 범위
 
-| 항목 | 내용 |
-|------|------|
-| 도시 | Manhattan, Barcelona, Valencia |
-| 네트워크 | OSM (bicycle network → centerline proxy) |
-| 건물 | Manhattan: NYC OOTI, Barcelona/Valencia: Spanish Cadastre |
-| 건물 처리 | 2.5D (footprint polygon + 단일 높이값) |
-| 해상도 | 그늘 시뮬레이션: 건물별 태양 위치 기반 |
-| 분석 날짜 | 2023년 7월 21일 (여름 대표일) |
-| 보행 속도 | **5 km/h** |
-| 반경 | 800m (≒10분 보행) |
-| α 범위 | α ∈ {1.1, 1.25, 1.5, 2, 4, 10} |
+| 항목 | 내용 | 논문 직접 확인 |
+|------|------|--------------|
+| 도시 | Manhattan, Barcelona, Valencia | ✅ |
+| 네트워크 | OSM bicycle network (centerline proxy) | ✅ Data 섹션 |
+| 건물(Manhattan) | NYC Office of Technology and Innovation | ✅ Data 섹션 |
+| 건물(Barcelona/Valencia) | General Directorate for Cadastre of Spain | ✅ Data 섹션 |
+| 건물 처리 방식 | **2.5D standard** — footprint-polygon + singular height value (건물 전체 constant) | ✅ Data 섹션 직접 인용 |
+| 분석 날짜 | 2023년 7월 21일 단일 날짜, 시간대별 분석 | ✅ "fixed times during the 21st of July 2023" |
+| 보행 속도 | **5 km/h** | ✅ "average speed of 5km/h" |
+| 반경 | V_dst(i) = {j ∈ V \| Λ¹ < 800m} → 약 10분 보행 | ✅ 수식 및 본문 |
+| α 범위 | α ∈ {1.1, 1.25, 1.5, 2, 4, 10} | ✅ |
+
+### ✅ 2.5D 표준 문구 — 논문 Data 섹션 직접 인용
+
+> "Given the sparse availability of full 3D building data, and for computational simplicity, we handle building data following the **2.5D standard**, i.e. consisting of a footprint-polygon and a singular height value which is simplified as **constant across the whole building**."
+
+→ 이것이 우리 `18_synthetic_dsm.py`의 방식(건물 footprint + 층수×3m 단일 높이)과 동일. **우리 논문의 합성 DSM 방식 정당화에 인용 가능.**
 
 **네트워크 크기 (Table 1)**:
 | 도시 | Nodes (ctrl) | Edges (ctrl) |
@@ -109,9 +115,19 @@ C^α_i(t) = Σⱼ(Λ^α,*(i→j)(0) − Λ^α,*(i→j)({Sab}))
 - 불규칙 가로망 도시에서 클러스터 차이가 더 뚜렷
 - 좁은 가로 + 높은 건물 지역: CoolWalkability 높음
 
-### 녹지(공원) 포함 시
-- 8m 캐노피 높이 가정, park를 완전 그늘로 처리
-- 정오 전후 CoolWalkability 소폭 향상
+### 녹지(공원) 포함 시 — ✅ 논문 직접 확인 (p.10 "Incorporating green spaces")
+
+> "We used this data to re-run our simulations, modeling each park in our study areas as a **canopy of 8m height**, assuming a park to be fully covered and shaded by trees and able to cast a shadow on surrounding streets."
+
+- OSM의 park 데이터를 활용 → 각 공원을 8m 높이 캐노피로 모델링
+- park = 완전 그늘 처리, 주변 거리에 그림자 투영
+- 결과: 정오 전후 CoolWalkability 소폭 향상 (Figs. SI7-9)
+- Wolf2025도 8m에 대한 별도 인용 논문 없음 — 가정값으로 사용
+
+**우리 코드와의 관계 (TREE_HEIGHT=8m)**:
+- 공통점: urban tree canopy 8m 가정
+- 차이점: Wolf는 **공원(park)** 캐노피, 우리는 **가로수(street tree)** 높이
+- 인용 가능 범위: "Wolf et al.(2025)의 도시 수목 캐노피 8m 가정을 준용" 정도
 
 ---
 
@@ -127,9 +143,9 @@ C^α_i(t) = Σⱼ(Λ^α,*(i→j)(0) − Λ^α,*(i→j)({Sab}))
 - 우리 서울 OSM walk network 사용 정당성 확인 (centerline approach 선례)
 
 ### 3. CoolWalkability 지표 개념
-- 우리 TARR (Thermal Area Reduction Rate)과 개념 유사
-- 차이: Wolf는 그늘 라우팅 잠재력, 우리는 역세권 면적 감소율
-- **인용 방식**: "Wolf et al.(2025)이 제안한 CoolWalkability가 도시의 그늘 보행 잠재력을 집계하는 것과 달리, 본 연구는 역세권 Thermal Catchment Area의 면적 감소율(TARR)을 지표로 활용한다"
+- 우리 [검증 지표]와 개념 유사 (지표명 미확정)
+- 차이: Wolf는 그늘 라우팅 잠재력, 우리는 Thermal Catchment 면적 감소율
+- **인용 방식**: "Wolf et al.(2025)이 제안한 CoolWalkability가 도시의 그늘 보행 잠재력을 집계하는 것과 달리, 본 연구는 Thermal Catchment Area의 감소율([검증 지표])을 지표로 활용한다"
 
 ### 4. 건물 그늘 기반 분석 → 우리 MRT 기반과 비교
 - Wolf는 건물 그늘(shade fraction)을 직접 사용 → MRT 없음
@@ -137,7 +153,7 @@ C^α_i(t) = Σⱼ(Λ^α,*(i→j)(0) − Λ^α,*(i→j)({Sab}))
 - **차별점 서술**: "Wolf et al.(2025)은 그늘 분율(shadow fraction)을 라우팅 비용으로 활용했으나, 본 연구는 SOLWEIG로 계산한 MRT를 기반으로 UTCI를 산출하여 생리학적으로 더 타당한 열 스트레스 지표를 활용한다"
 
 ### 5. 격자형 vs 불규칙 가로망 논의
-- 서울 성동구 가로망 특성 논의 시 참고
+- 서울 가로망 특성 논의 시 참고
 - 격자형이면 그늘 경로 대안이 적다는 논리 → Hard Cut 영향이 더 클 수 있음
 
 ---
@@ -149,9 +165,9 @@ C^α_i(t) = Σⱼ(Λ^α,*(i→j)(0) − Λ^α,*(i→j)({Sab}))
 | 열 지표 | 건물 그늘 비율 (물리적) | MRT → UTCI (생리학적) |
 | 패널티 방식 | 소프트 (α 경험 거리) | **Hard Cut** (링크 제거) |
 | 목적 | 그늘 라우팅 잠재력 | 역세권 접근권 감소 정량화 |
-| 결과 지표 | CoolWalkability (0~1) | TARR (%) |
-| 도시 | Manhattan, Barcelona, Valencia | 서울 성동구 |
-| 스케일 | 도시 전체 | 행정구 전역 (역 7개) |
+| 결과 지표 | CoolWalkability (0~1) | [검증 지표] (%) |
+| 도시 | Manhattan, Barcelona, Valencia | 서울 전역 |
+| 스케일 | 도시 전체 | 서울 전역 |
 | 시간 분석 | 하루 diurnal profile | 폭염 특보 발효일 단일 시점 |
 
 ---

@@ -72,7 +72,7 @@
 - **Basu et al. (2024)**: SOLWEIG + LiDAR DSM + ERA5 → UTCI 파이프라인 (보스턴)
 - **Wolf et al. (2025)**: OSM 네트워크 + 건물 그늘 → CoolWalkability diurnal profile (08:00~17:00)
 
-## 완독 선행연구 19편 목록
+## 완독 선행연구 21편 목록
 | 논문 | 역할 |
 |------|------|
 | Geurs & van Wee (2004) | 접근성 contour measure 이론 위치 |
@@ -94,8 +94,10 @@
 | **Lindberg et al. (2016)** | SOLWEIG ground cover scheme, 아스팔트 ε=0.95/α=0.18, 그림자 지배 확인 |
 | **Lindberg & Grimmond (2011)** | SOLWEIG 2.0 식생 스킴, τ=0.05(여름), R²=0.91, RMSE=3.1K |
 | **Wallenberg et al. (2026)** | SOLWEIG 벽 T_s step heating, T_mrt ±2.5°C 영향, R²=0.93~0.94 |
+| **Lindberg et al. (2018)** | UMEP 플랫폼 — 합성 DSM 기반 SOLWEIG 구동 워크플로 |
+| **Colaninno et al. (2024)** | 가장 가까운 선행연구 — SOLWEIG+UTCI+보행량, HEI. 우리와 차별: Hard Cut vs 연속 지수, TCA vs 세그먼트 리스크 |
 
-스터디노트: `references/study_note_*.md` (19편 완독)
+스터디노트: `references/study_note_*.md` (21편 완독)
 이슈 매핑: `references/study_note_이슈매핑_해결방안.md`
 
 ## 폴더 구조
