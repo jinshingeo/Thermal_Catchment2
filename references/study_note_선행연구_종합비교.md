@@ -78,12 +78,13 @@
 
 ---
 
-## 5. 추가로 확보해야 할 논문
+## 5. 추가 논문 4편 (완독 완료 2026-07-01)
 
-아직 읽지 않은 폴더 내 논문:
-- `Wolf2025_CoolWalks_StreetNetwork.pdf` → 쿨 루트 네트워크 분석
-- `Dong2024_ThermalEnvironment_Accessibility.pdf` → 열환경×접근성 (최신)
-- `Buo2026_CoolRoutes_ThermalRouting.pdf` → 쿨 루트 라우팅 (2026 최신)
-- `Geurs2004_Accessibility_TransportGeography.pdf` → 접근성 개념 고전 문헌
+| 논문 | 핵심 기여 | 우리 연구 이슈 |
+|------|---------|-------------|
+| Wolf2025 | CoolWalkability 지표, α 경로 선택 모델, OSM 활용 선례 | A5(SOLWEIG 선택), E5(소프트 vs Hard 비교) |
+| Dong2024 | 접근성 기반 열환경 평가(2SFCA), NDVI/NDBI 변수 활용 | D1(이론 정의), F3(회귀 변수) |
+| Buo2026 | MRT 임피던스 Dijkstra 라우팅, SOLWEIG 1m 검증(d=0.73) | A5(SOLWEIG 근거), E2(MRT 임계값), E3(변환 파이프라인) |
+| Geurs2004 | 접근성 4대 요소·4대 관점, contour measure 이론 | D1(Thermal Catchment 이론 위치), G1(서론 프레임) |
 
-우선순위: Buo2026 > Wolf2025 > Dong2024 > Geurs2004
+→ 이슈 매핑 상세: `study_note_이슈매핑_해결방안.md` 참조
