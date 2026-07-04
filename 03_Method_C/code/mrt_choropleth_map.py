@@ -17,6 +17,8 @@ from matplotlib.colors import BoundaryNorm
 import contextily as ctx
 from pyproj import Transformer
 from shapely.geometry import LineString
+from shapely import wkt as shapely_wkt
+from shapely.ops import transform as shapely_transform
 warnings.filterwarnings('ignore')
 
 matplotlib.rcParams['font.family'] = 'Apple SD Gothic Neo'
@@ -40,13 +42,23 @@ print("네트워크 로드...")
 G = nx.read_graphml(NET_PATH)
 wgs2wm = Transformer.from_crs("EPSG:4326", "EPSG:3857", always_xy=True)
 
+def to_wm(geom_wgs):
+    """WGS84 shapely geometry → EPSG:3857"""
+    return shapely_transform(wgs2wm.transform, geom_wgs)
+
 edge_rows = []
 for u, v, d in G.edges(data=True):
     un, vn = G.nodes[u], G.nodes[v]
-    ux, uy = wgs2wm.transform(float(un['x']), float(un['y']))
-    vx, vy = wgs2wm.transform(float(vn['x']), float(vn['y']))
-    edge_rows.append({'u': str(u), 'v': str(v),
-                      'geometry': LineString([(ux, uy), (vx, vy)])})
+    # GraphML에 실제 도로 곡선 geometry가 WKT로 저장돼 있으면 사용
+    # 없으면 노드 좌표로 직선 대체
+    if 'geometry' in d:
+        geom = to_wm(shapely_wkt.loads(d['geometry']))
+    else:
+        ux, uy = wgs2wm.transform(float(un['x']), float(un['y']))
+        vx, vy = wgs2wm.transform(float(vn['x']), float(vn['y']))
+        geom = LineString([(ux, uy), (vx, vy)])
+    edge_rows.append({'u': str(u), 'v': str(v), 'geometry': geom})
+
 edges_gdf = gpd.GeoDataFrame(edge_rows, crs="EPSG:3857")
 print(f"  링크: {len(edges_gdf):,}개")
 
