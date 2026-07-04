@@ -1,0 +1,3 @@
+station,method,classic_nodes,thermal_nodes,lost_nodes,reduction_pct
+응봉역 인근,Method_C_SOLWEIG30m,809,1,808,99.9
+성수역 인근,Method_C_SOLWEIG30m,575,1,574,99.8

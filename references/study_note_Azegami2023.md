@@ -19,8 +19,11 @@
 ## 열환경 지표 및 산출 방법
 
 ### 사용 지표
-- **SET\* (Standard New Effective Temperature)**: ≥42.5°C 기준
-- UTCI나 MRT가 아닌 SET\* 사용 (우리 연구와 다름)
+- **SET\* (Standard New Effective Temperature)**: 임계값이 아님 — 실험 당일 기상 조건 서술에 사용
+  - 원문: "the day was sunny and hot enough for SET* to reach 42.5°C" → 그 날이 얼마나 더웠는지 표현
+  - ⚠️ "SET* ≥42.5°C 기준"으로 오독 금지 — 이 논문은 SET*를 임계값으로 쓰지 않음
+- **핵심 지표**: 태양복사(일사량, W/m²) — Apogee 센서 실측 + FlowDesigner 시뮬레이션
+- UTCI/MRT 사용 없음
 
 ### 태양복사 계산
 - 현장 관측: Apogee 센서 (일사량 직접 측정)
@@ -79,7 +82,7 @@
 
 | 항목 | Azegami2023 | 우리 연구 |
 |------|------------|----------|
-| 지표 | SET* (≥42.5°C) | UTCI ≥38°C → 역산 MRT 임계값 (Hard Cut 기준) |
+| 지표 | 태양복사(W/m²) — 이진 그늘/햇빛 | UTCI ≥42°C → 역산 MRT 임계값 (Hard Cut 기준) |
 | 방법 | 현장 관측 실험 | 공간 모델링 |
 | 공간 | ~1km² 소규모 | 서울 전역 |
 | 샘플 | 19명 | 공간 데이터 기반 |
