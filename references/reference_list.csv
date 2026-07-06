@@ -50,3 +50,4 @@ id,author,year,title,journal,doi,method_tag,use_in_paper,notes,pdf_saved
 049,Kang S. & Yeon P.,2024,도시숲 UTCI 및 인체 열반응 연구,한국산림휴양학회지 28(4):29-44,,Data,no,KCI 논문 SCI 인용 부적합 — 인용 제외,yes
 051,Tartarini F. & Schiavon S.,2020,pythermalcomfort: A Python package for thermal comfort research,SoftwareX 12:100578,10.1016/j.softx.2020.100578,Method_C,yes,UTCI 역산 계산 라이브러리 — MRT* 55°C 임계값 추정에 사용,no
 050,Bogren J. et al.,2000,The impact of screening on road surface temperature,Meteorological Applications 7:97-104,10.1017/S135048270000150X,Method_A,yes,SOLWEIG 벽면온도 +10K 경험식 원전 — Wallenberg(2026) p.1322에서 재확인. 저자: Bogren/Gustavsson/Karlsson/Postgård,yes
+052,Kar A. et al.,2024,"Inclusive accessibility: Analyzing socio-economic disparities in perceived accessibility",Computers Environment and Urban Systems 114:102202,10.1016/j.compenvurbsys.2024.102202,Introduction,yes,"Hard/Soft constraint 개념 - 인지점수 임계값 이하 링크 완전제거가 우리 Hard Cut과 구조적으로 동일. 열환경/SOLWEIG 무관, 접근성 이론 인용용",yes

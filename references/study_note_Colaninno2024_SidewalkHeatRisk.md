@@ -119,7 +119,7 @@ $$\text{Risk}_{origin} = \text{norm}(\text{hazard}) \times \text{norm}(\text{exp
 | 항목 | Colaninno et al. (2024) | 우리 연구 (TCA) |
 |------|------------------------|----------------|
 | 목적 | 열위험 평가 (어디가 더 위험한가) | 접근성 범위 변화 (얼마나 못 가게 되나) |
-| 임계값 처리 | 없음 — 연속 지수(HEI) | Hard Cut ≥38°C 링크 완전 제거 |
+| 임계값 처리 | 없음 — 연속 지수(HEI) | Hard Cut ≥42°C 링크 완전 제거 |
 | 공간 단위 | 사이드워크 세그먼트 수준 | 보행자 catchment area 수준 |
 | DSM | LiDAR 1m | GLO-30 30m (오픈소스) |
 | 취약성 | 연령 포함 | 미포함 (접근성 감소 자체가 주제) |
@@ -161,4 +161,69 @@ https://doi.org/10.1177/23998083241280746
 ```
 
 **인용 가능 문구 (Discussion 비교)**:
-> "Colaninno et al.(2024)는 SOLWEIG와 보행 이동량을 결합하여 사이드워크 단위 열위험 지수(HEI)를 제안하였으나, 연속적 지수를 통한 상대적 위험 순위 파악에 초점을 맞춘다. 이에 반해 본 연구는 열환경 임계값(UTCI ≥38°C) 초과 링크를 완전 제거하는 Hard Cut을 적용하여, 보행 가능 공간 범위 자체의 변화를 Thermal Catchment Area라는 새로운 공간 단위로 정량화한다."
+> "Colaninno et al.(2024)는 SOLWEIG와 보행 이동량을 결합하여 사이드워크 단위 열위험 지수(HEI)를 제안하였으나, 연속적 지수를 통한 상대적 위험 순위 파악에 초점을 맞춘다. 이에 반해 본 연구는 열환경 임계값(UTCI ≥42°C) 초과 링크를 완전 제거하는 Hard Cut을 적용하여, 보행 가능 공간 범위 자체의 변화를 Thermal Catchment Area라는 새로운 공간 단위로 정량화한다."
+
+---
+
+## SOLWEIG 입력 완전성 체크리스트 (2026-07-06 원문 재확인 — Figure 1 파이프라인 그림 직접 확인)
+
+> 원문 Figure 1이 SOLWEIG 입력을 명확히 도식화함: **WEATHER DATA**(Solar Radiation **Direct and Diffuse**, Air Temperature, Relative Humidity, Wind Speed) + **BUILT ENVIRONMENT**(LULC, DSM Buildings+Ground, **DSM Tree Canopy**, SVF) → SOLWEIG → UTCI(1m, hourly, 6am-7pm)
+
+| 입력 항목 | 채운 값 | 비고 |
+|-----------|--------|------|
+| DSM | LiDAR 기반, **건물+지면 DSM과 수목 캐노피 DSM을 별도 레이어로 구분**(Fig.1에 "DSM Buildings+Ground"와 "DSM Tree Canopy" 별개 박스로 표시) | Basu et al.(2024, 공저자 겹침)은 이를 병합된 단일 DSM으로 처리했는데, 이 논문은 **분리** — 같은 연구팀도 논문마다 처리 방식이 다름을 확인 |
+| **직달/확산 일사 분리(ONLYGLOBAL 여부)** | ✅ **Direct and Diffuse를 별도 입력으로 명시** (Fig.1) | 우리 Method C처럼 전천일사(Kdown)만 넣는 게 아니라 **직달/확산을 분리 입력** — ONLYGLOBAL=False로 추정됨. ERA5에서 직달 성분을 얻고 전천-직달=확산으로 산출했을 가능성 높음(원문에 정확한 산출식은 없음) |
+| LULC 역할 | 입력으로 사용됨은 확인되나, **알베도·방사율 지정이라고 명시적으로 서술하지 않음** (Basu2024는 명시했음) | ⚠️ Fig.1에 "LULC" 박스만 있고 본문에 구체적 용도 설명 없음 — 알베도 목적일 가능성이 높지만 단정 불가 |
+| 기상 강제 | ERA5, 시간별 | 공간적으로 균일한지/격자별로 다른지 명시 안 됨(Basu2024는 "공간적으로 균일"이라고 명시했는데 이 논문은 언급 없음) |
+| SOLWEIG 자체 현장검증 | ❌ 없음 (Lindberg et al., Thorsson et al. 기존 문헌의 신뢰도만 인용) | Buo(2026)류의 자체 검증 없음 — Basu(2024)와 동일한 한계 |
+
+**핵심 시사점**: 이 논문은 **직달/확산 일사를 분리 입력**한 몇 안 되는 확인 사례 — 우리 Method C의 "Kdown=708W/m² 근거 미확보, ONLYGLOBAL 여부 불명" 문제를 해결하는 데 참고할 최적의 선례. ERA5(무료, 전지구, 시간별)에서 직달·확산 성분을 뽑아 SOLWEIG에 넣는 방식을 검토해볼 가치가 있음.
+
+---
+
+## 한계 (원문 Discussion 직접 확인, 보강)
+- **취약성(vulnerability) 정의가 연령만 포함** — 소득, 인종, 녹지 접근성 등 미반영. 저자 스스로 "proof-of-concept"이라 명시하며 향후 다차원 취약성 반영 필요성 언급
+- **보행행동의 사회인구학적 차이 미반영** — 어린이·노인이 평균 보행자보다 덜/더 걷거나 다른 목적지를 택할 수 있는데, 데이터 부족으로 "모든 사람이 동일하게 걷는다"고 가정
+- 자전거 통행은 미고려 (보행만 분석) — 자전거는 야외 노출시간이 더 길어 열 스트레스가 더 클 수 있음
+- 도보 네트워크 연결성 문제 — 일부 주거블록이 사이드워크 네트워크에서 고립되어("No Data") 리스크 계산 불가
+- 목적지 5종 중 2종(버스정류장·기차역)만 calibration에서 유의 — 공원·학교·상업시설은 모델에서 제외되어 실제 열노출을 과소 대표할 가능성
+
+---
+
+## Figure 모음 (PDF 페이지 캡처, 200dpi)
+
+- **Fig.1 (p.5)**: SOLWEIG 입력→UTCI 열위험지도 생성 파이프라인 — **입력 완전성 확인에 가장 중요한 그림** (WEATHER: 직달+확산일사/기온/습도/풍속, BUILT ENV: LULC/DSM건물+지면/DSM수목캐노피/SVF)
+  ![](figures/Colaninno2024/p5_pipeline-05.png)
+- **Fig.2 (p.7)**: LA 연구지역 위치 및 확대된 사이드워크 단위 UTCI 열위험 지도
+  ![](figures/Colaninno2024/p7_studyarea-07.png)
+- **Fig.3 (p.10)**: 시간대별(아침/낮/저녁) 세그먼트 단위 Heat Exposure Index(HEI) 지도 + 3개 확대구역(지하철역 인근) + UTCI 1m 해상도 비교
+  ![](figures/Colaninno2024/p10_HEImap-10.png)
+- **Fig.4 (p.12)**: 거주지 단위 누적 열위험(Home-based Heat Risk) 시공간 분포 + 스트리트뷰 비교(수목 그늘 유무)
+  ![](figures/Colaninno2024/p12_homerisk-12.png)
+
+---
+
+## 영-한 단어장 (읽으면서 헷갈렸을 만한 단어)
+
+| 영어 | 한글 발음/뜻 | 문맥 |
+|------|------------|------|
+| hazard / exposure / vulnerability | 위해성/노출/취약성 | IPCC 리스크 3요소 프레임워크 |
+| proof-of-concept | 개념증명 | 완전한 해법이 아니라 접근법의 실현가능성만 보여주는 실증 |
+| Urban Network Analysis (UNA) | 도시 네트워크 분석 | 보행 네트워크 상 흐름·접근성을 계산하는 프레임워크(Sevtsuk) |
+| address point | 주소점 | 개별 건물/주거지를 나타내는 점 데이터(필지보다 세밀) |
+| detour ratio | 우회 비율 | 실제 경로 길이 ÷ 최단경로 길이 |
+| foot traffic index | 보행 트래픽 지수 | StreetLight 등 상업 데이터의 보행량 프록시 지표 |
+| calibration (model) | 보정 | 모델 추정치를 실측 데이터에 맞춰 조정하는 과정 |
+| OLS regression | 최소자승 회귀 | 잔차 제곱합을 최소화하는 표준 선형회귀 기법 |
+| block group | 블록그룹 | 미국 인구총조사 집계 단위(우리 행정동보다 작음) |
+| proportional (volume) split | 비례 배분 | 상위 단위 통계를 하위 단위에 면적/속성 비례로 나눠 배분 |
+| home-based (risk/hazard) | 거주지 기반 (위험/위해) | 개인의 집을 출발점으로 산정한 지표 |
+| segment-level | 세그먼트(구간) 단위 | 사이드워크를 잘게 나눈 개별 구간 기준 |
+| sidewalk network (vs street centerline) | 사이드워크 네트워크(도로 중심선과 대비) | 도로 양쪽 보도를 별개 경로로 취급하는 네트워크 |
+| Tile2Net | 타일투넷 (도구명) | 항공영상에서 보도망을 자동 추출하는 딥러닝 프레임워크 |
+| Madina | 마디나 (Python 라이브러리명) | 확률적 보행 경로 배정을 수행하는 UNA 프레임워크 구현체 |
+| GTFS (General Transit Feed Specification) | 대중교통 데이터 표준 | 노선·정류장 등 대중교통 정보를 표준화한 포맷 |
+| climate-proof planning | 기후대응형 계획 | 기후변화 영향에 견디도록 설계하는 도시계획 접근 |
+| socio-spatial disparity | 사회공간적 불균형 | 특정 집단·지역에 자원·위험이 불균등하게 분포하는 현상 |
+| granular(ity) | 세분화(된) | 더 작은 단위로 쪼개어 분석하는 정도 |
+| island (in a network) | (네트워크상) 섬 | 다른 부분과 연결이 끊겨 고립된 구간/블록 |
