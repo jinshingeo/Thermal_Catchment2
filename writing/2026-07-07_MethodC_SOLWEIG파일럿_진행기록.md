@@ -1,6 +1,10 @@
 작성일: 2026-07-07
-버전: v1
-근거논문: Lindberg et al. (2008, 2018), Erbs et al. (1982), Colaninno et al. (2024), Basu et al. (2024)
+버전: v2 (전체 재확인·업데이트)
+근거논문: Lindberg et al. (2008, 2011, 2016, 2018), Erbs et al. (1982), Colaninno et al. (2024), Basu et al. (2024), Jia et al. (2022)
+
+> ⚠️ v1은 세션 초반 스냅샷이라 이후 발견사항(임상도 원본 HEIGHT, F_FAC_BUILDING 건물높이,
+> 크로스워크 표 등)이 빠져있었음. v2에서 전체 업데이트. 상세 방법론 서술은
+> [[writing/2026-07-07_2장선행연구검토_3장연구자료구축및방법론_v1]] 참고.
 
 # Method C — 성동구 SOLWEIG 파일럿 진행 기록 (2026-07-07 세션)
 
@@ -44,15 +48,22 @@
 근거 미확보" 수치와 근접. 즉 그 수치의 실제 출처가 이 계열 ASOS 자료였을 가능성이 높고,
 이번에 정식 출처(기상청 ASOS 서울 108, 일사 실측)로 명시 가능해짐.
 
-## 3. 지오메트리 입력 데이터 확보 현황
+## 3. 지오메트리 입력 데이터 확보 현황 (v2 업데이트)
 
 | 데이터 | 상태 | 위치/출처 |
 |---|---|---|
-| DEM | GLO-30(30m, 오픈소스) 확보됨, 국토지리정보원 1m DEM 신청 진행상황 미확인(서식만 준비됨) | `data/GLO30_DSM/` |
-| 건물 폴리곤+층수 | ✅ 확보 — `GRO_FLO_CO`(지상층수)/`UND_FLO_CO`(지하층수) 필드 있음, 도로명주소 공식자료, EPSG:5179 | `/Users/jin/석사논문/TAVI/03_건물데이터/(도로명주소)건물_서울/TL_SPBD_BULD_11_202603.shp` |
-| 토지피복도 | ✅ 확보 — 환경부 세분류(L3, 37클래스), 서울 전체 136타일 병합 완료, EPSG:5186(ITRF2000/TM, 기존 Method A와 동일 CRS) | `data/landcover_seoul_L3_merged.gpkg` (105만 피처, 640MB) |
-| 수목 캐노피(CDSM) | ❌ 미확보 — 2SFCA 프로젝트의 `도시숲전체_면_서울_최종_중분류.shp`, `임상도_병합.geojson`은 수종/영급/수고 속성이 없음(병합 과정에서 손실 추정). **원본 임상도(영급 필드 포함) 재확보 필요** — 산림청 표준 임분수확표로 영급→수고 매핑하면 "대표값 임의 부여"보다 방어력 있는 근거 확보 가능 |
-| 성동구 경계 | ✅ 확보 — 국토지리정보원 N3A_G0100000(시군구경계, 1:5,000, EPSG:5179) 및 SGIS 통계지역경계(readme 기준 EPSG:5179) 두 소스 확보 |
+| DEM(지면) | GLO-30(30m, 오픈소스) 확보됨. 국토지리정보원 1m DEM은 신청 진행상황 미확인(서식만 준비됨) — 안 와도 진행, 오면 업그레이드 | `data/GLO30_DSM/` |
+| 건물(DSM) | ✅ 확보 — **F_FAC_BUILDING**(건축물대장 통합정보)의 실측 `HEIGHT` 필드 우선 사용, 없으면 자체 `GRND_FLR`×3m, 그것도 없으면 `TL_SPBD_BULD`(도로명주소)의 `GRO_FLO_CO`를 `BD_MGT_SN` 키로 교차조인×3m, 전부 없으면 기본값 3m. 성동구 25,092개 기준 1단계 37.3%/2단계 30.4%/3단계 6.6%/4단계(기본값) 25.6% (직접 검산 완료, 합계 100% 확인) | `data/F_FAC_BUILDING_서울/`, `TAVI/03_건물데이터/(도로명주소)건물_서울/` |
+| 토지피복도 | ✅ 확보+매핑 완료 — 환경부 세분류(L3, 37클래스 실측/41클래스 전체), 서울 전체 136타일 병합(EPSG:5186), **41→UMEP 5클래스(building/paved/grass/bare_soil/water) 크로스워크 표 작성 완료** | `data/landcover_seoul_L3_merged.gpkg`, `03_Method_C/code/landcover_crosswalk_L3_to_UMEP.csv` |
+| 수목 캐노피(CDSM) | ✅ **확보** — 2SFCA의 병합 shp는 못 썼지만(v1 문제), **산림청 임상도 원본**(서울시, `녹지데이터 복사본/임상도/11_서울시/11.shp`, EPSG:5179)에 `HEIGHT`(임분고코드, 00~28m 2m간격 실측)와 `FRTP_NM`(임상명: 침엽수림/활엽수림/혼효림)이 그대로 있음. 성동구 산림 53개 결측 0%, 면적가중평균수고 10.5m. **임분수확표 변환 불필요** — 산림청이 이미 실측한 수고값 직접 사용 | `data/녹지데이터 복사본/임상도/11_서울시/11.shp` |
+| 성동구 경계 | ✅ 확보 — 국토지리정보원 N3A_G0100000(시군구경계, EPSG:5179) 및 SGIS 통계지역경계(EPSG:5179, `_tmp_boundary/행정구역.shp`) |
+
+**해상도 비교 설계**: 위 자료를 두 가지 격자 해상도로 각각 구축해 비교.
+- 접근1: 지면·건물·수목 동일 자료를 **30m** 격자로 (자료 원해상도)
+- 접근2: 동일 자료를 **1m**로 다운스케일링 (지면은 보간뿐이라 정보 추가 없음, 건물·수목은
+  벡터속성이라 손실 없이 세밀하게 반영됨 — 진짜 디테일은 건물·수목 층에서만 생김)
+- 목적: "데이터 유무"가 아니라 "해상도" 하나만 통제된 변수로 비교 (지난 2026-07-04
+  GLO-30 단독 결과는 이번 비교와 역할이 달라 논문에 굳이 재인용할 필요 없음 — [[feedback_paper_lean_content]])
 
 ## 4. UMEP SOLWEIG 입력 포맷 확인 사항
 
@@ -60,8 +71,10 @@ met.txt는 UMEP 표준 24컬럼 포맷(iy,id,it,imin,qn,qh,qe,qs,qf,U,RH,Tair,pr
 snow,ldown,fcld,wuh,xsmd,lai,kdiff,kdir,wdir). 공식문서로 컬럼 순서·의미 확인함
 (umep-docs.readthedocs.io). 미사용 컬럼은 -999.
 
-**landcover 기본 파라미터** (로컬 설치된 UMEP 플러그인 실제 파일에서 확인,
-`~/Library/Application Support/QGIS/QGIS3/profiles/default/python/plugins/UMEP/SOLWEIG/landcoverclasses_2016a.txt`):
+**landcover 기본 파라미터** (로컬 UMEP 플러그인 파일에서 확인,
+`~/Library/Application Support/QGIS/QGIS3/profiles/default/python/plugins/UMEP/SOLWEIG/landcoverclasses_2016a.txt`
+— 아스팔트/자갈/잔디/물 값은 **Lindberg et al.(2016) Table 1과 정확히 일치** 확인함,
+즉 원출처는 Lindberg(2016)+Oke(1987)+예테보리 실측):
 
 | Name | Code | Alb | Emis |
 |---|---|---|---|
@@ -85,9 +98,35 @@ snow,ldown,fcld,wuh,xsmd,lai,kdiff,kdir,wdir). 공식문서로 컬럼 순서·�
 different values of albedo and emissivity to different land cover classes"라는 방법론
 서술만 있고 구체적 수치 없음. 방법론적 선례로만 인용 가능, 수치 출처는 아님.)
 
-## 5. 다음 액션
+## 4.5 식생(CDSM) 복사 파라미터 및 처리 방식 (Lindberg & Grimmond 2011)
 
-1. 토지피복 37클래스 → UMEP landcover 7클래스 매핑표 작성 (산림류는 CDSM으로 분리)
-2. 원본 임상도(영급 포함) 재확보 → 산림청 임분수확표 기반 수고 매핑
-3. 건물 데이터로 합성 DSM 생성 (UMEP DSM Generator, GLO-30 ground + 층수)
-4. QGIS Python 콘솔 실행용 코드 작성 (사용자가 QGIS에 붙여넣어 실행하는 워크플로우)
+- 알베도 0.15, 방사율 0.90, 단파투과율(τ) 0.05(여름·완전히 잎이 달린 상태 권장값, 기본값 0.20 아님)
+- 형태: 침엽수림=원뿔형, 활엽수림=구형. **혼효림**은 수종 구성비 정보가 없어(`KOFTR_NM`이
+  "침활혼효림" 단일값뿐) 활엽수(구형)로 단순화 — 성동구 산림 53개 중 11개(21%)라 영향 제한적, 한계로 명시
+- TDSM(수간부): 실측자료 없어 **UMEP 공식튜토리얼 권장값(CDSM 높이의 25%)**으로 근사
+- CDSM은 rasterize(gdal:rasterize)로 임상도 HEIGHT를 직접 굽는 방식 채택 — TreePlanter는
+  "신규 식재 최적위치 탐색" 도구라 기존 산림 반영에는 부적합하다고 판단(튜토리얼 확인:
+  "will find optimal locations for three deciduous trees")
+- CDSM은 **magl(지면 기준 상대높이)**, DSM은 **masl(절대표고)** — UMEP 공식문서로 확인.
+  건물은 100% 불투명이라 지면과 합쳐도 되지만, 수목은 부분투과(τ=0.05)+수간/수관 구분이
+  필요해 지면과 독립적인 상대값이어야 함
+
+## 4.6 하늘방사율(Prata)·SVF — 우리가 구현할 필요 없음
+
+Method A 파일럿 스크립트(`39_utci_sdot_solweig.py`)는 하늘방사율을 간이식(`0.575*ea^(1/7)`)
+으로 자체 계산했으나, 이는 Lindberg(2008)의 실제 SOLWEIG 공식(Prata 1996 + Jonsson et al.
+2006 보정 + Crawford & Duchon 1999 구름보정)과 다르다. **다만 오늘부터는 실제 UMEP/SOLWEIG
+소프트웨어(QGIS 플러그인)를 돌리는 것이 목표이므로, 이 물리식은 소프트웨어가 이미 정확히
+내장하고 있어 우리가 재구현할 필요가 없다.** SVF도 마찬가지로 UMEP 전용 SVF 산출 도구를
+그대로 쓰면 됨 — Method A식 직접 계산 불필요.
+
+## 5. 다음 액션 (v2 기준)
+
+1. ✅ ~~토지피복 크로스워크 표 작성~~ → 완료 (`03_Method_C/code/landcover_crosswalk_L3_to_UMEP.csv`)
+2. ✅ ~~원본 임상도(수고) 확보~~ → 완료
+3. ✅ ~~건물 높이 확보~~ → 완료 (4단계 하이브리드)
+4. ✅ ~~2장(일부)·3장 초안 작성~~ → 완료 ([[writing/2026-07-07_2장선행연구검토_3장연구자료구축및방법론_v1]])
+5. **DSM·CDSM 실제 rasterize 코드 작성** (QGIS Python 콘솔용, 접근1=30m/접근2=1m 두 세트)
+6. Wall height/aspect, SVF 산출 (UMEP 도구)
+7. SOLWEIG 연속 실행 (06~19시 1시간 간격)
+8. 출력 집계 및 Hard Cut 임계값 결정 (UTCI급간 vs MRT 56/58°C — 공간분화 결과 보고 판단)
