@@ -1,7 +1,7 @@
 # Wallenberg et al. (2026) — 벽 표면온도 step heating 방법 (SOLWEIG)
 
-작성일: 2026-07-01  
-버전: v1.0  
+작성일: 2026-07-01 (2026-07-08 상세 재독·보강, v2.0)
+버전: v2.0
 근거논문: Wallenberg, N., Holmer, B., Lindberg, F., Lönn, J., Maesel, E., & Rayner, D. (2026). A simple step heating approach for wall surface temperature estimation in the SOlar and LongWave Environmental Irradiance Geometry (SOLWEIG) model. *Geoscientific Model Development*, 19, 1321–1336. DOI: 10.5194/gmd-19-1321-2026
 
 ---
@@ -47,11 +47,37 @@ $$e = \sqrt{\lambda\rho C}$$
 
 ## 3. 벽 재료별 파라미터 (Table 1)
 
+⚠️ **출처 정정**: 이 값들은 논문이 직접 측정한 게 아니라 **CIBSE(2015)**(영국 건축설비기술자협회 핸드북, Table 1³·2³·3⁴⁶ — 원문엔 "Tables 1 3.37, 2 3.38 and 3 3.46"으로 표기)에서 그대로 인용한 것. 인용 시 "Wallenberg et al.(2026), Table 1(CIBSE 2015 인용)"으로 표기할 것.
+
 | 재료 | λ (W/mK) | ρ (kg/m³) | C (J/kgK) | κ (m²/s ×10⁻⁶) | e (J/m²s^0.5K) |
 |-----|---------|---------|---------|-------------|-------------|
 | Brick (outer leaf) | 0.84 | 1700 | 800 | 0.62 | 1068 |
 | Dense plaster (brick) | 0.57 | 1300 | 1000 | 0.44 | 860 |
 | Hardwood (dry) | 0.17 | 700 | 1880 | 0.13 | 472 |
+
+**Table 2 (센서티비티 테스트용 dummy wall, QGIS UMEP 플러그인 기본 3재질과 일치)**:
+
+| 재료 | λ (W/mK) | ρ (kg/m³) | C (J/kgK) |
+|---|---|---|---|
+| Wood | 0.17 | 700 | 1880 |
+| Brick | 0.84 | 1700 | 800 |
+| Concrete | 1.17 | 2200 | 840 |
+
+본문 명시: "**Three materials are available in the new publicly available SOLWEIG model: brick, concrete and wood. Other materials can simply be added to the parameter file in SOLWEIG.**" — ⚠️ **재질 미상일 때 무엇으로 대체할지에 대한 지침은 논문에 없음** (다른 재질 추가는 가능하다고만 언급, fallback 규정 없음).
+
+**수식적 성질(Eq.1-3 결합)**: 밀도(ρ)·비열(C)은 e와 t 계산에서 상쇄되어 **최종 Ts에는 영향 없음** — 실제로는 열전도율(λ)과 벽 두께(L)만 Ts를 결정 (논문이 직접 도출·명시).
+
+**검증 실험 실제 벽 두께**: 플라스터벽돌 L=0.1m, 목재 L=0.03m (⚠️ 이전 버전 노트에서 "브릭<0.3m/콘크리트 0.5-0.6m"라 적었던 건 **모델이 불안정해지는 한계두께**(Lmax, R비율 기반)이지 실제 검증 두께가 아님 — 혼동 주의).
+
+**민감도 분석 순위 (Fig.8)**: **알베도·열전도율의 영향력이 가장 크고, 방사율의 영향력이 가장 작음.** 알베도↑→Ts↓(단파흡수 감소), 열전도율↑→Ts↓(열이 표면 안 쌓이고 재질 내부로 전달 — 목재<벽돌<콘크리트 순으로 열전도율이 높아 콘크리트가 표면온도 변화가 제일 적고 "관성적").
+
+**타 모델 대비 성능**: PALM-4U(Resler et al. 2021, Prague) RMSE 3.3°C(전통건물)/7.4°C(현대건물); ENVI-met(Simon 2016) R²=0.98–0.99, RMSE=1.03–1.25°C(단, 통제된 실험실 조건 — 이 논문은 실제 도시환경이라 직접비교 불리한 조건에서도 RMSE 1.94–2.09°C 확보).
+
+**추가 관련 인용**: Kim & Ham(2024) — 아스팔트·합판·토양(수평면) SOLWEIG Ts 시뮬레이션에서도 건축재료 물성 개선 필요성 지적 (이 논문과 같은 문제의식의 수평면 버전).
+
+**그림자캐스팅 알고리즘 출처**: Ratti & Richens(2004) + Lindberg & Grimmond(2011a,b) — 기존에 Lindberg(2011)만 인용했었는데 Ratti & Richens(2004)도 원출처로 확인됨.
+
+**코드·데이터 공개(재현성)**: 코드 https://doi.org/10.5281/zenodo.15309383, 검증데이터셋(DEM/DSM/CDSM/토지피복/기상/관측Ts) https://doi.org/10.5281/zenodo.15309444
 
 ---
 
@@ -155,3 +181,18 @@ in the SOlar and LongWave Environmental Irradiance Geometry (SOLWEIG) model.
 Geoscientific Model Development, 19, 1321–1336.
 https://doi.org/10.5194/gmd-19-1321-2026
 ```
+
+---
+
+## 10. 우리 프로젝트 적용 검토 (2026-07-08)
+
+**성동구 STRCT_CD(건물구조) 분포 vs Wallenberg 3재질 매칭**:
+- 벽돌(11): 32.3% → Brick 직접 매칭
+- 철근콘크리트 등(21 등): ~27% → Concrete 직접 매칭 (Table 2)
+- 목구조(51): 2.4% → Wood 직접 매칭
+- 철골(31/32): ~1.6% → 매칭 없음
+- **결측: 32.2%** → 매칭 없음, 논문에 fallback 규정 없음
+
+서울 전체 기준으로는 결측 21.6%, 벽돌+콘크리트+목조 매칭률 74.2%로 더 양호함.
+
+**판단(결론은 본문 대화 참고, 2026-07-08 세션 결정 확정 시 이 섹션 업데이트)**: 재질 미상 처리는 논문이 아니라 우리 자체 판단(예: 최빈값 대체)이 되므로, 사용 시 "이 부분은 자체 가정"이라고 명확히 분리해서 서술해야 함 — Wallenberg(2026)가 검증한 건 "재질을 알 때의 물리식"이지 "모를 때 뭘 가정할지"가 아님.
