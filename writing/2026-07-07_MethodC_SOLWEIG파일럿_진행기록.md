@@ -120,6 +120,21 @@ Method A 파일럿 스크립트(`39_utci_sdot_solweig.py`)는 하늘방사율을
 내장하고 있어 우리가 재구현할 필요가 없다.** SVF도 마찬가지로 UMEP 전용 SVF 산출 도구를
 그대로 쓰면 됨 — Method A식 직접 계산 불필요.
 
+## 4.7 DSM·CDSM은 Python(rasterize+merge)으로 직접 생성 — ⚠️ 지도교수 확인 필요
+
+`03_Method_C/code/01_build_dsm_cdsm_seongdong.py`로 DSM(건물높이+DEM)·CDSM(수목높이)을
+QGIS 없이 Python(rasterio)으로 직접 생성함(접근1 30m/접근2 1m 완료, 결과는
+`03_Method_C/results/dsm_cdsm_seongdong/`).
+
+**판단 근거**: UMEP의 DSM Generator도 "건물폴리곤 높이를 래스터화해서 DEM에 더하는" 동일한
+연산이라, SOLWEIG 고유의 검증된 알고리즘(그림자 캐스팅, SVF, 하늘복사 등)과 달리 특별한
+물리모델이 들어있지 않음 — GUI로 감싼 것뿐이라 결과가 같아야 한다고 판단.
+
+**⚠️ 다만 이건 우리 판단이고, 지도교수님께 확인 시 "그래도 정식 프로그램(UMEP DSM
+Generator)으로 돌린 게 방어(defense)에 유리하다"는 의견이 나올 수 있음 — 그때는 동일
+입력자료로 UMEP DSM Generator를 QGIS에서 실제로 돌려 본 결과와 대조 검증하거나, 아예
+그쪽으로 대체할 수 있음. 논문 심사 전에 이 판단을 재확인할 것.**
+
 ## 5. 다음 액션 (v2 기준)
 
 1. ✅ ~~토지피복 크로스워크 표 작성~~ → 완료 (`03_Method_C/code/landcover_crosswalk_L3_to_UMEP.csv`)
