@@ -1,5 +1,5 @@
 # Claude Code 기본 사용법 & 워크플로우 꿀팁
-*(발표 시간: 약 10~20분 / 참고: PyTorch KR 포럼 "Claude Code Tips" 글, 원본 GitHub: ykdojo/claude-code-tips)*
+
 
 ---
 
