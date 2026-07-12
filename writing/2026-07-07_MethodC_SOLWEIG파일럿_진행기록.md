@@ -1,10 +1,11 @@
-작성일: 2026-07-07 (2026-07-09 SOLWEIG 실행·링크부여·시각화 결과 추가, v3)
-버전: v3
+작성일: 2026-07-07 (2026-07-09 SOLWEIG 실행·링크부여·시각화 결과 추가 v3, 2026-07-12 접근2 5m 파일럿 추가 v4)
+버전: v4
 근거논문: Lindberg et al. (2008, 2011, 2016, 2018), Erbs et al. (1982), Colaninno et al. (2024), Basu et al. (2024), Jia et al. (2022), Wallenberg et al. (2026)
 
 > ⚠️ v1은 세션 초반 스냅샷이라 이후 발견사항(임상도 원본 HEIGHT, F_FAC_BUILDING 건물높이,
 > 크로스워크 표 등)이 빠져있었음. v2에서 전체 업데이트. v3은 2026-07-09 SOLWEIG 실행
-> 성공(접근1, 30m) 및 링크 부여·시각화 결과 추가. 모든 산출 요소의 상세 근거는
+> 성공(접근1, 30m) 및 링크 부여·시각화 결과 추가. v4는 2026-07-11~12 접근2(1m) 메모리
+> 위기 발견 및 5m 파일럿 실행·비교 결과 추가. 모든 산출 요소의 상세 근거는
 > [[writing/2026-07-09_MRT산출_기술노트_전체요소정리]] 참고(이게 정본, 이 문서는 진행 로그).
 > 상세 방법론 서술은 [[writing/2026-07-07_2장선행연구검토_3장연구자료구축및방법론_v1]] 참고.
 
@@ -64,6 +65,78 @@ figures/2026-07-09_*.png`).
 능선그래프) 4종, UTCI 급간(Bröde 2012) 범주형 지도 2종(3구간·시간대별)
 (`03_Method_C/results/figures/2026-07-09_*UTCI*.png`, 결과 데이터
 `2026-07-09_link_utci_approach1_30m.gpkg`/`.csv`).
+
+## 0.2 2026-07-11~12 추가 — 접근2(1m) 메모리 위기 발견 및 5m 파일럿 실행·비교
+
+**로컬 크래시 재확인**: 접근2(1m) SVF는 Wall Height/Aspect까지는 로컬에서 성공했으나
+(`wallheight_approach2_1m.tif`/`wallaspect_approach2_1m.tif`), SVF 단계에서 크래시하여
+결과물 없음(폴더 비어있음 확인). SOLWEIG는 SVF 선행 필요라 시작도 못 함.
+
+**서버 이전 중 겪은 문제 4가지(순차 해결)**: (1) pip pyproj의 번들 libproj가 시스템
+libproj와 충돌 → pip pyproj 제거 후 시스템 RPM `python3-pyproj`로 교체, (2) 헤드리스
+서버에 디스플레이가 없어 Qt 초기화 실패 → `QT_QPA_PLATFORM=offscreen`, (3) `netCDF4`
+모듈 누락 → pip 설치, (4) **Rocky Linux 9 AppStream의 시스템 `gdal-libs` 자체가 GTiff
+드라이버를 포함하지 않는 최소 빌드임을 발견**(`nm -D`로 `GDALRegister_GTiff` 심볼 부재
+확인, 재설치해도 동일 — 손상이 아니라 원래 이런 구성). → **conda-forge QGIS(3.44.11,
+GDAL 3.13.1 full build)로 완전히 전환**하여 해결(신규 conda env `qgis_umep`).
+
+**진짜 병목 발견 — 속도가 아니라 메모리**: `svfForProcessing153`(153 patch, ANISO=True)는
+SOLWEIG 비등방성 하늘 모델용으로 153개 patch 전체의 그림자 행렬(`shmat`/`vegshmat`/
+`vbshvegshmat`, `Solweig_run.py` 401~403줄에서 실제로 로드해 사용 — 선택사항 아님)을
+전부 메모리에 들고 있다가 `shadowmats.npz`로 저장함. 성동구 bbox(5820×5010px, 1m) 기준
+계산하면 3개 행렬 합쳐 **float64 기준 약 107GB** — 로컬 85GB 크래시와 서버 재현 시도 중
+112GB까지 치솟은 것의 정확한 원인. 코드 확인 결과(`shadowingfunctions.py` 내
+`shadow.shadowingfunction_20`은 numpy/matplotlib 의존성뿐이라 이론상 patch 단위
+multiprocessing 병렬화는 수학적으로 안전(각 patch 독립 계산 후 단순 가중합)하나,
+최종적으로 이 107GB 행렬 자체를 어차피 다 들고 있어야 해서 **병렬화만으로는 메모리
+문제가 해결 안 됨** → 병렬 구현 시도 중단, 해상도 축소로 방향 전환.
+
+**5m 파일럿 결정 및 정확한 리샘플링 방법**: 1m 픽셀 수(2900만) 대비 5m는 1/25
+(약 117만)이라 시간·메모리 모두 25배 감소 추정(→ 메모리 약 4.3GB, 시간 몇시간대 예상).
+⚠️ **이 5m은 접근2(1m)와 다른 방식으로 만들어짐** — 벡터에서 직접 rasterize한 게
+아니라, 이미 구축된 `DSM/CDSM/DEM_approach2_1m.tif`를 `rasterio.warp.reproject`로
+**연속형(DSM/CDSM/DEM)은 `Resampling.average`, 범주형(LandCover)은 `Resampling.mode`**
+로 다운샘플링(`03_Method_C/code/11_resample_1m_to_5m.py`). 반면 접근1(30m)은 벡터
+(건물 폴리곤+높이속성)에서 `rasterio.features.rasterize()`로 **직접** 30m 격자를
+만드는데, 이 함수는 각 셀의 **중심점이 어느 건물 폴리곤 안에 드는지만** 보고 그 건물
+높이를 그대로 대입함(평균도 최댓값도 아님) — 그 결과 30m 셀보다 작은 건물은 격자
+정렬에 따라 전체 반영되거나(중심점이 안에 들면) 전체 누락되는(중심점이 밖이면)
+"복불복 point-sampling" 특성을 가짐(`01_build_dsm_cdsm_seongdong.py` 125~136줄
+확인). 즉 30m는 원천 rasterize 단계에서 정보가 소실되고, 5m(오늘 것)는 이미 세밀한
+1m 데이터를 성실하게 면적평균한 것이라 **구축 경로 자체가 다름** — 향후 논문에서
+"해상도만 통제된 순수 비교"라고 서술하면 안 되고 이 차이를 명시해야 함.
+
+**CRS 손상 발견 및 수정**: 리샘플링 스크립트에서 로컬 PROJ 충돌 회피용으로 넣어둔
+`PROJ_DATA` 환경변수가 EPSG:5186을 제대로 못 써서, 리샘플된 5m 파일들의 CRS가
+`LOCAL_CS["KGD2002 / Central Belt 2010", ...]`라는 손상된 형태로 저장됨(SOLWEIG의
+`xy2latlon_fromraster`가 위경도 변환 실패로 크래시). 서버의 정상 GDAL로 `rasterio.crs.
+CRS.from_epsg(5186)`을 직접 대입해 수정, 이를 상속한 Wall Height/Aspect·SVF 출력도
+재계산.
+
+**5m 파이프라인 결과**: Wall Height/Aspect(수초) → SVF(9분, 메모리 안정적으로 5GB
+내외 유지, ANISO=True 153patch) → SOLWEIG(45분, UTC=9) 순서로 전부 성공. Tmrt 14개
+시간대+평균 산출, 값 정상 범위(13시 34.6~69.3°C). 링크 부여도 30m와 동일 방식
+(Colaninno 버퍼+zonal mean, `all_touched=True`, 동일 네트워크·버퍼폭 가정)으로 수행,
+16,316개 링크 결측 0개(`03_Method_C/results/2026-07-12_link_tmrt_approach2_5m.gpkg`/
+`.csv`).
+
+**30m vs 5m 비교 결과**: 3구간 평균 차이는 작음(아침 -1.17°C, 낮 -0.51°C, 저녁
+-2.07°C, 링크 단위 기준) — 그러나 **링크×시간 단위(228,424개 조합)로 보면 절대 차이
+평균 2.55°C, 최대 27.2°C**까지 벌어짐. 즉 전체 평균은 비슷해도 개별 링크·시간대에서는
+해상도에 따라 결과가 크게 달라질 수 있음 — Hard Cut 임계값 적용 시 특정 링크의
+포함/제외 여부가 해상도에 따라 뒤집힐 수 있다는 뜻으로, 축 1(MRT 산출방식 비교)의
+근거로 활용 가능. 시각화 6종(래스터 3+링크 3, 전부 30m/5m 공통 컬러스케일)
+`03_Method_C/results/figures/2026-07-12_*compare_30m_5m.png`.
+
+**다음 단계**: 5m 결과를 기준선으로 두고, 접근2 원래 목표인 1m 실행을 서버에서
+시간이 걸리더라도 진행 예정. ⚠️ **단순 픽셀수 비례(25배)로는 5m의 9분×25=3.75시간
+정도로 예상되지만, 실제 서버에서 1m를 시도했을 때(2026-07-10) py-spy로 실측한 결과
+90분 동안 153 patch 중 겨우 1~2개만 진행되어 전체 5~10일로 추정된 바 있음** —
+5m 대비 32~64배나 더 느려, 단순 CPU 연산량 비례를 크게 벗어남. 가장 유력한 원인은
+1m의 107GB 요구량이 서버 RAM(124GB)에 근접해 스와핑·캐시미스 등 **메모리 압박으로
+인한 비선형적 성능 저하**로 추정(확정된 원인 규명은 아님). 따라서 1m 실행 시
+소요시간은 3.75시간이 아니라 **5~10일 범위를 기본 가정**으로 두고, 실행하며 실측
+재확인 필요.
 
 # Method C — 성동구 SOLWEIG 파일럿 진행 기록 (2026-07-07 세션)
 
