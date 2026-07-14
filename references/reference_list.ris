@@ -1,0 +1,665 @@
+TY  - JOUR
+AU  - Lindberg, F.
+AU  - Grimmond, C.S.B.
+PY  - 2011
+TI  - The influence of vegetation and building morphology on shadow patterns and mean radiant temperatures in urban areas: model development and evaluation
+JO  - Theoretical and Applied Climatology
+DO  - 10.1007/s00704-010-0382-8
+N1  - SOLWEIG 방법론 원논문 — MRT 수식 K_sw / L_lw 근거
+ID  - 001
+ER  - 
+
+TY  - JOUR
+AU  - Lindberg, Fredrik
+AU  - Onomura, Shiho
+AU  - Grimmond, C. S. B.
+PY  - 2016
+TI  - Influence of ground surface characteristics on the mean radiant temperature in urban areas
+JO  - International Journal of Biometeorology 60:1439-1452
+DO  - 10.1007/s00484-016-1135-x
+N1  - SOLWEIG ground cover scheme 추가 논문. 아스팔트 ε=0.95/α=0.18 직접 확인(Table 1). 핵심: shadowing이 지표면 재료보다 T_mrt에 압도적 영향(Abstract 직접 확인). ⚠️ T_mrt 37°C 차이는 이 논문 결과가 아님 — 본문이 Mayer et al.(2008) 인용한 배경 서술임
+ID  - 002
+ER  - 
+
+TY  - JOUR
+AU  - Oke T.R.
+PY  - 1987
+TI  - Boundary Layer Climates (2nd ed.)
+JO  - Routledge
+N1  - H/W Canyon SVF 공식 근거 (p.303)
+ID  - 003
+ER  - 
+
+TY  - JOUR
+AU  - Brutsaert W.
+PY  - 1975
+TI  - On a derivable formula for long-wave radiation from clear skies
+JO  - Water Resources Research
+DO  - 10.1029/WR011i005p00742
+N1  - 대기 장파 하향복사 추정식 L_sky
+ID  - 004
+ER  - 
+
+TY  - JOUR
+AU  - Erbs, D. G.
+AU  - Klein, S. A.
+AU  - Duffie, J. A.
+PY  - 1982
+TI  - Estimation of the diffuse radiation fraction for hourly daily and monthly-average global radiation
+JO  - Solar Energy
+DO  - 10.1016/0038-092X(82)90302-4
+N1  - GHI → K_dir / K_dif 직산 분리 모델
+ID  - 005
+ER  - 
+
+TY  - JOUR
+AU  - Höppe P.
+PY  - 1992
+TI  - A new procedure to determine the mean radiant temperature outdoors
+JO  - Energy and Buildings
+DO  - 10.1016/0378-7788(92)90018-I
+N1  - FP=0.308 서 있는 사람 투영면적계수
+ID  - 006
+ER  - 
+
+TY  - JOUR
+AU  - Bröde, Peter
+AU  - Fiala, Dusan
+AU  - Błażejczyk, Krzysztof
+AU  - Holmér, Ingvar
+AU  - Jendritzky, Gerd
+AU  - Kampmann, Bernhard
+AU  - Tinz, Birger
+AU  - Havenith, George
+PY  - 2012
+TI  - Deriving the operational procedure for the Universal Thermal Climate Index (UTCI)
+JO  - International Journal of Biometeorology
+DO  - 10.1007/s00484-011-0454-1
+N1  - UTCI Very Strong Heat Stress ≥ 38°C 기준 — MRT* 역산 근거
+ID  - 007
+ER  - 
+
+TY  - JOUR
+AU  - 정희지
+AU  - 강전영
+PY  - 2024
+TI  - 영유아 및 소아 의료 인프라의 공간적 접근성에 대한 시간적 불균형 탐색
+JO  - 한국지도학회지
+DO  - 24(3) 61-73
+N1  - KCI 논문 — SCI 논문 인용 부적합. 2.1절은 Geurs & van Wee(2004)로 대체. 제거됨
+ID  - 008
+ER  - 
+
+TY  - JOUR
+AU  - Oke T.R.
+PY  - 1982
+TI  - The energetic basis of the urban heat island
+JO  - Quarterly Journal of the Royal Meteorological Society
+DO  - 10.1002/qj.49710845502
+N1  - UHI 에너지 수지 이론 논문 — 벽면 온도 +10K 내용 없음 확인. +10K 인용 출처를 Oke(1987)로 교체할 것
+ID  - 009
+ER  - 
+
+TY  - JOUR
+AU  - Kántor, N.
+AU  - Unger, J.
+PY  - 2011
+TI  - The most problematic variable in the course of human-biometeorological comfort assessment — the mean radiant temperature
+JO  - Central European Journal of Geosciences 3(1):90-100
+DO  - 10.2478/s13533-011-0010-x
+N1  - MRT 측정·산출 5가지 방법 리뷰. SOLWEIG r=0.96 최우수(Table 3 직접 확인). 흡수계수 a_k=0.7/a_l=0.97(Table 3). 각도인자 W_i=0.220(방위)/0.060(상하)/0.167(구)(Table 4). MRT 개념도(real vs fictive environment) 그림 출처
+ID  - 010
+ER  - 
+
+TY  - JOUR
+AU  - Dijkstra E.W.
+PY  - 1959
+TI  - A note on two problems in connexion with graphs
+JO  - Numerische Mathematik
+DO  - 10.1007/BF01386390
+N1  - 보행 네트워크 Dijkstra 최단경로 알고리즘 원전 ✅
+ID  - 011
+ER  - 
+
+TY  - JOUR
+AU  - Fanger P.O.
+PY  - 1970
+TI  - Thermal Comfort: Analysis and Applications in Environmental Engineering
+JO  - Danish Technical Press (Book)
+N1  - α_p=0.70 인체 단파 흡수율 근거 (책 — DOI 없음) ✅
+ID  - 012
+ER  - 
+
+TY  - JOUR
+AU  - Boeing G.
+PY  - 2017
+TI  - OSMnx: New methods for acquiring constructing analyzing and visualizing complex street networks
+JO  - Computers Environment and Urban Systems
+DO  - 10.1016/j.compenvurbsys.2017.05.004
+N1  - OpenStreetMap network_type='walk' 보행 네트워크 구축 방법 ✅
+ID  - 013
+ER  - 
+
+TY  - JOUR
+AU  - Moreno, Carlos
+AU  - Allam, Zaheer
+AU  - Chabaud, Didier
+AU  - Gall, Catherine
+AU  - Pratlong, Florent
+PY  - 2021
+TI  - Introducing the "15-Minute City": Sustainability Resilience and Place Identity in Future Post-Pandemic Cities
+JO  - Smart Cities
+DO  - 10.3390/smartcities4010006
+N1  - 15분 시간예산 국제 근거 (파리 15분 도시) ✅
+ID  - 014
+ER  - 
+
+TY  - JOUR
+AU  - Hägerstrand T.
+PY  - 1970
+TI  - What about people in regional science?
+JO  - Papers in Regional Science 24:7-24
+DO  - 10.1111/j.1435-5597.1970.tb01464.x
+N1  - 시공간 프리즘 원전 — Catchment Area 이론적 기원. 원 저널명 Papers of the Regional Science Association
+ID  - 015
+ER  - 
+
+TY  - JOUR
+AU  - Miller H.J.
+PY  - 1991
+TI  - Modelling accessibility using space-time prism concepts within geographical information systems
+JO  - International Journal of Geographical Information Systems 5(3):287-301
+DO  - 10.1080/02693799108927856
+N1  - 시공간 프리즘을 GIS 네트워크 분석으로 구현한 원전
+ID  - 016
+ER  - 
+
+TY  - JOUR
+AU  - Geurs, K.T.
+AU  - van Wee, B.
+PY  - 2004
+TI  - Accessibility evaluation of land-use and transport strategies: review and research directions
+JO  - Journal of Transport Geography 12(2):127-140
+DO  - 10.1016/j.jtrangeo.2003.10.005
+N1  - 접근성 측정 방법론 리뷰 — 네트워크 기반 접근성 배경
+ID  - 017
+ER  - 
+
+TY  - JOUR
+AU  - Thorsson, Sofia
+AU  - Lindberg, Fredrik
+AU  - Eliasson, Ingegärd
+AU  - Holmer, Björn
+PY  - 2007
+TI  - Different methods for estimating the mean radiant temperature in an outdoor urban setting
+JO  - International Journal of Climatology
+DO  - 10.1002/joc.1537
+N1  - MRT 산출 방법 비교 원전 — 방법론 2.5절 핵심 인용
+ID  - 018
+ER  - 
+
+TY  - JOUR
+AU  - Lindberg, Fredrik
+AU  - Holmer, Björn
+AU  - Thorsson, Sofia
+PY  - 2008
+TI  - SOLWEIG 1.0 — Modelling spatial variations of 3D radiant fluxes and mean radiant temperatures in complex urban settings
+JO  - International Journal of Biometeorology
+DO  - 10.1007/s00484-008-0162-7
+N1  - SOLWEIG 모델 원전
+ID  - 019
+ER  - 
+
+TY  - JOUR
+AU  - Lindberg, Fredrik
+AU  - Grimmond, C.S.B.
+AU  - Gabey, Andrew
+AU  - Huang, Bei
+AU  - Kent, Christoph W.
+AU  - Sun, Ting
+AU  - Theeuwes, Natalie E.
+AU  - Järvi, Leena
+AU  - Ward, Helen C.
+AU  - Capel-Timms, I.
+AU  - Chang, Yuanyong
+AU  - Jonsson, Per
+AU  - Krave, Niklas
+AU  - Liu, Dongwei
+AU  - Meyer, D.
+AU  - Olofson, K. Frans G.
+AU  - Tan, Jianguo
+AU  - Wästberg, Dag
+AU  - Xue, Lingbo
+AU  - Zhang, Zhe
+PY  - 2018
+TI  - Urban Multi-scale Environmental Predictor (UMEP): An integrated tool for city-based climate services
+JO  - Environmental Modelling & Software
+DO  - 10.1016/j.envsoft.2017.09.020
+N1  - UMEP 플랫폼 — 합성 DSM 기반 Method B 근거
+ID  - 020
+ER  - 
+
+TY  - JOUR
+AU  - Colaninno, Nicola
+AU  - Basu, Rounaq
+AU  - Hosseini, Maryam
+AU  - Alhassan, Abdulaziz
+AU  - Liu, Liu
+AU  - Sevtsuk, Andres
+PY  - 2024
+TI  - A sidewalk-level urban heat risk assessment framework using pedestrian mobility and urban microclimate modeling
+JO  - EPB: Urban Analytics and City Science 52(5):1071-1090
+DO  - 10.1177/23998083241280746
+N1  - 보도 세그먼트 단위 열위험 평가 — 가장 가까운 선행연구. SOLWEIG+UTCI+보행이동량. DOI 오류 수정(241272942→241280746)
+ID  - 021
+ER  - 
+
+TY  - JOUR
+AU  - Basu, Rounaq
+AU  - Colaninno, Nicola
+AU  - Alhassan, Aziz
+AU  - Sevtsuk, Andres
+PY  - 2024
+TI  - Hot and bothered: Exploring the effect of heat on pedestrian route choice behavior and accessibility
+JO  - Cities
+DO  - 10.1016/j.cities.2024.105435
+N1  - 보행자 열회피 행동 + 접근성 감소 실증 = Basu2024_HeatPedestrianRouteChoice.pdf (2026-07-10: 기존 표기 오류였던 Cities2024_HeatPedestrianRouteChoice.pdf라는 파일명이 실제로는 무관한 별개 한국어 논문(정지우&남진 2022
+ID  - 022
+ER  - 
+
+TY  - JOUR
+AU  - Melnikov, Valentin R.
+AU  - Christopoulos, Georgios I.
+AU  - Krzhizhanovskaya, Valeria V.
+AU  - Lees, Michael H.
+AU  - Sloot, Peter M. A.
+PY  - 2022
+TI  - Behavioural thermal regulation explains pedestrian path choices in hot urban environments
+JO  - Scientific Reports
+DO  - 10.1038/s41598-022-06383-5
+N1  - 보행자 그늘 경로 선택 행동 실증 — Hard Cut 행동 타당성 근거
+ID  - 023
+ER  - 
+
+TY  - JOUR
+AU  - Azegami, Yasuhiko
+AU  - Imanishi, Mineko
+AU  - Fujiwara, Kunihiko
+AU  - Kusaka, Hiroyuki
+PY  - 2023
+TI  - Effects of solar radiation in the streets on pedestrian route choice in a city during the summer season
+JO  - Building and Environment
+DO  - 10.1016/j.buildenv.2023.110250
+N1  - 보행자 28.2%가 그늘 때문에 경로 선택 — Hard Cut 근거
+ID  - 024
+ER  - 
+
+TY  - JOUR
+AU  - Wolf, Henrik
+AU  - Vierø, Ane Rahbek
+AU  - Szell, Michael
+PY  - 2025
+TI  - CoolWalks for active mobility in urban street networks
+JO  - Scientific Reports
+DO  - 10.1038/s41598-025-97200-2
+N1  - 그늘 경로 선택 모델링 — 보행 네트워크 열환경 분석 연계
+ID  - 025
+ER  - 
+
+TY  - JOUR
+AU  - Ali-Toudert, F.
+AU  - Mayer, H.
+PY  - 2006
+TI  - Numerical study on the effects of aspect ratio and orientation of an urban street canyon on outdoor thermal comfort
+JO  - Building and Environment 41:94-108
+DO  - 10.1016/j.buildenv.2005.01.013
+N1  - H/W Canyon 비율과 열환경 관계 — SVF-MRT 연결 배경. 구 DOI 10.1016/j.buildenv.2005.01.030 오류(다른 논문 연결됨) 수정
+ID  - 026
+ER  - 
+
+TY  - JOUR
+AU  - Ali-Toudert, F.
+AU  - Mayer, H.
+PY  - 2007
+TI  - Effects of asymmetry galleries overhanging façades and vegetation on thermal comfort in urban street canyons
+JO  - Solar Energy
+DO  - 10.1016/j.solener.2006.10.007
+N1  - Canyon 형태 변수와 MRT 공간 분화 — Method A 근사 타당성 배경
+ID  - 027
+ER  - 
+
+TY  - JOUR
+AU  - Jia, Siqi
+AU  - Wang, Yuhong
+AU  - Wong, Nyuk Hien
+AU  - Chen, Wu
+AU  - Ding, Xiaoli
+PY  - 2022
+TI  - Influences of the thermal environment on pedestrians' thermal perception and travel behavior in hot weather
+JO  - Building and Environment
+DO  - 10.1016/j.buildenv.2022.109687
+N1  - 소프트 패널티 핵심 사례 — 슬라이드의 'Chen et al. 2022'는 이 논문(공저자 Chen W)임. 논문 표기는 Jia et al. 2022
+ID  - 028
+ER  - 
+
+TY  - JOUR
+AU  - Dong, Xinyu
+AU  - Li, Xiaoya
+AU  - Ye, Yanmei
+AU  - Su, Dan
+AU  - Yang, Runjia
+AU  - Lausch, Angela
+PY  - 2024
+TI  - Measuring urban thermal environment from an accessibility-based perspective
+JO  - Geography and Sustainability 5:329-342
+DO  - 10.1016/j.geosus.2024.02.004
+N1  - 열환경 공급-수요 접근성 측정 프레임워크. 페이지 수정 172-182→329-342
+ID  - 029
+ER  - 
+
+TY  - JOUR
+AU  - Yoon, Donghyuck
+AU  - Cha, Dong-Hyun
+AU  - Lee, Myong-In
+AU  - Min, Ki-Hong
+AU  - Kim, Joowan
+AU  - Jun, Sang-Yoon
+AU  - Choi, Yonghan
+PY  - 2020
+TI  - Recent changes in heatwave characteristics over Korea
+JO  - Climate Dynamics 55:1685-1696
+DO  - 10.1007/s00382-020-05420-1
+N1  - 국내 폭염 빈도·강도 증가 + NAO·GPH 메커니즘 분석. 페이지 1685-1696(구 기록 1703-1717 오류 수정)
+ID  - 030
+ER  - 
+
+TY  - JOUR
+AU  - IPCC
+PY  - 2022
+TI  - Climate Change 2022: Impacts Adaptation and Vulnerability (WGII AR6)
+JO  - Cambridge University Press
+DO  - 10.1017/9781009325844.001
+N1  - 기후변화로 도시 폭염 빈도·강도 증가 — 연구 배경 근거 ✅
+ID  - 031
+ER  - 
+
+TY  - JOUR
+AU  - Matheron G.
+PY  - 1963
+TI  - Principles of geostatistics
+JO  - Economic Geology
+DO  - 10.2113/gsecongeo.58.8.1246
+N1  - Kriging 기원 논문 ✅
+ID  - 032
+ER  - 
+
+TY  - JOUR
+AU  - Lee, J.S.
+AU  - Han, A.T.
+PY  - 2024
+TI  - Heat vulnerability and spatial equity of cooling center: Planning implications from the Korean case
+JO  - Urban Climate
+DO  - 10.1016/j.uclim.2024.101869
+N1  - 국내 폭염 취약성 × 접근성 공간 불평등 — TARR 정책 함의 비교
+ID  - 033
+ER  - 
+
+TY  - JOUR
+AU  - Thorsson, S.
+PY  - 2011
+TI  - Potential changes in outdoor thermal comfort conditions in Gothenburg Sweden due to climate change: the influence of urban geometry
+JO  - International Journal of Climatology
+DO  - 10.1002/joc.2231
+N1  - 기후변화×도시형태 열쾌적성 예측 연구 — soft penalty 내용 없음 확인. 슬라이드 인용 오류로 판단. 논문에서 인용 제외
+ID  - 034
+ER  - 
+
+TY  - JOUR
+AU  - Fitzpatrick, K.
+PY  - 2006
+TI  - Another look at pedestrian walking speed
+JO  - Transportation Research Record
+DO  - 10.3141/1982-05
+N1  - 신호 타이밍 권장 속도 1.07 m/s (3.85 km/h) — 4.5 km/h 아님 확인. 논문에서 인용 제외. 보행속도 4.5 km/h는 OSMnx/Boeing(2017) 관행으로 처리
+ID  - 035
+ER  - 
+
+TY  - JOUR
+AU  - Shepard D.
+PY  - 1968
+TI  - A two-dimensional interpolation function for irregularly-spaced data
+JO  - Proceedings of the 1968 ACM National Conference pp.517-524
+DO  - 10.1145/800186.810616
+N1  - IDW(역거리 가중 보간) 원전
+ID  - 036
+ER  - 
+
+TY  - JOUR
+AU  - Buo, Isaac
+AU  - Khan, Waqar Hassan
+AU  - Crabtree, Evan
+AU  - Emmott, Fletcher
+AU  - Hariyani, Devbrat
+AU  - Middel, Ariane
+PY  - 2026
+TI  - Cool routes: Real-time human thermal exposure routing
+JO  - Building and Environment
+DO  - 10.1016/j.buildenv.2026.114622
+N1  - SOLWEIG + Dijkstra MRT 최적 경로 탐색 — 우리 연구와 방법 유사하나 경로 최적화 목적. Discussion 비교 대상
+ID  - 037
+ER  - 
+
+TY  - JOUR
+AU  - Thorsson, Sofia
+AU  - Lindqvist, Maria
+AU  - Lindqvist, Sven
+PY  - 2004
+TI  - Thermal bioclimatic conditions and patterns of behaviour in an urban park in Göteborg Sweden
+JO  - International Journal of Biometeorology
+DO  - 10.1007/s00484-003-0189-8
+N1  - 열환경 수준에 따른 보행자 공원 이용 행동 변화 실증 — 2.2절 보행 회피 행동 근거 배경 (Thorsson 2011 대체)
+ID  - 038
+ER  - 
+
+TY  - JOUR
+AU  - Wallenberg, Nils
+AU  - Holmer, Björn
+AU  - Lindberg, Fredrik
+AU  - Lönn, Jessika
+AU  - Maesel, Erik
+AU  - Rayner, David
+PY  - 2026
+TI  - A simple step heating approach for wall surface temperature estimation in the SOlar and LongWave Environmental Irradiance Geometry (SOLWEIG) model
+JO  - Geoscientific Model Development
+DO  - 10.5194/gmd-19-1321-2026
+N1  - SOLWEIG 벽면 온도 계산 개선 논문 — 기존 Bogren+Lindberg 경험식(+10K 근사)의 한계 및 개선 근거. Method A 한계 서술 시 인용
+ID  - 039
+ER  - 
+
+TY  - JOUR
+AU  - Zippenfenig P.
+PY  - 2023
+TI  - Open-Meteo.com Weather API [Computer software]
+JO  - Zenodo
+DO  - 10.5281/ZENODO.7970649
+N1  - Open-Meteo ERA5 기반 기상 데이터 API 공식 인용
+ID  - 040
+ER  - 
+
+TY  - JOUR
+AU  - 김지수
+AU  - 강민규
+PY  - 2022
+TI  - 스마트서울 도시데이터 센서(S-DoT)를 활용한 미시적 폭염 취약성 평가에 관한 연구
+JO  - 국토계획
+DO  - 10.17208/jkpa.2022.10.57.5.215
+N1  - KCI 논문 — SCI 논문 인용 부적합. 3절 데이터 출처는 Seoul Metropolitan Government(2024) 공공포털로 대체
+ID  - 041
+ER  - 
+
+TY  - JOUR
+AU  - Aydin, Elif Esra
+AU  - Chen, Zebin
+AU  - Ortner, F. Peter
+AU  - Tay, Jing Zhi
+AU  - Li, Kelvin
+AU  - Chua, Ryan
+PY  - 2026
+TI  - Universal Thermal Climate Index (UTCI)-adjusted pedestrian accessibility: Urban design exploration for climate-resilience in tropical climates
+JO  - Sustainable Cities and Society
+DO  - 10.1016/j.scs.2026.107335
+N1  - 소프트 패널티 방식 최신 사례 (싱가포르 UTCI 조정 보행 접근성) — DOI 확정
+ID  - 042
+ER  - 
+
+TY  - JOUR
+AU  - Seoul Metropolitan Government
+PY  - 2024
+TI  - Smart Seoul Data of Things (S-DoT) Open Sensor Network
+JO  - Open data portal (https://data.seoul.go.kr)
+N1  - S-DoT 기상 데이터 공식 포털 — KCI 논문(041) 대체 인용
+ID  - 043
+ER  - 
+
+TY  - JOUR
+AU  - Johansson, Erik
+AU  - Thorsson, Sofia
+AU  - Emmanuel, Rohinton
+AU  - Krüger, Eduardo
+PY  - 2014
+TI  - Instruments and methods in outdoor thermal comfort studies – The need for standardisation
+JO  - Urban Climate 10:346-366
+DO  - 10.1016/j.uclim.2013.12.002
+N1  - 야외 열쾌적성 기기·방법 표준화 리뷰(26편). T_mrt 측정 기준 높이 1.1m(ISO 7726:1998 직접 확인). UTCI 참조조건: 1.1m/s(4km/h)/135W/m²(2.3MET)/rH50%(Table 4 직접 확인). 야외 globe thermometer 40mm 권장
+ID  - 044
+ER  - 
+
+TY  - JOUR
+AU  - Matzarakis, Andreas
+AU  - Rutz, Frank
+AU  - Mayer, Helmut
+PY  - 2010
+TI  - Modelling radiation fluxes in simple and complex environments: basics of the RayMan model
+JO  - International Journal of Biometeorology 54:131-139
+DO  - 10.1007/s00484-009-0261-0
+N1  - RayMan 모델 원전 — Method C 비교 시 인용 가능
+ID  - 045
+ER  - 
+
+TY  - JOUR
+AU  - Kar, Armita
+AU  - Le, Huyen T. K.
+AU  - Miller, Harvey J.
+PY  - 2023
+TI  - Inclusive Accessibility: Integrating Perceived Accessibility into the Space-Time Prism
+JO  - Annals of the American Association of Geographers 113(10):2456-2479
+DO  - 10.1080/24694452.2023.2236184
+N1  - STP 소프트 제약 통합 포용적 접근성 — 2.1절 인용 추가
+ID  - 046
+ER  - 
+
+TY  - JOUR
+AU  - Sevtsuk, A.
+AU  - Alhassan, A.
+PY  - 2025
+TI  - Madina: A Python package for urban pedestrian and bicycle network analysis
+JO  - Journal of Transport Geography 123:104130
+DO  - 10.1016/j.jtrangeo.2025.104130
+N1  - 보행 네트워크 분석 Python 패키지 — 방법론 비교 배경
+ID  - 047
+ER  - 
+
+TY  - JOUR
+AU  - Wang, Zeqi
+AU  - Liu, Yikai
+AU  - Wang, Tianyu
+AU  - Tang, Shuyang
+AU  - Wu, Xuefei
+PY  - 2025
+TI  - Thermal environment regulation service supply-demand mismatch analysis using H-V2SFCA
+JO  - Urban Climate 60:102356
+DO  - 10.1016/j.uclim.2025.102356
+N1  - 녹지 냉각 서비스 공급-수요 2SFCA — Discussion 프레임 비교 가능
+ID  - 048
+ER  - 
+
+TY  - JOUR
+AU  - Kang, S.
+AU  - Yeon, P.
+PY  - 2024
+TI  - 도시숲 UTCI 및 인체 열반응 연구
+JO  - 한국산림휴양학회지 28(4):29-44
+N1  - KCI 논문 SCI 인용 부적합 — 인용 제외
+ID  - 049
+ER  - 
+
+TY  - JOUR
+AU  - Tartarini, F.
+AU  - Schiavon, S.
+PY  - 2020
+TI  - pythermalcomfort: A Python package for thermal comfort research
+JO  - SoftwareX 12:100578
+DO  - 10.1016/j.softx.2020.100578
+N1  - UTCI 역산 계산 라이브러리 — MRT* 55°C 임계값 추정에 사용
+ID  - 051
+ER  - 
+
+TY  - JOUR
+AU  - Bogren, J.
+AU  - Gustavsson, T.
+AU  - Karlsson, M.
+AU  - Postgård, U.
+PY  - 2000
+TI  - The impact of screening on road surface temperature
+JO  - Meteorological Applications 7:97-104
+DO  - 10.1017/S135048270000150X
+N1  - SOLWEIG 벽면온도 +10K 경험식 원전 — Wallenberg(2026) p.1322에서 재확인. 저자: Bogren/Gustavsson/Karlsson/Postgård
+ID  - 050
+ER  - 
+
+TY  - JOUR
+AU  - Kar, Armita
+AU  - Xiao, Ningchuan
+AU  - Miller, Harvey J.
+AU  - Le, Huyen T.K.
+PY  - 2024
+TI  - Inclusive accessibility: Analyzing socio-economic disparities in perceived accessibility
+JO  - Computers Environment and Urban Systems 114:102202
+DO  - 10.1016/j.compenvurbsys.2024.102202
+N1  - Hard/Soft constraint 개념 - 인지점수 임계값 이하 링크 완전제거가 우리 Hard Cut과 구조적으로 동일. 열환경/SOLWEIG 무관, 접근성 이론 인용용
+ID  - 052
+ER  - 
+
+TY  - JOUR
+AU  - Jeong, J.
+AU  - Nam, J.
+PY  - 2022
+TI  - A Study on Heat Island Management in Seoul Using S-DoT Big Data and Machine Learning Algorithms (스마트서울 도시데이터센서(S-DoT) 빅데이터와 머신러닝 알고리즘을 활용한 서울시 열섬 관리 시뮬레이션 연구)
+JO  - Journal of Smart City 3(1):20-29
+N1  - KCI 논문(도메인 학회지) — SCI 인용 부적합. 2026-07-10 파일명 오류(all_papers/Cities2024_HeatPedestrianRouteChoice.pdf로 잘못 저장돼있던 것) 발견 후 all_papers/Jeong2022_SDoT_HeatIslandML_KOR.pdf로 파일명 정정하며 신규 등재. XGBoost 결측보완+K-means 열섬취약지역 분류, SOLWEIG/MRT 무관
+ID  - 053
+ER  - 
+
+TY  - JOUR
+AU  - Shin, J.
+AU  - Park, J.
+PY  - 2026
+TI  - An Application of the Grid-Based Two-Step Floating Catchment Area Method to Assess the Spatial Accessibility of Green Spaces in Seoul South Korea
+JO  - ISPRS International Journal of Geo-Information 15(2):71
+DO  - 10.3390/ijgi15020071
+N1  - 저자 최근 논문(지도교수 박진우 공저) — 서론 1단락 접근성-삶의질 연결 보강용. Grid-based G2SFCA 방법론(2SFCA 센트로이드 문제 개선), 열노출/SOLWEIG와는 무관, 접근성 형평성 프레이밍만 인용
+ID  - 054
+ER  - 
+
+TY  - JOUR
+AU  - Park, Jinwoo
+AU  - Kang, Jeon-Young
+AU  - Goldberg, Daniel W.
+AU  - Hammond, Tracy A.
+PY  - 2022
+TI  - Leveraging temporal changes of spatial accessibility measurements for better policy implications: a case study of electric vehicle (EV) charging stations in Seoul South Korea
+JO  - International Journal of Geographical Information Science 36(6):1185-1204
+DO  - 10.1080/13658816.2021.1978450
+N1  - 지도교수 박진우 논문 — 서론 1단락 '인프라 차이에 따른 접근성 불균등' 근거. EV충전소 접근성의 중심부-주변부 공간적 불균등(hot/cold spot) 실증. 열노출/SOLWEIG와는 무관, 접근성 형평성 프레이밍만 인용
+ID  - 055
+ER  - 
