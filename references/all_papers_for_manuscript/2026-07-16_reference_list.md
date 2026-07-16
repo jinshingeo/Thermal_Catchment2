@@ -1,8 +1,8 @@
 작성일: 2026-07-16
-버전: v15 (Methods 방법론 근거 — 기상요인 공간스케일 조사: UMEP URock/TARGET 소스코드
-+ 신규 문헌 3편, 그중 1편만 PDF 확보·검증 완료, 2편은 PDF 미확보 상태로 잠정 기록)
-상태: **Introduction 완료(12편) / Methods 5건(재인용 3 + 소스코드 2) 추가, 신규 문헌
-2편 PDF 확보 대기 / Related Work 대기**
+버전: v16 (Methods 방법론 근거 — 기상요인 공간스케일 조사 완결: UMEP URock/TARGET
+소스코드 + 신규 문헌 3편 전부 PDF 확보·직접 확인 완료)
+상태: **Introduction 완료(12편) / Methods 8건(재인용 3 + 소스코드 2 + 신규 3) 추가 /
+Related Work 대기**
 
 ---
 
@@ -518,18 +518,87 @@ OpenFOAM CFD(96 CPU, 72시간)를 사용하나 이는 슈퍼컴퓨팅 자원이 
   코드 확인). 이 역시 URock과 마찬가지로 본 연구는 도입하지 않은 경로.
 - **확인**: 사용자 확인 완료 (2026-07-16, PDF 직접 확인)
 
-### 신규 문헌 3편 — ⚠️ WebFetch 기반 조사, PDF 원문 미확보(등재 규칙 미충족 상태)
+### Lee, Park & Mayer (2025) — PDF 확보·직접 확인 완료
 
-아래 3편은 오늘 WebSearch/WebFetch로 발견해 내용을 확인했으나, **PDF 원문을 직접
-읽지 못해 이 문서의 등재 규칙(PDF 원문 직접 확인)을 아직 충족하지 못함** —
-정식 인용 전 PDF 확보와 원문 대조가 필요. 사용자가 다운로드 예정(PMC가 자동
-다운로드를 차단함).
+- **서지정보**: Lee, H., Park, S., & Mayer, H. (2025). Approach for the vertical
+  wind speed profile implemented in the UTCI basics blocks UTCI applications at
+  the urban pedestrian level. *International Journal of Biometeorology*, 69(3),
+  567–580. DOI: 10.1007/s00484-024-02835-x
+  (`references/all_papers/Lee2025_UTCI_VerticalWindProfile.pdf`)
+- **인용 목적**: 우리가 AWS 10m 풍속을 그대로 쓰는 것(변환 없이)이 Bröde(2012)
+  공식 절차와는 정합적이지만, **UTCI 자체의 풍속 프로파일 가정이 도시환경에서
+  구조적 한계를 갖는다**는 점을 Methods/Discussion에서 명시하기 위함
+- **원문 (Abstract, p.1)**:
+  > "the VWSP is implemented in the UTCI basics, but only for neutral atmospheric
+  > stability and a roughness length (z0) for short-cut grassland (z0 = 0.01 m).
+  > This methodological approach cannot be changed in the UTCI basics so far...
+  > [UTCI] cannot be applied [with log law] within the urban canopy layer (UCL).
+  > If the UTCI is nevertheless applied at the urban pedestrian level,
+  > inaccuracies in the UTCI values will occur. With reference to z0 = 0.80 m,
+  > which is more typical for the UCL, they can be **up to 7 K**"
+- **번역**: "풍속수직프로파일(VWSP)은 UTCI 기초에 구현되어 있으나 중립대기조건과
+  짧은잔디밭 조도길이(z0=0.01m)에 대해서만 성립하며, 이 방법론적 접근은 UTCI
+  기초에서 현재 변경 불가능하다... UTCI가 그럼에도 도시 보행자 수준에 적용되면
+  UTCI 값에 오차가 발생한다. 도시캐노피층에 더 전형적인 z0=0.80m을 기준으로 하면
+  그 오차는 최대 7K에 이를 수 있다."
+- **판단**: 우리가 지금 쓰는 표준 UTCI(Bröde 2012 공식 그대로, z0=0.01m 암묵
+  가정)는 도시캐노피층 내부(즉 건물 사이 보행자 수준)에서 최대 7K의 오차 가능성을
+  내포함 — 이는 우리 연구의 **명시적 한계(limitation)**로 Discussion에 서술
+  필요. 동시에 이 논문이 인용하는 Brecht et al.(2020)의 스케일 구분(아래 참고)은
+  오히려 "그렇다면 어느 스케일에 UTCI를 적용하는 게 맞는가"에 대한 답을 제공 —
+  우리의 단일값+MRT공간화 방식을 정당화하는 근거로 반전 활용 가능.
+- **확인**: 사용자 확인 완료 (2026-07-16, PDF 직접 확인)
 
-| 논문 | DOI | 저장 시 권장 파일명 | 핵심 발견(WebFetch 요약, ⚠️ 원문 미대조) |
-|---|---|---|---|
-| Lee, Park & Mayer (2025), *Int J Biometeorol* 69(3):567–580 | 10.1007/s00484-024-02835-x | `Lee2025_UTCI_VerticalWindProfile.pdf` | UTCI 기초의 로그풍속프로파일(z₀=0.01m)이 도시지표면에 안 맞고 도시캐노피층 내에서 적용 불가함을 비판, z₀=0.80m 제안. Brecht et al.(2020) 인용해 "UTCI는 city quarter 이상 스케일에 적합, 건물·거리 해상도는 다른 지수가 적합"이라는 스케일 구분 제시 |
-| Krüger & Di Napoli (2022), *Theor Appl Climatol* | 10.1007/s00704-022-04129-x | `Kruger2022_ReanalysisProxy.pdf` | 재분석자료(ERA5 등, 격자 31×31km)를 현장관측 대신 쓸 때 UTCI 평균편향 여름 -3.65°C(전체 -0.81°C), 표준편차 4.13°C — 광역 단일값 사용의 오차 정량화 사례. 단, 이 논문은 재분석자료 대상이라 실측 AWS 기반인 우리와는 성격이 다름 |
-| Brecht, Schädler & Schipper (2020), *Meteorol Z* 29:97–116 | 10.1127/metz/2020/1010 | `Brecht2020_UTCIClimatologyGermany.pdf` | "UTCI is suited for operational meteorological data... at spatial scales from city quarters onwards"의 원출처(Lee et al. 2025의 재인용으로 확인, 우리가 직접 원문 대조는 아직 안 함). 독일 RCM 앙상블 UTCI 기후값 연구 — 우선순위 낮음(핵심 논거의 1차 출처 확인용) |
+### Brecht, Schädler & Schipper (2020) — PDF 확보·직접 확인 완료
+
+- **서지정보**: Brecht, B.M., Schädler, G., & Schipper, J.W. (2020). UTCI
+  climatology and its future change in Germany – an RCM ensemble approach.
+  *Meteorologische Zeitschrift*, 29(2), 97–116. DOI: 10.1127/metz/2020/1010
+  (`references/all_papers/Brecht2020_UTCIClimatologyGermany.pdf`)
+- **인용 목적**: "UTCI가 적합한 공간 스케일"에 대한 1차 출처 직접 확인(Lee et
+  al. 2025의 재인용이 정확한지 대조) — 본 연구의 도메인 전체 단일 기상값 채택을
+  뒷받침하는 핵심 근거
+- **원문 (p.2, Introduction)**:
+  > "the UTCI uses the wind speed at a height of 10 m above ground level, making
+  > it well suited for operational data and applications at **spatial scales
+  > from city quarters onwards**, whereas indices using the wind speed at the
+  > biometeorological reference height of 1.1 m above ground level are more
+  > suitable for **building and street resolving simulations**."
+- **번역**: "UTCI는 지상 10m 높이의 풍속을 사용하며, 이 때문에 **동(city quarter)
+  단위 이상의 공간 스케일**에서의 운영 데이터·적용에 적합하다. 반면 생체기상학
+  기준높이(1.1m)의 풍속을 직접 쓰는 지수들은 **건물·거리 단위의 정밀 시뮬레이션**에
+  더 적합하다."
+- **판단**: Lee et al.(2025)의 재인용과 원문이 정확히 일치함을 확인(교차검증
+  완료). **본 연구가 URock(건물 해상도 풍속장)을 도입하지 않고 도메인 단일
+  기상값 + MRT만 5m 공간화하는 방식이, "UTCI는 애초에 동 단위 이상 스케일에
+  맞게 설계됐다"는 이 원 논문의 명시적 진술과 정합적** — Aydin(2026)의 CFD
+  풍속장(건물 해상도)을 UTCI에 결합하는 방식이 오히려 이 논문 기준으로는 스케일
+  부정합일 수 있음을 시사.
+- **확인**: 사용자 확인 완료 (2026-07-16, PDF 직접 확인)
+
+### Krüger & Di Napoli (2022) — PDF 확보·직접 확인 완료
+
+- **서지정보**: Krüger, E.L., & Di Napoli, C. (2022). Feasibility of climate
+  reanalysis data as a proxy for onsite weather measurements in outdoor thermal
+  comfort surveys. *Theoretical and Applied Climatology*. DOI:
+  10.1007/s00704-022-04129-x
+  (`references/all_papers/Kruger2022_ReanalysisProxy.pdf`)
+- **인용 목적**: 재분석자료(단일값의 한 종류) 사용 시 발생하는 오차를 정량적으로
+  보여줌 — 단, 우리는 재분석자료가 아니라 실측 AWS를 쓰므로 이 오차가 그대로
+  적용되지 않는다는 점을 명확히 구분하기 위함(과잉 적용 방지)
+  ERA5-HEAT는 31×31km 격자.
+- **원문 (Table 3, p.348 / 373)**:
+  > "Mean bias −0.81 [1h] ... Standard deviation 4.13" / Summer(N=171) "mean
+  > bias −3.65 °C UTCI, whereas in winter, they overestimate it by [+1.10]"
+- **번역**: "전체 평균편향 −0.81°C(표준편차 4.13), 여름철만 보면 −3.65°C 과소
+  추정, 겨울철은 반대로 과대추정."
+- **판단**: PDF 원문 대조 결과 어제 WebFetch 요약과 수치 일치(교차검증 완료).
+  **이 오차는 ERA5(31×31km 저해상도 재분석자료) 고유의 문제이지, "단일값
+  자체"의 문제가 아님** — 본 연구는 실측 AWS(성동 421) 지점값을 쓰므로 이
+  논문의 오차 규모를 그대로 인용하면 과장이 됨. Methods/Limitation에서 "재분석
+  자료 기반 단일값과 실측 기반 단일값은 오차 성격이 다르다"는 구분 문장의
+  근거로만 활용.
+- **확인**: 사용자 확인 완료 (2026-07-16, PDF 직접 확인)
 
 - **참고(등재 대상 아님)**: Gallacher & Boehnke (2025), *Int J Biometeorol*,
   DOI: 10.1007/s00484-024-02830-2 (드레스덴 모바일 열쾌적성 매핑) — 여러 관측소
@@ -690,3 +759,15 @@ OpenFOAM CFD(96 CPU, 72시간)를 사용하나 이는 슈퍼컴퓨팅 자원이 
   추가 발견했으나 PMC 자동다운로드 차단으로 PDF 미확보 — WebFetch 요약만 잠정
   기록, DOI·권장 파일명을 사용자에게 전달해 수동 다운로드 요청. 등재 규칙(PDF
   직접 확인)을 아직 충족 못했음을 표에 명시.
+- **2026-07-16 (추가, v16)**: 사용자가 3편 PDF를 모두 다운로드해 제공. 전부 직접
+  열어 어제 WebFetch 요약과 원문 대조 — 3편 모두 수치·인용 정확히 일치(교차검증
+  통과). Lee et al.(2025) p.1에서 z0=0.80m 기준 UTCI 오차가 **최대 7K**까지
+  가능함을 원문으로 추가 확인(어제는 몰랐던 구체 수치). Brecht et al.(2020) p.2
+  원문에서 "spatial scales from city quarters onwards" 문장을 직접 확인 —
+  Lee et al.(2025)의 재인용이 정확했음을 검증. Krüger & Di Napoli(2022)는
+  ERA5(31×31km) 재분석자료 고유의 오차이며 우리(실측 AWS)와는 성격이 다르다는
+  점을 명시해 과잉 인용 방지. 3편 모두 정식 등재 완료(임시 표 형식에서 정식
+  항목으로 전환). 사용자 질문("TARGET/URock 도구를 실제로 UTCI 산출에 써야
+  하나?")에 대한 답변은 별도 대화로 진행 — Brecht(2020)의 스케일 구분에 따르면
+  URock(건물 해상도)은 오히려 표준 UTCI와 스케일 부정합 가능성이 있고, TARGET
+  (100m, city quarter급)이 상대적으로 더 정합적이라는 판단.
