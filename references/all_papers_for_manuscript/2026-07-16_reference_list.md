@@ -1,6 +1,6 @@
-작성일: 2026-07-15
-버전: v12 (Methods 방법론 근거 2건 추가 — 기상입력 단일값 정당화)
-상태: **Introduction 완료(12편) / Methods 2건(재인용) 추가 / Related Work 대기**
+작성일: 2026-07-16
+버전: v14 (Methods 방법론 근거 — Bröde 2012 풍속 입력 공식 규정 + Basu 교차검증 추가)
+상태: **Introduction 완료(12편) / Methods 4건(재인용 3 + 소스코드 1) 추가 / Related Work 대기**
 
 ---
 
@@ -411,6 +411,63 @@ IPCC 2022(PDF 미확보, 검증 보류) — 1편 남음)*
 OpenFOAM CFD(96 CPU, 72시간)를 사용하나 이는 슈퍼컴퓨팅 자원이 필요한
 예외 사례로 본 연구 규모에서는 비현실적임을 근거로 언급 가능.
 
+### UMEP/SOLWEIG 소스코드 확인 — 풍속 높이보정 (논문 아님, 우리가 실제 사용하는 도구 원본)
+
+- **인용 목적**: "풍속을 별도 보정 없이 그대로 썼다"는 인상을 피하고, 우리가 쓰는
+  SOLWEIG 자체에 표준 풍속 높이보정이 내장되어 있으며 그 가정(10m 관측고도)이
+  우리 AWS 데이터 실제 관측고도와 일치함을 Methods에서 명시하기 위함
+- **원본 파일**: `/opt/miniconda3/lib/python3.13/site-packages/umep/functions/SOLWEIGpython/solweig_runner.py`,
+  L539-540
+  ```python
+  WsPET  = (1.1  / self.params.Wind_Height.Value.magl) ** 0.2 * self.environ_data.Ws[i]
+  WsUTCI = (10.0 / self.params.Wind_Height.Value.magl) ** 0.2 * self.environ_data.Ws[i]
+  ```
+- **기본 파라미터**: `/opt/miniconda3/lib/python3.13/site-packages/umep/parametersforsolweig.json`
+  L186-191 — `"Wind_Height": {"Value": {"magl": 10.0}, "Comment": "Height of wind
+  sensor for PET and UTCI calcualtions."}`
+- **판단**: SOLWEIG는 관측 풍속을 거듭제곱 프로파일(지수 0.2)로 PET는 1.1m,
+  UTCI는 10m 높이로 각각 보정하는 구조. 기본 관측고도 가정은 10m이며, 우리
+  풍속 입력 출처(AWS 성동 421, WMO 표준 10m 관측탑 — `2026-07-09_MRT산출_
+  기술노트` 참고)와 정확히 일치해 별도 보정 없이도 이 코드의 전제와 정합적.
+  **논문 인용이 아니라 소프트웨어 소스코드 직접 확인**이므로 위 12편·재인용
+  2건과는 성격이 다름 — Methods에서 "SOLWEIG(UMEP)의 표준 처리 방식을
+  따랐다"는 서술의 근거로 사용, 참고문헌 목록에는 UMEP 자체 논문
+  (Lindberg et al. 2018, id 확인 필요)으로 등재 검토.
+- **확인**: 사용자 확인 완료 (2026-07-16)
+
+### [id 007] Bröde et al. (2012) — Methods 재인용 (풍속 입력 규정)
+
+- **최초 등장**: Introduction 5단락 참고(Hard Cut 임계값 근거)
+- **인용 목적**: UTCI 계산 자체의 공식 절차와 풍속 입력 규정의 근거 — 우리가
+  10m 관측 풍속을 별도 높이보정 없이 그대로 쓰는 것이 임의 처리가 아니라
+  원 논문의 공식 요구사항을 그대로 만족하는 것임을 Methods에서 명시하기 위함
+- **원문 (p.491, "Input of wind speed")**:
+  > "Following meteorological conventions..., wind speed (va) is taken as the
+  > value 10 m above the ground level. The UTCI-Fiala model of thermoregulation
+  > internally applies a formula (Oke 1987) to calculate the local wind speed
+  > profile at the body level. If wind speed measurements are only available
+  > from a height x (m) different from 10 m, the user should apply the same
+  > formula to convert the measured wind speed (va_xm) to the required input va
+  > according to Eq. 3. va = va_xm · LOG(10/0.01) / LOG(x/0.01)"
+- **번역**: "기상학 관례에 따라 풍속(va)은 지상 10m 높이 값을 사용한다. UTCI-Fiala
+  모델은 내부적으로 Oke(1987) 공식을 적용해 신체 높이의 국소 풍속 프로파일을
+  계산한다. 관측 풍속이 10m가 아닌 다른 높이(x)에서만 확보 가능하다면, 사용자는
+  동일한 공식(식 3)을 적용해 관측 풍속을 요구되는 10m 입력값으로 변환해야 한다."
+- **원문 (p.490, "Usage guidelines")**: "Computing UTCI values... by using the
+  software and the web-based application available from the project's website
+  (http://www.utci.org)... straightforward, given the user has the required
+  input on air temperature, wind speed, humidity and mean radiant temperature."
+  — 공식 UTCI 산출은 6차 다항 회귀식(polynomial regression)으로 근사한
+  "operational procedure"이며, 이를 구현한 공식 소프트웨어/웹앱이 utci.org에
+  있음. **우리가 쓰는 `pythermalcomfort.utci()`는 이 공식 회귀식의 재구현체.**
+- **교차검증(2026-07-16)**: Basu et al.(2024) p.6는 ERA5 풍속을 **1.5m** 높이
+  그대로 사용, Bröde(2012)의 10m 규정이나 Eq.3 변환 언급 없음(⚠️ 이유 불명 —
+  ERA5 표준 변수 자체가 10m인데 왜 1.5m을 썼는지 원문에 설명 없음). 반면 본
+  연구는 AWS 성동 421(WMO 표준 10m 관측탑) 데이터를 변환 없이 그대로 사용 —
+  **Bröde(2012) 원 논문의 공식 절차를 Basu(2024)보다 더 엄밀하게 준수**하는
+  구조임을 확인.
+- **확인**: 사용자 확인 완료 (2026-07-16)
+
 ## 4. Results
 
 *(검증 완료 항목 없음)*
@@ -533,3 +590,23 @@ OpenFOAM CFD(96 CPU, 72시간)를 사용하나 이는 슈퍼컴퓨팅 자원이 
   Basu(2024)·Colaninno(2024) 재인용으로 근거 등재.
 - **파일명 변경**: 2026-07-14 → 2026-07-15 (내용 갱신에 따른 날짜 갱신, 규칙에
   따름).
+- **2026-07-16 (추가, v13)**: 지도교수 논의로 MRT 채택 → UTCI 직접 채택으로
+  방법론 대전환 후, UTCI 오피셜 산출 준비 차 기상요인(특히 풍속) 반영 방식을
+  재조사. 논문 PDF가 아니라 우리가 실제 쓰는 UMEP `solweig_runner.py`
+  L539-540과 `parametersforsolweig.json` L186-191을 직접 열어 확인 — 풍속
+  높이보정이 거듭제곱 프로파일(지수 0.2)로 이미 내장되어 있고 기본 관측고도
+  가정(10m)이 우리 AWS 풍속 출처(WMO 표준 10m 관측탑)와 일치함을 확인. Methods
+  섹션 신규 항목으로 등재(논문 재인용 2건과 별도 — 소스코드 직접 확인). 이
+  조사를 촉발한 질문("12편이 원래 기상요인 확인용이었나?")에 대한 답: 아니오
+  — 12편은 서론 인용 검증용이었고, 기상요인 반영방식 확인은 그중 실제 UTCI/MRT
+  공간모델링을 수행하는 5편(Basu·Colaninno·Aydin·Jia·Buo)에 한정된 별도
+  작업이었음을 명확히 함. 나머지 7편은 모델링을 하지 않는 논문이라 확인 대상이
+  아님.
+- **2026-07-16 (추가, v14)**: Bröde et al.(2012) p.491 "Input of wind speed"
+  절 재확인 — UTCI는 공식적으로 10m 높이 풍속을 입력으로 요구하며(Oke 1987
+  공식으로 내부 자동 변환), 관측고도가 다르면 사용자가 로그프로파일(Eq.3)로
+  10m로 변환해야 함을 명시. 이를 계기로 Basu(2024)의 실제 풍속 처리를
+  교차검증한 결과 Basu는 ERA5 1.5m 풍속을 변환 없이 그대로 사용 —
+  Bröde(2012) 공식 규정과 다름(사유 불명, ⚠️). 반면 본 연구의 AWS 10m 관측탑
+  데이터는 변환 없이도 Bröde(2012) 규정을 그대로 만족 — 오히려 선례(Basu)보다
+  더 엄밀한 준수임을 확인. Methods 섹션 신규 항목(Bröde 2012 재인용)으로 등재.
