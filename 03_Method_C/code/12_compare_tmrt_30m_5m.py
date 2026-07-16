@@ -19,7 +19,7 @@ mpl.rcParams['axes.unicode_minus'] = False
 
 DIR_30M = '/Users/jin/석사논문/Thermal_Catchment/03_Method_C/results/dsm_cdsm_seongdong/solweig_approach1_30m'
 DIR_5M = '/Users/jin/석사논문/Thermal_Catchment/03_Method_C/results/solweig_approach2_5m'
-OUT_DIR = '/Users/jin/석사논문/Thermal_Catchment/03_Method_C/results/figures'
+OUT_DIR = '/Users/jin/석사논문/Thermal_Catchment/03_Method_C/results/figures/seongdong_compare_30m_5m'
 os.makedirs(OUT_DIR, exist_ok=True)
 
 CMAP = 'YlOrRd'

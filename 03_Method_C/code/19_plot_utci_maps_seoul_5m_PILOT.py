@@ -17,7 +17,7 @@ mpl.rcParams['font.family'] = 'AppleGothic'
 mpl.rcParams['axes.unicode_minus'] = False
 
 BASE = '/Users/jin/석사논문/Thermal_Catchment/03_Method_C/results/utci_seoul_5m_PILOT_단일기상값'
-OUT_DIR = '/Users/jin/석사논문/Thermal_Catchment/03_Method_C/results/figures'
+OUT_DIR = '/Users/jin/석사논문/Thermal_Catchment/03_Method_C/results/figures/seoul_5m_utci_PILOT'
 os.makedirs(OUT_DIR, exist_ok=True)
 
 CMAP = 'YlOrRd'

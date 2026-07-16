@@ -13,7 +13,7 @@ mpl.rcParams['font.family'] = 'AppleGothic'
 mpl.rcParams['axes.unicode_minus'] = False
 
 GPKG_PATH = '/Users/jin/석사논문/Thermal_Catchment/03_Method_C/results/2026-07-16_link_tmrt_seoul_5m.gpkg'
-OUT_DIR = '/Users/jin/석사논문/Thermal_Catchment/03_Method_C/results/figures'
+OUT_DIR = '/Users/jin/석사논문/Thermal_Catchment/03_Method_C/results/figures/seoul_5m_mrt'
 os.makedirs(OUT_DIR, exist_ok=True)
 
 CMAP = 'YlOrRd'

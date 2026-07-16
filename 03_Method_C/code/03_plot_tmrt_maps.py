@@ -15,7 +15,7 @@ mpl.rcParams['font.family'] = 'AppleGothic'
 mpl.rcParams['axes.unicode_minus'] = False
 
 BASE = '/Users/jin/석사논문/Thermal_Catchment/03_Method_C/results/dsm_cdsm_seongdong/solweig_approach1_30m'
-OUT_DIR = '/Users/jin/석사논문/Thermal_Catchment/03_Method_C/results/figures'
+OUT_DIR = '/Users/jin/석사논문/Thermal_Catchment/03_Method_C/results/figures/seongdong_approach1_30m'
 os.makedirs(OUT_DIR, exist_ok=True)
 
 CMAP = 'YlOrRd'  # 순차형(sequential) 단일색상, 온도 크기 표현에 적합

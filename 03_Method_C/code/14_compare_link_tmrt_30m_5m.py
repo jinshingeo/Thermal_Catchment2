@@ -17,7 +17,7 @@ mpl.rcParams['axes.unicode_minus'] = False
 
 GPKG_30M = '/Users/jin/석사논문/Thermal_Catchment/03_Method_C/results/2026-07-09_link_tmrt_approach1_30m.gpkg'
 GPKG_5M = '/Users/jin/석사논문/Thermal_Catchment/03_Method_C/results/2026-07-12_link_tmrt_approach2_5m.gpkg'
-OUT_DIR = '/Users/jin/석사논문/Thermal_Catchment/03_Method_C/results/figures'
+OUT_DIR = '/Users/jin/석사논문/Thermal_Catchment/03_Method_C/results/figures/seongdong_compare_30m_5m'
 os.makedirs(OUT_DIR, exist_ok=True)
 
 CMAP = 'YlOrRd'

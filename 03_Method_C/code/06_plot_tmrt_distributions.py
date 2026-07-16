@@ -15,7 +15,7 @@ mpl.rcParams['font.family'] = 'AppleGothic'
 mpl.rcParams['axes.unicode_minus'] = False
 
 CSV_PATH = '/Users/jin/석사논문/Thermal_Catchment/03_Method_C/results/2026-07-09_link_tmrt_approach1_30m.csv'
-OUT_DIR = '/Users/jin/석사논문/Thermal_Catchment/03_Method_C/results/figures'
+OUT_DIR = '/Users/jin/석사논문/Thermal_Catchment/03_Method_C/results/figures/seongdong_approach1_30m'
 os.makedirs(OUT_DIR, exist_ok=True)
 
 df = pd.read_csv(CSV_PATH)

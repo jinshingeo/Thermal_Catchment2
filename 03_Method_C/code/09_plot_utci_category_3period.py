@@ -17,7 +17,7 @@ mpl.rcParams['font.family'] = 'AppleGothic'
 mpl.rcParams['axes.unicode_minus'] = False
 
 GPKG_PATH = '/Users/jin/석사논문/Thermal_Catchment/03_Method_C/results/2026-07-09_link_utci_approach1_30m.gpkg'
-OUT_DIR = '/Users/jin/석사논문/Thermal_Catchment/03_Method_C/results/figures'
+OUT_DIR = '/Users/jin/석사논문/Thermal_Catchment/03_Method_C/results/figures/seongdong_approach1_30m'
 os.makedirs(OUT_DIR, exist_ok=True)
 
 # Bröde et al.(2012) Table 3(p.489) UTCI 열스트레스 분류 — 우리 데이터 범위(약 26~46도)에
