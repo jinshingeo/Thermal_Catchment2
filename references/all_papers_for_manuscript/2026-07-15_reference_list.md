@@ -1,7 +1,6 @@
-작성일: 2026-07-14
-버전: v11 (서론 전체 인용 검증 완료)
-상태: **서론(Introduction) 1~5단락 전체 완료 — 12편 검증 완료(IPCC 1편은 검증
-생략 승인됨). 다음: Related Work 집필 및 검증**
+작성일: 2026-07-15
+버전: v12 (Methods 방법론 근거 2건 추가 — 기상입력 단일값 정당화)
+상태: **Introduction 완료(12편) / Methods 2건(재인용) 추가 / Related Work 대기**
 
 ---
 
@@ -371,7 +370,46 @@ IPCC 2022(PDF 미확보, 검증 보류) — 1편 남음)*
 
 ## 3. Methods (연구자료 구축 및 방법론)
 
-*(검증 완료 항목 없음)*
+### [id 022] Basu et al. (2024) — Methods 재인용
+
+- **최초 등장**: Introduction 1·2단락 참고
+- **인용 목적**: 기상 입력 방식 근거 — "MRT만 공간적으로 산출하고, 기온·습도·풍속은
+  공간적으로 균일한 단일값(시간별로만 변화)을 사용"하는 방식이 본 연구만의
+  단순화가 아니라 기존 SCI 연구에서도 채택된 방식임을 뒷받침
+- **원문 (p.6)**:
+  > "mean radiant temperature is the only variable among the four that varies
+  > both spatially and temporally; air temperature, relative humidity, and
+  > wind speed are spatially constant, but vary hourly. When all four
+  > components are combined, we obtain hourly UTCI values at a 2.5 meter
+  > resolution."
+- **번역**: "네 변수(기온·습도·풍속·MRT) 중 MRT만 공간적으로도 시간적으로도
+  변화하며, 기온·상대습도·풍속은 공간적으로는 일정하되 시간별로만 변화한다.
+  네 요소를 결합하여 2.5m 해상도의 시간별 UTCI 값을 얻는다."
+- **비고**: 기온/습도/풍속은 ERA5(Copernicus C3S) 재분석자료에서 2m(기온·습도)
+  및 1.5m(풍속) 고도 값을 사용. URock/CFD 등 별도 바람장 모델링 없음.
+- **확인**: 사용자 확인 완료 (2026-07-15)
+
+### [id 021] Colaninno et al. (2024) — Methods 재인용
+
+- **최초 등장**: Introduction 2단락 참고
+- **인용 목적**: 위와 동일 — Basu(2024)와 같은 연구팀(공저자 겹침)이 동일 방법론을
+  다른 사례(LA 폭염)에서도 사용했음을 교차 확인
+- **원문 (p.8)**:
+  > "We then used the ERA5 dataset, produced by the Copernicus Climate Change
+  > Service (C3S) at the European Center for Medium-Range Weather Forecasts
+  > (ECMWF)... meteorological data, are the main inputs used to model UTCI."
+- **번역**: "ECMWF의 Copernicus 기후변화서비스(C3S)가 생산하는 ERA5 데이터셋을
+  사용하였다... 기상 데이터가 UTCI 모델링의 주요 입력값이다."
+- **비고**: 1m 해상도 SOLWEIG로 MRT만 공간분포 산출, 기온·습도·풍속은 ERA5
+  단일값. CFD/URock 언급 없음 — Basu(2024)와 동일한 팀 방법론 확인(교차검증).
+- **확인**: 사용자 확인 완료 (2026-07-15)
+
+**종합 판단**: MIT 팀(Basu·Colaninno)의 SCI 논문 2편이 모두 "MRT만 공간적으로
+산출, 기온/습도/풍속은 재분석자료 기반 단일값"이라는 동일 방법론을 채택 —
+본 연구가 URock 등 보행자 수준 바람장 모델링 없이 met.txt 단일값 + SOLWEIG
+공간 MRT를 쓰는 것에 대한 선례로 사용 가능. Aydin et al.(2026)만 예외적으로
+OpenFOAM CFD(96 CPU, 72시간)를 사용하나 이는 슈퍼컴퓨팅 자원이 필요한
+예외 사례로 본 연구 규모에서는 비현실적임을 근거로 언급 가능.
 
 ## 4. Results
 
@@ -482,3 +520,16 @@ IPCC 2022(PDF 미확보, 검증 보류) — 1편 남음)*
   (4) 3단락 Jia 재인용이 오인용이었음을 발견해 삭제 및 무인용 논리로 대체,
   (5) Buo(2026)와의 Discussion 비교 메모 기록. 다음 단계는 Related Work
   섹션 집필 및 동일한 검증 절차 적용.
+- **2026-07-15 (추가, v12)**: 사용자 질문("URock까지 필요한 건가?")을 계기로
+  UMEP `Spatial Thermal Comfort` 알고리즘 소스코드 확인 — UTCI 계산 시
+  Age/Activity/Clothing 등 개인변수는 미사용(PET/COMFA 전용), UROCK_MAP은
+  필수 파라미터. 이를 계기로 선행연구 4편의 실제 풍속 처리 방식 재조사: Basu
+  (2024) p.6, Colaninno(2024) p.8 — 둘 다 ERA5 재분석자료로 기온·습도·풍속을
+  공간적으로 균일한 단일값(시간별 변화만)으로 처리하고 MRT만 SOLWEIG로
+  공간분포 산출. Aydin(2026)만 예외적으로 OpenFOAM CFD(96 CPU, 72시간)
+  사용. Jia(2022)는 현장실측(공간모델링 없음). **결론: 본 연구가 URock 없이
+  met.txt 단일값 + SOLWEIG 공간 MRT를 쓰는 것은 MIT팀(Basu·Colaninno) SCI
+  논문의 선례를 따르는 것으로 방법론적으로 방어 가능** — Methods 섹션에
+  Basu(2024)·Colaninno(2024) 재인용으로 근거 등재.
+- **파일명 변경**: 2026-07-14 → 2026-07-15 (내용 갱신에 따른 날짜 갱신, 규칙에
+  따름).
