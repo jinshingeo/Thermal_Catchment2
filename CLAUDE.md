@@ -1,5 +1,5 @@
 # 프로젝트 CLAUDE.md — Thermal Catchment Area 연구
-> 최종 수정: 2026-07-16
+> 최종 수정: 2026-07-17
 
 ## 연구 개요
 - **핵심 제안**: Thermal Catchment Area — 열노출을 반영한 보행 환경 접근성 공간 단위 제안
@@ -12,27 +12,31 @@
 - **2026-09-15**: 석사논문 원고 제출
 - **2026-09-말**: 중간발표
 
-## 연구의 두 축 (방법론 기여)
+## MRT 산출 방법 (확정 — "방식 비교" 아님, 2026-07-16 정리)
 
-### 축 1 — MRT 산출 방식 비교 (3가지)
-| ID | 방법 | 핵심 내용 | 데이터 요구 |
-|----|------|----------|-----------|
-| A | 약식 MRT (Oke H/W Canyon SVF) | OSM 네트워크 + 건물 SHP만 사용 | 최소 |
-| B | 합성 DSM + SOLWEIG | 건물 폴리곤+층수 → UMEP 합성 DSM | 중간 |
-| C | 오픈소스 30m DSM + SOLWEIG | 오픈소스 DSM 활용 | 중간 |
+과거 "Method A/B/C 비교"라는 축 개념은 폐기. 지금은 **SOLWEIG(UMEP) 단일 파이프라인으로
+확정**되어 있으며, 실행은 QGIS GUI가 아니라 Python 스크립트화해 서버에서 배치 실행.
 
-비교 목적: 서울 도보 링크 평가에서 데이터 비용 대비 어떤 MRT 산출 방식이 적합한가 실증적으로 제안
-
-### 축 2 — 링크 단위 기상 입력 방식 비교 (미확정, 전체 검토 중)
-| 방식 | 내용 |
-|------|------|
-| 단일값 | 단일 기상관측소 대표값 |
-| IDW | 복수 S-DoT 센서 역거리가중 보간 |
-| MQ | Modified Quadratic 보간 |
-| 크리깅 | 공간 자기상관 반영 보간 |
-
-기여 포인트: 링크 단위 보행 분석에서 기상 입력을 어떻게 처리할 것인가 (기후학이 아닌 보행 분석 목적)
-축 2는 메인 연구는 아니나, 방법론 신뢰성 확보를 위해 병행 수행
+- **DEM(지면)**: Copernicus GLO-30(30m, 오픈소스)
+- **DSM(건물)**: 건축물대장 실측 HEIGHT → 없으면 지상층수×3m → 없으면 도로명주소
+  건물자료 층수×3m → 없으면 기본값 3m, 4단계 하이브리드(전부 실제 정부데이터 기반).
+  Python(rasterio)으로 직접 rasterize+merge하여 합성
+- **CDSM(수목)**: 산림청 임상도(1:5,000) 실측 HEIGHT 필드 rasterize, 캐노피 투과율
+  τ=0.05(Lindberg & Grimmond 2011), 수간부는 캐노피높이의 25% 근사(UMEP 튜토리얼 권장식)
+- **기상 입력 방식(단일값+MRT만 공간화)**: 🔶 조사·논증 정리 완료(최초 2026-07-16) —
+  데이터 한계 때문이 아니라 연구설계·지수 설계 스케일과도 방향이 맞다는 논거는 정리됨.
+  **단, 최종 채택 여부는 아직 확정 아님** — 상세 논증은 `writing/`에서 파일명에
+  `방법론_단일기상값` 포함된 가장 최근 날짜의 md 참고
+- **해상도**: 30m(성동구 파일럿/원해상도), **5m(서울 전역, 현재 확정 수준에서 픽스 —
+  더 이상 정교화하지 않음)**, 1m(성동구 추가 예정, DEM 입수 대기)
+- **방법론 기여 포인트(재정의)**: 이 MRT 파이프라인 자체가 연구의 핵심 기여는 아님 —
+  본 연구의 핵심 기여는 위 "연구 개요"의 **Thermal Catchment Area(TCA) 제안**(열노출을
+  반영한 보행 접근성의 새로운 공간 단위)과, 기존 선행연구(대부분 연속 패널티/위험지수
+  방식)가 다루지 않은 **Hard Cut 방식의 공백을 찾아 반영한 것**이다. 이 SOLWEIG MRT
+  파이프라인은 그 제안을 뒷받침하는 실증 기반이며, 부가적으로 **서울 전역(약
+  1,200km²) 규모·5m 해상도까지 실제로 확장 적용한 사례가 드물다는 점**도 방법론적
+  강점으로 함께 제시 가능. 상세 입력 요소 전체 목록·출처는 `writing/`에서 파일명에
+  `MRT산출_기술노트` 포함된 가장 최근 날짜의 md 참고(최초 2026-07-09, 한계 9개 항목 포함)
 
 ## 핵심 파라미터 (2026-07-16 방법론 대전환 반영)
 - **WALK_SPEED** = 4.5 km/h
@@ -42,9 +46,7 @@
 - **낮 시간대 포화(거의 전 링크 임계값 초과)는 방법론 한계가 아니라 폭염 열노출 실태를 보여주는 결과로 해석** — 아래 3시간대 프레임 도입의 근거
 - **대표 시각**: 14시 단일 방식 폐기 → **3축 프레임**: 아침 출근 / 저녁 퇴근 / 낮 시간대 중 포화가 가장 높은 시각 — 세 범주만 확정, 구체적 시각은 미정
   - 의도: 출퇴근 시간대(공간 분화 뚜렷)로 "왜 이 시간대인가"를 방어 가능하게 하고, 정오(포화) 결과와 대비시켜 결과 서사를 풍부하게 함
-- **MRT 산출**: 서울 전체 5m 수준에서 픽스 — 더 이상 정교화하지 않음
-- **UTCI 산출**: 파일럿 → 오피셜 격상 예정. 기상요인(Ta/RH/Va/복사 전체, 풍속만이 아님) 반영 시 공간 스케일·보간 방법을 코드 공개 선행연구 조사해 따라갈 것
-- 상세 결정 근거: `writing/2026-07-16_방법론결정_UTCI채택_3시간대프레임.md`
+- 상세 결정 근거: `writing/`에서 파일명에 `방법론결정_UTCI채택` 포함된 가장 최근 날짜의 md 참고 (최초 2026-07-16)
 
 ## 분석 날짜 (✅ 확정)
 - **방식**: 2025년 폭염일 12일(07-23~08-03) 평균 — 시각은 위 3축 프레임 참고 (14시 단일 방식 폐기)
@@ -66,54 +68,70 @@
 
 ### 접근성 이론
 - **Geurs & van Wee (2004)**: location-based contour measure — 우리 TCA의 이론적 위치
-- **Bröde et al. (2012)**: UTCI ≥38°C = Very Strong Heat Stress (Table 3, p.489)
+- **Bröde et al. (2012)**: UTCI ≥38°C = Very Strong Heat Stress (Table 3, p.489); 풍속은 10m 관측값 요구(p.491)
 
 ### MRT/SOLWEIG 방법론 선례
 - **Buo et al. (2026)**: SOLWEIG 1m + Dijkstra MRT 임피던스 라우팅, 검증 d=0.73 / MAE=6.2°C
 - **Basu et al. (2024)**: SOLWEIG + LiDAR DSM + ERA5 → UTCI 파이프라인 (보스턴)
 - **Wolf et al. (2025)**: OSM 네트워크 + 건물 그늘 → CoolWalkability diurnal profile (08:00~17:00)
 
-## 완독 선행연구 21편 목록
+### 기상 입력 방식 선례 (2026-07-16 신규 정리, 최종 채택 아님)
+- **Basu et al. (2024) / Colaninno et al. (2024)**: 기온·습도·풍속은 도메인 전체 단일값
+  (ERA5), MRT만 공간적으로 산출 — 본 연구와 동일 구조의 SCI 선례
+- **Brecht et al. (2020)**: UTCI는 10m 풍속 기반이라 "동(city quarter) 단위 이상"
+  스케일에 적합, 건물·거리 해상도는 다른 지수가 더 적합 — 본 연구가 URock(건물해상도
+  풍속장)을 도입하지 않는 이론적 근거
+- **Lee, Park & Mayer (2025)**: UTCI 기초의 z₀=0.01m 가정이 도시캐노피층에서 최대 7K
+  오차 유발 가능 — UTCI 자체가 건물·거리 정밀도를 향해 설계되지 않았음을 뒷받침
+- 전체 논증: `writing/`에서 파일명에 `방법론_단일기상값` 포함된 가장 최근 날짜의 md 참고
+
+## 완독 선행연구 25편 목록
 | 논문 | 역할 |
 |------|------|
 | Geurs & van Wee (2004) | 접근성 contour measure 이론 위치 |
 | Melnikov et al. (2022) | Hard Cut 행동 근거 (0.86) |
 | Azegami et al. (2023) | Hard Cut 행동 근거 (28.2%) |
 | Jia et al. (2022) | 소프트 패널티 선례, 13시 근거, SOLWEIG 방법론 |
-| Basu et al. (2024) | 소프트 패널티 선례, walkshed 감소 프레임 |
+| Basu et al. (2024) | 소프트 패널티 선례, walkshed 감소 프레임, 기상입력 단일값 선례 |
 | Aydin et al. (2026) | 소프트 패널티 선례, PTT 방식 |
 | Wolf et al. (2025) | CoolWalkability diurnal profile, 2.5D 건물, 8m 캐노피 |
 | Dong et al. (2024) | 접근성 기반 열환경 평가, NDVI/NDBI 변수 |
 | Buo et al. (2026) | MRT 임피던스 라우팅, SOLWEIG 1m 검증 |
 | Lindberg et al. (2008) | SOLWEIG 1.0 원본 — 모델 구조·수식·검증 (R²=0.94, RMSE=4.8K) |
-| Bröde et al. (2012) | UTCI 운영 절차 원본 — ≥38°C=Very Strong Heat Stress (Table 3, p.489) |
+| Bröde et al. (2012) | UTCI 운영 절차 원본 — ≥38°C=Very Strong Heat Stress, 풍속 10m 입력 규정 |
 | Thorsson et al. (2007) | MRT 3가지 방법 비교 — Rayman 한계, 여름 MRT 피크 14~15시 |
-| **Ali-Toudert & Mayer (2006)** | 가로 종횡비·방위 → PET 분포, T_mrt/T_a 공간 차이 최대 40K 실증 |
-| **Ali-Toudert & Mayer (2007)** | 갤러리·식생 → PET 최대 22~24K 감소, T_mrt가 결정적 변수 재확인 |
-| **Kantor & Unger (2011)** | MRT 측정·산출 방법 리뷰, SOLWEIG r=0.96 확인, 흡수계수 표준값 |
-| **Johansson et al. (2014)** | 야외 열쾌적성 기기·방법 표준화 리뷰, UTCI 참조조건, 측정높이 1.1m |
-| **Lindberg et al. (2016)** | SOLWEIG ground cover scheme, 아스팔트 ε=0.95/α=0.18, 그림자 지배 확인 |
-| **Lindberg & Grimmond (2011)** | SOLWEIG 2.0 식생 스킴, τ=0.05(여름), R²=0.91, RMSE=3.1K |
-| **Wallenberg et al. (2026)** | SOLWEIG 벽 T_s step heating, T_mrt ±2.5°C 영향, R²=0.93~0.94 |
-| **Lindberg et al. (2018)** | UMEP 플랫폼 — 합성 DSM 기반 SOLWEIG 구동 워크플로 |
-| **Colaninno et al. (2024)** | 가장 가까운 선행연구 — SOLWEIG+UTCI+보행량, HEI. 우리와 차별: Hard Cut vs 연속 지수, TCA vs 세그먼트 리스크 |
+| Ali-Toudert & Mayer (2006) | 가로 종횡비·방위 → PET 분포, T_mrt/T_a 공간 차이 최대 40K 실증 |
+| Ali-Toudert & Mayer (2007) | 갤러리·식생 → PET 최대 22~24K 감소, T_mrt가 결정적 변수 재확인 |
+| Kantor & Unger (2011) | MRT 측정·산출 방법 리뷰, SOLWEIG r=0.96 확인, 흡수계수 표준값 |
+| Johansson et al. (2014) | 야외 열쾌적성 기기·방법 표준화 리뷰, UTCI 참조조건, 측정높이 1.1m |
+| Lindberg et al. (2016) | SOLWEIG ground cover scheme, 아스팔트 ε=0.95/α=0.18, 그림자 지배 확인 |
+| Lindberg & Grimmond (2011) | SOLWEIG 2.0 식생 스킴, τ=0.05(여름), R²=0.91, RMSE=3.1K |
+| Wallenberg et al. (2026) | SOLWEIG 벽 T_s step heating, T_mrt ±2.5°C 영향, R²=0.93~0.94 |
+| Lindberg et al. (2018) | UMEP 플랫폼 — 합성 DSM 기반 SOLWEIG 구동 워크플로 |
+| Colaninno et al. (2024) | 가장 가까운 선행연구 — SOLWEIG+UTCI+보행량, HEI. 기상입력 단일값 선례 |
+| **Lee, Park & Mayer (2025)** | UTCI 풍속프로파일 z₀ 가정 한계(최대 7K 오차), 도시캐노피층 적용 불가 |
+| **Brecht et al. (2020)** | UTCI 적정 스케일 = 동 단위 이상, 건물·거리 해상도 부적합 |
+| **Krüger & Di Napoli (2022)** | 재분석자료(31×31km) 단일값 사용 시 오차(여름 −3.65°C) — 본 연구(실측 AWS)와 오차 성격 구분용 |
+| **Broadbent et al. (2019)** | UMEP TARGET(100m 격자 기온모델) — 도입 안 한 대안 경로로 참고 |
 
-스터디노트: `references/study_note_*.md` (21편 완독)
+스터디노트: `references/study_note_*.md` (21편 완독, 신규 4편 미작성 — 필요시 추가)
 이슈 매핑: `references/study_note_이슈매핑_해결방안.md`
 
-## 폴더 구조
+## 폴더 구조 (2026-07-16 실제 상태 대조 — 일부 레거시/재정의됨)
 ```
 Thermal_Catchment/
 ├── CLAUDE.md
 ├── README.md
 ├── references/
-│   ├── all_papers/          ← 선행연구 PDF
-│   ├── study_note_*.md      ← 논문별 스터디노트 (9편 완독)
-│   └── reference_list.csv   ← EndNote 연동 마스터 목록
-├── 01_Method_A/             ← 약식 MRT (H/W Canyon SVF)
-├── 02_Method_B/             ← 합성 DSM + SOLWEIG
-├── 03_Method_C/             ← 30m DSM + SOLWEIG
-├── 04_MeteoComparison/      ← 기상 입력 방식 비교
+│   ├── all_papers/                  ← 선행연구 PDF
+│   ├── all_papers_for_manuscript/   ← 논문 인용 검증 마스터 목록(reference_list.md, 갱신 시 파일명 날짜 변경됨)
+│   ├── study_note_*.md              ← 논문별 스터디노트
+│   └── reference_list.csv           ← EndNote 연동 마스터 목록
+├── 00_Baseline_UTCI/        ← ⚠️ 빈 스캐폴드(.gitkeep만 존재), 실제 미사용 — 정리 여부 확인 필요
+├── 01_Method_A/             ← 약식 MRT(H/W Canyon SVF) 성동구 파일럿 완료본 보존용, "Method A" 비교축은 폐기됨
+├── 02_Method_B/             ← ⚠️ 사실상 빈 폴더(참고문헌 1개뿐), 제외 확정(2026-07 초) — 정리 여부 확인 필요
+├── 03_Method_C/             ← 현재 실제 MRT/UTCI 파이프라인(서울 전역 5m 등)이 전부 여기 위치. "Method C" 명칭은 레거시, 실질적으로 "메인 코드/결과 폴더"
+├── 04_MeteoComparison/      ← 원래 목적(보간방식 비교)은 보류 상태. 실질 용도는 단일값 met.txt 생성 스크립트 저장소로 전환됨
 ├── archive/                 ← 파일럿(성동구) 코드 보존 — 수정·참조 금지
 ├── writing/                 ← 논문 초안 (YYYY-MM-DD_섹션명_vN.md)
 ├── data/                    ← 원본 데이터
@@ -133,12 +151,20 @@ Thermal_Catchment/
 - 결과 파일 명명: `results/YYYY-MM-DD_설명.csv`
 - md 파일 상단 필수 항목: `작성일`, `버전`, `근거논문`
 - Git 커밋 시 대용량 데이터 파일 포함 금지
+- **CLAUDE.md에서 writing/ 문서를 참조할 때는 정확한 파일명을 박지 말 것** — 파일이
+  갱신되면 날짜가 바뀐 새 파일명으로 대체되는 관례(`reference_list.md` 등)가 있어,
+  고정 파일명 참조는 시간이 지나면 옛 스냅샷을 가리키게 됨. 대신 "키워드 포함,
+  최신 날짜 파일 참고" 형식으로 표기
 
 ## 글쓰기 원칙
 - 분석과 글 작성 **동시 진행** — 분석 완료 후 글쓰기 시작 금지
 - 수정이 적은 섹션부터 초안 작성: Introduction → Study Area → Related Work → Methods
 - 모든 초안 파일: `writing/YYYY-MM-DD_섹션명_vN.md`
 - 글에 인용된 선행연구는 `reference_list.csv`에 즉시 추가
+- 서론 초안은 `writing/`에서 파일명에 `서론` 포함된 가장 최근 날짜·최고 버전의 md
+  참고(최초 2026-07-14 "1차최종_교수님검토전")는 이미 UTCI≥38°C Hard Cut 프레임으로
+  작성되어 있어 2026-07-16 결정과 정합적 — 구조 변경 불필요, "38°C" 최종 확정값
+  반영만 추후 갱신
 
 ## 세션 시작 프로토콜
 사용자가 **"오늘 시작"** 또는 **"/브리핑"** 입력 시:
