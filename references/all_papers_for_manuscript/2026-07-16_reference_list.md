@@ -1,6 +1,8 @@
 작성일: 2026-07-16
-버전: v14 (Methods 방법론 근거 — Bröde 2012 풍속 입력 공식 규정 + Basu 교차검증 추가)
-상태: **Introduction 완료(12편) / Methods 4건(재인용 3 + 소스코드 1) 추가 / Related Work 대기**
+버전: v15 (Methods 방법론 근거 — 기상요인 공간스케일 조사: UMEP URock/TARGET 소스코드
++ 신규 문헌 3편, 그중 1편만 PDF 확보·검증 완료, 2편은 PDF 미확보 상태로 잠정 기록)
+상태: **Introduction 완료(12편) / Methods 5건(재인용 3 + 소스코드 2) 추가, 신규 문헌
+2편 PDF 확보 대기 / Related Work 대기**
 
 ---
 
@@ -468,6 +470,72 @@ OpenFOAM CFD(96 CPU, 72시간)를 사용하나 이는 슈퍼컴퓨팅 자원이 
   구조임을 확인.
 - **확인**: 사용자 확인 완료 (2026-07-16)
 
+### UMEP 소스코드 확인 — 기상요인을 "보간"이 아니라 "격자 모델링"으로 공간화하는 공식 경로 존재
+
+- **인용 목적**: "우리가 쓰는 단일값 방식이 UMEP에서 유일하게 가능한 방식인가?"에
+  대한 답 — UMEP 자체에 기상요인을 공간적으로 반영하는 공식 도구가 있는지 확인
+- **확인 대상**: `processing_umep/postprocessor/spatialtc_algorithm.py`
+  (UMEP의 공식 "Spatial Thermal Comfort" 도구 — UTCI/PET/COMFA를 Tmrt 래스터로부터
+  계산하는 바로 그 도구)
+- **원본 코드 (L93, L127, L201)**:
+  ```python
+  UROCK_MAP = 'UROCK_MAP'
+  self.addParameter(QgsProcessingParameterRasterLayer(self.UROCK_MAP, ...))
+  ws = self.parameterAsRasterLayer(parameters, self.UROCK_MAP, context)
+  ```
+  같은 파일에서 기온·습도는 여전히 스칼라: `Ta = metdata[posMet, 11][0][0]`,
+  `RH = metdata[posMet, 10][0][0]` (met.txt에서 단일 시점값 하나만 추출)
+- **판단**: **UMEP의 공식 UTCI 산출 도구는 풍속만 래스터(격자)로 받고, 기온·습도는
+  여전히 스칼라 단일값으로 처리하는 구조**. 이 래스터는 여러 관측소 값을 보간(IDW/
+  크리깅)한 게 아니라, **URock**(별도 UMEP 도구, `urock_processing_algorithm.py`
+  확인 — "calculate spatial variations of wind speed and wind direction in 3
+  dimensions using 2.5D building and vegetation data", 건물·식생 형상 기반 진단형
+  바람모델)이 만든 물리 기반 격자를 그대로 받는 구조. **본 연구는 이 UROCK_MAP
+  경로를 쓰지 않고 커스텀 `pythermalcomfort.utci()` 스크립트로 Ta/RH/풍속 전부
+  스칼라 처리** — UMEP의 "완전 공식" 경로와는 이 지점에서 갈라짐(URock을 추가
+  도입할지는 별도 검토 필요, 계산비용·시간 예산 고려).
+- **부가 확인**: UMEP에는 기온을 공간적으로 모델링하는 별도 도구 **TARGET**도 존재
+  (`target_algorithm.py` — Broadbent et al. 2019 기반). 아래 별도 항목 참고.
+- **확인**: 사용자 확인 완료 (2026-07-16)
+
+### Broadbent et al. (2019) — TARGET 모델 (PDF 확보·직접 확인 완료)
+
+- **서지정보**: Broadbent, A.M., Coutts, A.M., Nice, K.A., Demuzere, M.,
+  Krayenhoff, E.S., Tapper, N.J., & Wouters, H. (2019). The Air-temperature
+  Response to Green/blue-infrastructure Evaluation Tool (TARGET v1.0): an
+  efficient and user-friendly model of city cooling. *Geoscientific Model
+  Development*, 12(2), 785–803. DOI: 10.5194/gmd-12-785-2019 (오픈액세스,
+  PDF 확보 완료: `references/all_papers/Broadbent2019_TARGET.pdf`)
+- **인용 목적**: UMEP 생태계 안에 기온을 공간적으로(격자로) 모델링하는 공식 도구가
+  실제로 존재함을 확인 — 우리가 안 쓰고 있을 뿐 "택할 수 있는 선택지"였음을 명시
+- **원문 확인 (본문)**: "...spatial resolution of 100 m for air temperature
+  simulations..." / "TARGET treats each model grid point..." / 검증 시
+  "27 AWSs"(호주 애들레이드 Mawson Lakes 실제 관측소 27개망)를 대조 지점으로 사용
+- **판단**: TARGET은 여러 관측소 값을 단순 보간하는 게 아니라, 토지피복(수목·수역·
+  포장 비율)을 입력으로 한 **에너지수지 기반 물리모델**로 100m 격자 기온을 산출하고,
+  27개 실측망으로 검증한 도구. UMEP의 `target_algorithm.py` 소스코드에도 "Possibilities
+  to model multiple grids or a single location is available"라고 명시됨(오늘 소스
+  코드 확인). 이 역시 URock과 마찬가지로 본 연구는 도입하지 않은 경로.
+- **확인**: 사용자 확인 완료 (2026-07-16, PDF 직접 확인)
+
+### 신규 문헌 3편 — ⚠️ WebFetch 기반 조사, PDF 원문 미확보(등재 규칙 미충족 상태)
+
+아래 3편은 오늘 WebSearch/WebFetch로 발견해 내용을 확인했으나, **PDF 원문을 직접
+읽지 못해 이 문서의 등재 규칙(PDF 원문 직접 확인)을 아직 충족하지 못함** —
+정식 인용 전 PDF 확보와 원문 대조가 필요. 사용자가 다운로드 예정(PMC가 자동
+다운로드를 차단함).
+
+| 논문 | DOI | 저장 시 권장 파일명 | 핵심 발견(WebFetch 요약, ⚠️ 원문 미대조) |
+|---|---|---|---|
+| Lee, Park & Mayer (2025), *Int J Biometeorol* 69(3):567–580 | 10.1007/s00484-024-02835-x | `Lee2025_UTCI_VerticalWindProfile.pdf` | UTCI 기초의 로그풍속프로파일(z₀=0.01m)이 도시지표면에 안 맞고 도시캐노피층 내에서 적용 불가함을 비판, z₀=0.80m 제안. Brecht et al.(2020) 인용해 "UTCI는 city quarter 이상 스케일에 적합, 건물·거리 해상도는 다른 지수가 적합"이라는 스케일 구분 제시 |
+| Krüger & Di Napoli (2022), *Theor Appl Climatol* | 10.1007/s00704-022-04129-x | `Kruger2022_ReanalysisProxy.pdf` | 재분석자료(ERA5 등, 격자 31×31km)를 현장관측 대신 쓸 때 UTCI 평균편향 여름 -3.65°C(전체 -0.81°C), 표준편차 4.13°C — 광역 단일값 사용의 오차 정량화 사례. 단, 이 논문은 재분석자료 대상이라 실측 AWS 기반인 우리와는 성격이 다름 |
+| Brecht, Schädler & Schipper (2020), *Meteorol Z* 29:97–116 | 10.1127/metz/2020/1010 | `Brecht2020_UTCIClimatologyGermany.pdf` | "UTCI is suited for operational meteorological data... at spatial scales from city quarters onwards"의 원출처(Lee et al. 2025의 재인용으로 확인, 우리가 직접 원문 대조는 아직 안 함). 독일 RCM 앙상블 UTCI 기후값 연구 — 우선순위 낮음(핵심 논거의 1차 출처 확인용) |
+
+- **참고(등재 대상 아님)**: Gallacher & Boehnke (2025), *Int J Biometeorol*,
+  DOI: 10.1007/s00484-024-02830-2 (드레스덴 모바일 열쾌적성 매핑) — 여러 관측소
+  보간 없이 이동측정 경로 자체를 시계열로 씀, 풍속은 아예 측정 안 함("negligible
+  wind conditions"). 우리 연구에 직접 참고할 방법론은 아니라 등재 보류.
+
 ## 4. Results
 
 *(검증 완료 항목 없음)*
@@ -610,3 +678,15 @@ OpenFOAM CFD(96 CPU, 72시간)를 사용하나 이는 슈퍼컴퓨팅 자원이 
   Bröde(2012) 공식 규정과 다름(사유 불명, ⚠️). 반면 본 연구의 AWS 10m 관측탑
   데이터는 변환 없이도 Bröde(2012) 규정을 그대로 만족 — 오히려 선례(Basu)보다
   더 엄밀한 준수임을 확인. Methods 섹션 신규 항목(Bröde 2012 재인용)으로 등재.
+- **2026-07-16 (추가, v15)**: 사용자 질문("보간해서 반영한 UTCI 산출은 없나? UMEP은
+  격자로 받나?")에 답하기 위해 UMEP 소스코드를 더 파봄. `postprocessor/
+  spatialtc_algorithm.py`(UMEP 공식 UTCI 산출 도구) 확인 결과 **풍속은
+  `UROCK_MAP`이라는 래스터 파라미터로 받고(L93/127/201), 기온·습도는 여전히
+  met.txt 스칼라 단일값**임을 확인 — 우리가 안 쓰고 있는 URock(건물·식생 기반
+  진단형 바람모델) 경로가 공식적으로 존재. 추가로 기온을 공간 모델링하는 별도
+  도구 TARGET(`target_algorithm.py`, Broadbent et al. 2019)도 발견 — 이 논문은
+  오픈액세스라 PDF 확보·직접 확인 완료(100m 격자, 27개 AWS망 검증). 웹서치로
+  Lee et al.(2025, IJB)·Krüger & Di Napoli(2022)·Brecht et al.(2020) 3편을
+  추가 발견했으나 PMC 자동다운로드 차단으로 PDF 미확보 — WebFetch 요약만 잠정
+  기록, DOI·권장 파일명을 사용자에게 전달해 수동 다운로드 요청. 등재 규칙(PDF
+  직접 확인)을 아직 충족 못했음을 표에 명시.
