@@ -3,6 +3,7 @@
 작성일: 2026-07-06
 버전: v1.0
 근거논문: Kar, A., Xiao, N., Miller, H.J., & Le, H.T.K. (2024). Inclusive accessibility: Analyzing socio-economic disparities in perceived accessibility. *Computers, Environment and Urban Systems*, 114, 102202. DOI: https://doi.org/10.1016/j.compenvurbsys.2024.102202
+PDF 경로: `references/all_papers/Armita2024_PerceivedAccessibility.pdf` (2026-07-17 확인 — "walking perception score" 검색으로 실제 소스 PDF 확정. `Kar2023_InclusiveAccessibility_STP.pdf`는 저자가 겹치는 **다른 논문**(Kar, Le & Miller 2023, Annals AAG, Space-Time Prism)이니 혼동 주의)
 
 > ⚠️ **이 논문은 열환경/SOLWEIG와 무관함** (PDF 전체 검색 결과 heat/thermal/UTCI/MRT/SOLWEIG 언급 0건). Buo2026·Jia2022·Basu2024·Colaninno2024와 달리 "SOLWEIG 입력 완전성" 체크리스트는 적용하지 않음 — 대신 **접근성 이론·형평성(soft constraint → Hard Cut 구조) 관점**에서 정리.
 
