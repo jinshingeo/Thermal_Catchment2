@@ -1,6 +1,6 @@
 작성일: 2026-07-21
-버전: v20 (2.1절 place-based/person-based 문단 재구성 — Miller(2007) 등록,
-El-Geneidy&Levinson 2006/Kwan 1999는 확보만 하고 "미사용 후보 풀"로 분리 보관)
+버전: v21 (2.2절 Ali-Toudert & Mayer 2007, Kántor & Unger 2011 등록 —
+2.2절 4개 인용 전부 검증 완료)
 상태: **Introduction 완료(12편) / Methods 8건 완료 / Related Work — v5 기준
 2.1~2.4절 전 문장 검증 완료(Dijkstra 가등록 제외)**
 
@@ -572,6 +572,47 @@ IPCC 2022(PDF 미확보, 검증 보류) — 1편 남음)*
   페이지 범위 94-108 중 7번째 페이지).
 - **확인**: 사용자 확인 완료 (2026-07-20)
 
+### Ali-Toudert & Mayer (2007) — 후속 연구
+
+- **인용 위치**: 2.2절 — "후속 연구(Ali-Toudert & Mayer, 2007)는 갤러리·가로수를
+  함께 적용하면 체감온도(PET)가 최대 24K까지 낮아짐을 보였다."
+- **서지정보**: Ali-Toudert, F., & Mayer, H. (2007). Effects of asymmetry,
+  galleries, overhanging façades and vegetation on thermal comfort in urban
+  street canyons. *Solar Energy*, 81(6), 742-754.
+  (`references/all_papers/AliToudert2007_VegetationFacade_Canyon.pdf`)
+- **원문 (p.751, §4.3 "Use of vegetation")**:
+  > "Further, Fig. 8 gives the PET values for the N-S street with H/W = 1
+  > including a large central row of trees and galleries compared to a street
+  > without trees or galleries. In this case, PET was up to 24 K lower than in
+  > a street without trees."
+- **번역**: "N-S 방향 가로(H/W=1)에 중앙 대형 가로수 열과 갤러리를 함께 적용한
+  경우와 수목·갤러리가 없는 가로를 비교한 PET 값을 Fig.8에 제시한다. 이 경우
+  PET는 수목이 없는 가로 대비 최대 24K 낮았다."
+- **판단**: 초안 인용과 수치·조건(갤러리+가로수 병용) 정확히 일치.
+- **확인**: 사용자 확인 완료 (2026-07-21)
+
+### Kántor & Unger (2011)
+
+- **인용 위치**: 2.2절 — "Kántor & Unger(2011)의 리뷰도 MRT가 열쾌적성 평가에서
+  가장 중요하고 공간 분화가 큰 변수임을 재확인한다."
+- **서지정보**: Kántor, N., & Unger, J. (2011). The most problematic variable
+  in the course of human-biometeorological comfort assessment — the mean
+  radiant temperature. *Central European Journal of Geosciences*, 3(1), 90-100.
+  DOI: 10.2478/s13533-011-0010-x
+  (`references/all_papers/Kantor2011_MRT_ProblematicVariable.pdf`)
+- **원문 (Abstract, p.90)**:
+  > "This paper gives a review on the topic of the mean radiant temperature
+  > Tmrt, the most important parameter influencing outdoor thermal comfort
+  > during sunny conditions. Tmrt summarizes all short wave and long wave
+  > radiation fluxes reaching the human body, which can be very complex
+  > (variable in spatial and also in temporal manner) in urban settings."
+- **번역**: "이 논문은 평균복사온도(MRT)에 관한 리뷰로, MRT는 맑은 날 조건에서
+  실외 열쾌적성에 영향을 미치는 가장 중요한 변수이며... 도시 환경에서
+  공간적으로(시간적으로도) 매우 복잡하게 변화할 수 있다."
+- **판단**: "가장 중요한 변수"·"공간적으로 복잡하게 변화"라는 표현이 초안의
+  "가장 중요하고 공간 분화가 큰 변수"와 정확히 일치.
+- **확인**: 사용자 확인 완료 (2026-07-21)
+
 ### Kar et al. (2024) — "Inclusive Access 1" (Hard Cut 선례, 2.4절)
 
 - **주의**: id 052 Kar et al. (2024)와 **같은 논문, 다른 절 인용**. id 052는
@@ -1107,3 +1148,11 @@ OpenFOAM CFD(96 CPU, 72시간)를 사용하나 이는 슈퍼컴퓨팅 자원이 
   삭제하지 않고 "확보했으나 현재 미사용 — 향후 활용 후보(석사논문 확장판 등)"
   섹션으로 분리 보관(El-Geneidy&Levinson p.4 인용문 포함, Kwan은 원문 미대조
   상태로 서지정보만).
+- **2026-07-21 (v21)**: 사용자가 2.2절을 보고 "인용 문헌이 너무 적은 거
+  아니냐"고 질문 — 확인 결과 이미 4개 문헌(Bröde 2012, Ali-Toudert & Mayer
+  2006/2007, Kántor & Unger 2011)이 인용되어 있었으나 (2006)만 검증 완료
+  상태였음을 발견. 나머지 2편의 PDF가 이미 로컬에 있어 검증 진행. **Ali-
+  Toudert & Mayer(2007)** p.751 "PET was up to 24 K lower than in a street
+  without trees"(갤러리+가로수 병용) 확인. **Kántor & Unger(2011)** Abstract
+  "the most important parameter... variable in spatial... manner" 확인 —
+  둘 다 초안 인용과 정확히 일치. **결과: 2.2절 4개 인용 전부 검증 완료.**
