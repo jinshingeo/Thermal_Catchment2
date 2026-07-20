@@ -1,9 +1,9 @@
 작성일: 2026-07-21
-버전: v18 (2.1절 계보 문헌 추가 — Hägerstrand 1970, Miller 1991 등록,
-Dijkstra 1959 가등록. v5 선행연구 문서로 검증 기준 이전)
-상태: **Introduction 완료(12편) / Methods 8건 완료 / Related Work 진행 중
-(5편 신규 등록 + 백참조 확인, Aydin "96 CPU×72시간"은 사용자 확인 대기 중,
-Dijkstra는 사용자 직접 등재 예정)**
+버전: v19 (2.1절 Geurs & van Wee 2004 재인용 검증 + 오귀속 문장 발견·수정,
+Aydin "96 CPU×72시간" 사용자 확인 완료 — 2.1~2.4절 전 문장 검증 완료)
+상태: **Introduction 완료(12편) / Methods 8건 완료 / Related Work — v5 기준
+2.1~2.4절 전수 검증 완료(Dijkstra 가등록 제외). El-Geneidy & Levinson 2006,
+Miller 2007, Kwan 1999는 PDF 미확보로 인용 보류(TODO)**
 
 ---
 
@@ -268,7 +268,7 @@ IPCC 2022(PDF 미확보, 검증 보류) — 1편 남음)*
     시설에서 실행되었으며, 약 96개 CPU로 72시간이 소요되었다."
   - **판단**: 2.3절 "풍속장은 OpenFOAM CFD로 계산하나 96 CPU×72시간이 소요되어
     도시 전역급 확장에는 비현실적이다" 서술과 수치 정확히 일치. 원문 대조 확인.
-  - **확인**: ⚠️ 사용자 확인 대기 중 — 원문 대조는 완료했으나 사용자 승인 전
+  - **확인**: 사용자 확인 완료 (2026-07-21)
 
 ### [id 021] Colaninno et al. (2024)
 
@@ -445,6 +445,32 @@ IPCC 2022(PDF 미확보, 검증 보류) — 1편 남음)*
   일단 인용하고, 추후 사용자가 직접 PDF 확보해 정식 등재할 예정.
 - **확인**: ⚠️ 미검증 — 사용자 직접 등재 예정, 그 전까지 이 항목은 "가등록"
   상태로만 취급.
+
+### [id 017] Geurs & van Wee (2004) — 2.1절 재인용 ("contour measure = isochrone")
+
+- **최초 등장**: Introduction 1단락 참고(p.131, 3.1.4절 "정확한 측정=정책 전제"
+  인용, id 017)
+- **인용 위치**: 2.1절 — "Catchment Area는 개념적으로 이소크론(isochrone) 분석
+  및 Geurs & van Wee(2004)의 contour measure와 같은 계보 위에 있다."
+- **원문 (p.134, §3.3 "Location-based accessibility measures")**:
+  > "A contour measure, also known as isochronic measure, cumulative
+  > opportunities, proximity count or daily accessibility, counts the number
+  > of opportunities which can be reached within a given travel time, distance
+  > or cost... This measure is popular in urban planning and geographical
+  > studies."
+- **번역**: "contour measure는 isochronic measure, 누적기회, 근접성 카운트,
+  일일 접근성이라고도 불리며, 주어진 이동시간·거리·비용 내에서 도달 가능한
+  기회의 수를 센다... 이 지표는 도시계획·지리학 연구에서 널리 쓰인다."
+- **판단**: "contour measure = isochronic measure"라는 저자 자신의 명시적
+  동일시 확인 — 2.1절 인용 정확히 부합.
+- **⚠️ 오귀속 발견 및 수정(2026-07-21)**: 같은 문단의 앞 문장 "버퍼 기반 반경
+  분석과 달리 실제 도로 구조를 반영하며, 도시 시설 접근성 분석에서 표준
+  방법론으로 광범위하게 활용된다"에도 원래 이 논문이 인용되어 있었으나, 원문
+  전체를 검색해도 Geurs & van Wee(2004)가 버퍼 기반 vs 네트워크 기반 접근성을
+  구분해 서술하는 대목이 없음을 확인. 사용자 결정: 이 문장은 **인용 없이
+  필자 서술로 남김**(오귀속 방지). `2026-07-21_선행연구_v5_전체판.md`에 반영
+  완료.
+- **확인**: 사용자 확인 완료 (2026-07-21)
 
 ### [신규] Kar et al. (2023)
 
@@ -1003,3 +1029,15 @@ OpenFOAM CFD(96 CPU, 72시간)를 사용하나 이는 슈퍼컴퓨팅 자원이 
   명시). v4를 이어받아 2.1절에 place-based/person-based 이분법 보강 문단을
   추가한 **v5** 신규 생성 — 이후 검증 기준 문서를 v5로 이전, v4 상단에 대체
   안내 추가.
+- **2026-07-21 (v19)**: 사용자가 Aydin(2026) "96 CPU×72시간" 재확인 —
+  등재 확정. 이어서 2.1절 "Catchment Area는... contour measure와 같은 계보
+  위에 있다" 문장을 사용자가 재검증 요청 — Geurs & van Wee(2004) p.134에서
+  "A contour measure, also known as isochronic measure... is popular in urban
+  planning and geographical studies" 확인, 저자 자신이 "contour=isochronic"을
+  명시함을 확인. **동시에 오귀속 발견**: 같은 문단 앞 문장("버퍼 기반 반경
+  분석과 달리 실제 도로 구조를 반영...표준 방법론으로 광범위하게 활용된다")도
+  Geurs & van Wee(2004)를 인용하고 있었으나, 원문 전체 검색 결과 이 논문이
+  버퍼 vs 네트워크 기반 구분을 다루는 대목이 없음을 확인 — 사용자 결정으로
+  이 문장의 인용을 제거하고 필자 서술로 전환(`v5` 반영 완료). **결과: v5
+  기준 2.1~2.4절 전 문장 검증 완료**(Dijkstra 가등록, El-Geneidy&Levinson/
+  Miller2007/Kwan1999 TODO 제외).
