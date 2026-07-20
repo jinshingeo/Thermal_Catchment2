@@ -61,10 +61,18 @@
 - **Melnikov et al. (2022)**: 그늘 경로 이동 비용이 햇볕 경로의 **0.86** 수준 (abstract); β̄=1.16 — 햇볕 100m를 그늘 116m로 인식 (Discussion)
 - **Azegami et al. (2023)**: 보행자 **28.2%**가 최단경로보다 그늘 경로 우선 선택; 일부는 신호 대기까지 감수
 
-### 소프트 패널티 선행연구 (우리와 차별화 대상)
-- **Basu et al. (2024)**: UTCI 1°C 증가 → 인지 보행거리 **80.8m** 증가 (소프트 패널티)
+### 연속적 패널티 선행연구 (우리와 차별화 대상)
+- **Basu et al. (2024)**: UTCI 1°C 증가 → 인지 보행거리 **80.8m** 증가 (연속적 패널티)
 - **Jia et al. (2022)**: Strong heat stress 조건(PET>32°C)에서 보행속도 **10~20%** 감소
-- **Aydin et al. (2026)**: PTT(인지이동시간) 방식 소프트 패널티, 싱가포르
+- **Aydin et al. (2026)**: PTT(인지이동시간) 방식 연속적 패널티, 싱가포르
+
+### 용어 주의 — "소프트/하드"는 쓰지 않는다
+- 우리 논문의 이분법은 **연속적 패널티**(열노출량에 비례해 비용을 연속적으로
+  증가시키는 방식, Basu/Jia/Aydin) vs **Hard Cut**(임계값 초과 링크를 네트워크에서
+  완전 제거)이다
+- Kar et al. (2023/2024)가 쓰는 "soft/hard constraint"는 **제약의 성격**(주관적
+  인지 vs 객관적 물리) 기준으로, 우리의 **함수 형태**(연속 vs 이진) 기준과 다른 축
+  — Kar 논문을 인용할 때 이 차이를 반드시 명시할 것 (혼동 방지)
 
 ### 접근성 이론
 - **Geurs & van Wee (2004)**: location-based contour measure — 우리 TCA의 이론적 위치
@@ -91,9 +99,9 @@
 | Geurs & van Wee (2004) | 접근성 contour measure 이론 위치 |
 | Melnikov et al. (2022) | Hard Cut 행동 근거 (0.86) |
 | Azegami et al. (2023) | Hard Cut 행동 근거 (28.2%) |
-| Jia et al. (2022) | 소프트 패널티 선례, 13시 근거, SOLWEIG 방법론 |
-| Basu et al. (2024) | 소프트 패널티 선례, walkshed 감소 프레임, 기상입력 단일값 선례 |
-| Aydin et al. (2026) | 소프트 패널티 선례, PTT 방식 |
+| Jia et al. (2022) | 연속적 패널티 선례, 13시 근거, SOLWEIG 방법론 |
+| Basu et al. (2024) | 연속적 패널티 선례, walkshed 감소 프레임, 기상입력 단일값 선례 |
+| Aydin et al. (2026) | 연속적 패널티 선례, PTT 방식 |
 | Wolf et al. (2025) | CoolWalkability diurnal profile, 2.5D 건물, 8m 캐노피 |
 | Dong et al. (2024) | 접근성 기반 열환경 평가, NDVI/NDBI 변수 |
 | Buo et al. (2026) | MRT 임피던스 라우팅, SOLWEIG 1m 검증 |

@@ -1,8 +1,8 @@
-작성일: 2026-07-16
-버전: v16 (Methods 방법론 근거 — 기상요인 공간스케일 조사 완결: UMEP URock/TARGET
-소스코드 + 신규 문헌 3편 전부 PDF 확보·직접 확인 완료)
-상태: **Introduction 완료(12편) / Methods 8건(재인용 3 + 소스코드 2 + 신규 3) 추가 /
-Related Work 대기**
+작성일: 2026-07-21
+버전: v17 (Related Work 검증 착수 — Kar et al. 2023, Ali-Toudert & Mayer 2006,
+Kar et al. 2024 "Inclusive Access 1" 등록 완료 + 2.3/2.4절 백참조 확인)
+상태: **Introduction 완료(12편) / Methods 8건 완료 / Related Work 진행 중
+(3편 신규 등록 + 백참조 확인, Aydin "96 CPU×72시간"은 사용자 확인 대기 중)**
 
 ---
 
@@ -259,6 +259,15 @@ IPCC 2022(PDF 미확보, 검증 보류) — 1편 남음)*
   으로 계산된 reach 결과를 사후에 "열 영향 없음/있음"으로 라벨링하는 평가용
   지표일 뿐, 접근성 산출 자체(핵심 방법)는 여전히 연속(PDT). 하드컷 아님.
 - **확인**: 사용자 확인 완료 (2026-07-14)
+- **Related Work 재인용 (2.3절, 96 CPU×72시간 CFD 주장 검증, 2026-07-21)**
+  - **원문 (p.8, §2.2.1.2 "CFD simulation")**:
+    > "The CFD runs were executed in OpenFOAM v2112 (OpenFOAM, 2025) on the
+    > NSCC supercomputing facility, approximately 72 h on 96 CPUs."
+  - **번역**: "CFD 연산은 OpenFOAM v2112(OpenFOAM, 2025)로 NSCC 슈퍼컴퓨팅
+    시설에서 실행되었으며, 약 96개 CPU로 72시간이 소요되었다."
+  - **판단**: 2.3절 "풍속장은 OpenFOAM CFD로 계산하나 96 CPU×72시간이 소요되어
+    도시 전역급 확장에는 비현실적이다" 서술과 수치 정확히 일치. 원문 대조 확인.
+  - **확인**: ⚠️ 사용자 확인 대기 중 — 원문 대조는 완료했으나 사용자 승인 전
 
 ### [id 021] Colaninno et al. (2024)
 
@@ -368,7 +377,130 @@ IPCC 2022(PDF 미확보, 검증 보류) — 1편 남음)*
 
 ## 2. Related Work (선행연구 검토)
 
-*(검증 완료 항목 없음)*
+### [신규] Kar et al. (2023)
+
+- **인용 위치**: 2.1절 — "기존 연구들은 이 틀이... 이동에 대한 개인의 인지적
+  제약을 소프트 제약(soft constraint)으로 통합하려는 시도를 이어왔다. Kar et
+  al.(2023)은 시공간 프리즘(STP)에 이동 인식(perceived mobility)을 소프트
+  제약으로 통합한 포용적 접근성(inclusive accessibility) 개념을 제안하여..."
+- **서지정보**: Kar, A., Le, H.T.K., & Miller, H.J. (2023). Inclusive
+  Accessibility: Integrating Heterogeneous User Mobility Perceptions into
+  Space-Time Prisms. *Annals of the American Association of Geographers*,
+  113(10), 2456-2479. DOI: 10.1080/24694452.2023.2236184
+  (`references/all_papers/Kar2023_InclusiveAccessibility_STP.pdf`)
+- **원문 (Abstract)**:
+  > "We conceptualize inclusive accessibility as a subset of the classic
+  > space–time prism (STP) that incorporates hard constraints (e.g., limited
+  > infrastructure and services and time) and soft constraints (e.g.,
+  > perceptions of safety and comfort toward the built environment and
+  > infrastructure and travel time preferences)."
+- **번역**: "우리는 포용적 접근성을 고전적 시공간 프리즘(STP)의 부분집합으로
+  개념화하는데, 이는 하드 제약(제한된 인프라·서비스·시간)과 소프트 제약
+  (건조환경·인프라에 대한 안전·편안함 인식, 이동시간 선호)을 통합한다."
+- **비고**: Kar et al.(2024, id 052, Introduction 1단락 기존 등재)와는 **다른
+  논문**(저자 3인 중 Kar, Miller 겹치나 공저자·저널·연도·DOI 전부 다름) —
+  2026-07-17 PDF 원문 대조로 확인됨. 혼동 주의.
+- **확인**: 사용자 확인 완료 (2026-07-20)
+
+### Ali-Toudert & Mayer (2006)
+
+- **인용 위치**: 2.2절 — "Ali-Toudert & Mayer(2006)는 사하라 기후 가로 협곡을
+  ENVI-met으로 모의해, 같은 가로 내에서도 기온은 균일하지만 MRT는 햇빛 구역과
+  그늘 구역 사이에 최대 40K까지 벌어짐을 확인하였다"
+- **서지정보**: Ali-Toudert, F., & Mayer, H. (2006). Numerical study on the
+  effects of aspect ratio and orientation of an urban street canyon on
+  outdoor thermal comfort in hot and dry climate. *Building and Environment*,
+  41(2), 94-108. (`references/all_papers/AliToudert2006_AspectRatio_
+  StreetCanyon.pdf`)
+- **원문 (p.100)**:
+  > "Ta shows a uniform distribution within the street... In contrast, the
+  > radiation fluxes expressed by Tmrt are very sensitive to geometrical
+  > properties. Tmrt shows a totally different pattern with differences to
+  > Ta reaching 40 K for the sunlit part of the street and about 6–10 K for
+  > the shaded area."
+- **번역**: "기온(Ta)은 가로 내에서 균일한 분포를 보인다... 반면 복사플럭스로
+  표현되는 MRT(Tmrt)는 기하학적 특성에 매우 민감하다. MRT는 완전히 다른 패턴을
+  보이며 기온과의 차이가 햇빛이 드는 구간에서는 40K, 그늘 구간에서는 6~10K에
+  달한다."
+- **판단**: 초안 인용과 페이지·수치 정확히 일치(원문 대조로 p.100 확인, 저널
+  페이지 범위 94-108 중 7번째 페이지).
+- **확인**: 사용자 확인 완료 (2026-07-20)
+
+### Kar et al. (2024) — "Inclusive Access 1" (Hard Cut 선례, 2.4절)
+
+- **주의**: id 052 Kar et al. (2024)와 **같은 논문, 다른 절 인용**. id 052는
+  Introduction 1단락(Abstract, 사회경제적 조건 관련)에서 이미 등재됨. 이 항목은
+  같은 논문의 5.3절/6.2절을 Related Work 2.4절(Hard Cut 선례)에서 인용.
+- **서지정보**: Kar, A., Le, H.T.K., Miller, H.J., Ng, N., & Le, H. (2024).
+  Perceived accessibility and its role in shaping equitable access to urban
+  amenities. *Computers, Environment and Urban Systems*, 114, 102202.
+  (`references/all_papers/Armita2024_PerceivedAccessibility.pdf`)
+- **인용 위치**: 2.4절 — "Kar et al.(2024)은... 보행 인지 점수가 특정 임계값
+  (≤3) 이하인 도로 링크를 네트워크에서 완전히 제거하는 'Inclusive Access 1'을
+  정의하였다"
+- **원문 (p.7, §5.3 "Classic and inclusive accessibility measure")**:
+  > "The first inclusive access considers all hard constraints of classic
+  > access mentioned above, as well as walking perception scores of social
+  > groups as soft spatial constraints. To do this, we first modify the road
+  > network to eliminate the streets with low walking perception scores
+  > (walking perception score ≤ 3) for the respective group. Using this
+  > modified road network, inclusive access 1 for a social group identifies
+  > the network space that any traveler from the respective group perceives
+  > as accessible as well as they can physically reach the nearby food
+  > locations within the 30-min travel time budget."
+- **번역**: "첫 번째 inclusive access는 위에서 언급한 classic access의 모든
+  hard constraint에 더해, 사회집단별 보행 인지점수를 soft spatial constraint로
+  추가한다. 이를 위해 먼저 해당 집단에 대해 보행 인지점수가 낮은(3점 이하) 도로를
+  네트워크에서 제거한다. 이렇게 수정된 네트워크로, inclusive access 1은 해당
+  집단의 어떤 이동자든 물리적으로 도달 가능하면서 동시에 접근 가능하다고
+  인지하는 네트워크 공간을 식별한다."
+- **원문 (p.12, §6.2 "Study limitations and future directions")**:
+  > "Similarly, our inclusive accessibility measure treats the walking
+  > perception score as a binary constraint, assuming people only walk when
+  > the travel environment seems favorable. In other words, a route is
+  > excluded from the inclusive accessibility measure if any link on that
+  > route feels unwalkable to the traveler."
+- **번역**: "마찬가지로, 우리의 inclusive accessibility 측정치는 보행
+  인지점수를 binary constraint로 취급하며, 이동 환경이 호의적이라고 느낄 때만
+  사람들이 보행한다고 가정한다. 다시 말해 경로 상 어떤 링크라도 이동자에게
+  보행 불가능하게 느껴지면 그 경로는 측정에서 제외된다."
+- **용어 주의(중요)**: 이 논문의 "soft/hard constraint"는 **제약의 성격**
+  (주관적 인지 vs 객관적 물리) 기준이며, 본 연구의 "연속적 패널티 vs Hard Cut"
+  이분법(**함수 형태**: 연속 vs 이진) 기준과 다른 축이다. 저자들은 인지점수를
+  "soft spatial constraint"라 명명하지만 실제 구현(§5.3)은 임계값 이하 링크를
+  네트워크에서 완전히 제거하는 **이진적** 방식이며, §6.2에서 스스로 "binary
+  constraint"라 인정한다 — 즉 이름은 soft이나 메커니즘은 우리 Hard Cut과
+  구조적으로 동일. 본문에서 Kar(2024)를 인용할 때 "soft/hard"라는 원저자
+  용어를 그대로 쓰지 말고 이 차이를 명시할 것(2026-07-21, 사용자 지적으로
+  발견 및 확정).
+- **판단**: 5.3절 정의문·6.2절 자기한계 인정문 모두 원문 대조 확인. 섹션 번호
+  (5.3, 6.2)도 pdftotext 헤더 대조로 확인(p.12 = "6.2. Study limitations and
+  future directions").
+- **확인**: 사용자 확인 완료 (2026-07-21)
+
+### 백참조 확인 — 2.3절/2.4절 재인용 (Jia/Basu/Aydin/Colaninno/Melnikov/Azegami/Buo/Bröde)
+
+2.3절·2.4절에 등장하는 아래 인용은 모두 Introduction 또는 Methods에서 이미
+원문 대조 검증 완료된 것을 재인용한 것 — 각 절의 실제 텍스트와 기존 등록
+인용문을 대조해 정확히 일치함을 확인(2026-07-21):
+
+- **Jia et al. (2022)** — 2.3절 "보행속도가 10~20% 감소"는 직접 인용 없이
+  정성적 서술만 사용. 최초 검증: 위 Introduction id 028 항목(p.10 원문).
+- **Basu et al. (2024)** — 2.3절 "route attributes... were translated to
+  their equivalent walking distance values"(p.8), "air temperature, relative
+  humidity, and wind speed are spatially constant, but vary hourly"(p.6) 모두
+  위 Introduction id 022 항목(2단락 재인용/기상입력 방법론 확인)과 정확히
+  일치.
+- **Aydin et al. (2026)** — 2.3절 "PDT = (1.0−PTT)·d0 + d0" 공식은 위 id 042
+  항목(p.11)과 일치. "96 CPU×72시간" 신규 검증은 바로 위 항목 참고.
+- **Colaninno et al. (2024)** — 2.3절 HEI 인용(p.13)은 위 Introduction id 021
+  항목(4단락, p.13)과 일치. 800m 고정 반경(p.6)·ERA5(p.8) 인용도 위 Methods
+  재인용 항목과 정확히 일치.
+- **Melnikov et al. (2022) / Azegami et al. (2023) / Buo et al. (2026)** —
+  2.4절에서는 직접 인용 없이 정성적 서술(0.86, 28.2%, 70% 이상 우회)만
+  재사용 — 최초 검증은 위 Introduction id 023/024/037 항목 참고.
+- **Bröde et al. (2012)** — 2.4절 말미 "UTCI 기준 매우 강한 더위(≥38°C)"는
+  위 Introduction id 007 항목(Table 3)과 동일.
 
 ## 3. Methods (연구자료 구축 및 방법론)
 
@@ -771,3 +903,21 @@ OpenFOAM CFD(96 CPU, 72시간)를 사용하나 이는 슈퍼컴퓨팅 자원이 
   하나?")에 대한 답변은 별도 대화로 진행 — Brecht(2020)의 스케일 구분에 따르면
   URock(건물 해상도)은 오히려 표준 UTCI와 스케일 부정합 가능성이 있고, TARGET
   (100m, city quarter급)이 상대적으로 더 정합적이라는 판단.
+- **2026-07-20/21 (v17)**: Related Work 검증 착수. `writing/03_논문구조/
+  2026-07-17_논문전체구조_v3.md`의 Section 2가 `writing/02_선행연구/
+  2026-07-17_선행연구_v2_SCI_별도섹션안.md`(압축판)보다 최신·상세함을 사용자가
+  발견 — Section 2를 그대로 추출해 `writing/02_선행연구/
+  2026-07-20_선행연구_v4_전체판.md`(v4) 신규 생성, 이후 이 문서를 검증 기준
+  원본으로 사용. **Kar et al.(2023)** Abstract(hard/soft constraint 개념)
+  원문 대조 확인 후 등재. **Ali-Toudert & Mayer(2006)** p.100(MRT 40K 차이)
+  원문 대조 확인 후 등재. **Kar et al.(2024)**의 "Inclusive Access 1"(같은
+  논문의 id 052와 다른 절 인용, p.7 §5.3 정의문 + p.12 §6.2 자기한계 인정문)
+  원문 대조 확인 후 등재 — 이 과정에서 Kar(2023/2024)의 "soft/hard constraint"
+  (제약의 성격 축)가 본 연구의 "연속적 패널티 vs Hard Cut"(함수 형태 축)와
+  다른 개념임을 발견, `CLAUDE.md`에서 "소프트 패널티" 표현을 전부 "연속적
+  패널티"로 교체(용어 혼동 방지 확정). 2.3/2.4절의 Jia/Basu/Aydin/Colaninno/
+  Melnikov/Azegami/Buo/Bröde 재인용은 Introduction·Methods 기존 등록 인용문과
+  전수 대조해 일치 확인(백참조 블록 추가). Aydin et al.(2026) p.8 §2.2.1.2
+  "72 h on 96 CPUs" 원문 위치 확인했으나 **사용자 확인 대기 중**(등재 보류).
+  파일명 규칙(§"버전/작업로그 관리")에 따라 `2026-07-16_reference_list.md` →
+  `2026-07-21_reference_list.md`로 리네임, v16→v17.
