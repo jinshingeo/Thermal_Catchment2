@@ -1,8 +1,9 @@
 작성일: 2026-07-21
-버전: v17 (Related Work 검증 착수 — Kar et al. 2023, Ali-Toudert & Mayer 2006,
-Kar et al. 2024 "Inclusive Access 1" 등록 완료 + 2.3/2.4절 백참조 확인)
+버전: v18 (2.1절 계보 문헌 추가 — Hägerstrand 1970, Miller 1991 등록,
+Dijkstra 1959 가등록. v5 선행연구 문서로 검증 기준 이전)
 상태: **Introduction 완료(12편) / Methods 8건 완료 / Related Work 진행 중
-(3편 신규 등록 + 백참조 확인, Aydin "96 CPU×72시간"은 사용자 확인 대기 중)**
+(5편 신규 등록 + 백참조 확인, Aydin "96 CPU×72시간"은 사용자 확인 대기 중,
+Dijkstra는 사용자 직접 등재 예정)**
 
 ---
 
@@ -376,6 +377,74 @@ IPCC 2022(PDF 미확보, 검증 보류) — 1편 남음)*
 - **확인**: 사용자 확인 완료 (2026-07-14)
 
 ## 2. Related Work (선행연구 검토)
+
+### Hägerstrand (1970)
+
+- **인용 위치**: 2.1절 — "Hägerstrand(1970)의 시공간 프리즘은 개인이 정해진
+  시간 예산 내에서 이동할 수 있는 공간 범위를 3차원으로 개념화하면서, 물리적
+  이동 가능성을 분석 단위로 설정하는 틀을 제시했다."
+- **서지정보**: Hägerstrand, T. (1970). What about people in regional science?
+  *Papers of the Regional Science Association*, 24(1), 7-24. (9차 유럽 지역과학회
+  회장 연설) (`references/all_papers/Hagerstrand1970_SpaceTimePrism.pdf` — 스캔본,
+  pdftotext 텍스트 추출 불가해 이미지로 직접 확인)
+- **원문 (p.14)**:
+  > "If we look closer at the time-space volume within reach, it turns out to
+  > be not a cylinder but a prism. It not only has a geographical boundary; it
+  > has time-space walls on all sides."
+- **원문 (p.13)**:
+  > "...there exists a definite boundary line beyond which he cannot go if he
+  > has to return before a deadline. Thus, in his daily life everybody has to
+  > exist spatially on an island... the effective size of an individual's
+  > island is much smaller than the potential size which is delineated by his
+  > ability to move."
+- **번역**: "도달 범위 내 시공간 볼륨을 자세히 보면 원기둥이 아니라 프리즘임이
+  드러난다. 이는 지리적 경계뿐 아니라 사방으로 시공간적 벽을 갖는다." / "...
+  마감시간 전에 돌아와야 한다면 넘어설 수 없는 명확한 경계선이 존재한다.
+  따라서 일상생활에서 모든 사람은 공간적으로 '섬' 위에 존재하는 셈이다..."
+- **비고**: p.13 Figure 1 "Daily Prisms"에서 walker/driver/flyer별 시간예산에
+  따른 최대 도달 프리즘을 실제로 도식화. 이미지 기반 확인(OCR 아님, 직접 열람).
+- **확인**: 사용자 확인 완료 (2026-07-21)
+
+### Miller (1991)
+
+- **인용 위치**: 2.1절 — "Miller(1991)는 이를 GIS 네트워크 분석으로 구현하여
+  네트워크 기반 도달 가능 영역(Potential Path Area) 개념을 정립했다."
+- **서지정보**: Miller, H. J. (1991). Modelling accessibility using space-time
+  prism concepts within geographical information systems. *International
+  Journal of Geographical Information Systems*, 5(3), 287-301.
+  DOI: 10.1080/02693799108927856
+  (`references/all_papers/Miller1991_SpaceTimePrism_GI.pdf`)
+- **원문 (p.291-292)**:
+  > "These considerations can be addressed explicitly and in detail by
+  > defining PPA structure within the format of the urban transportation
+  > network. A network representation can be formulated where arcs represent
+  > the individual streets in the transportation network and nodes represent
+  > intersections of these streets. A PPA defined in this format shows the
+  > streets (arcs) in the network that are feasible for travel and the
+  > intersections (nodes) which it is feasible to reach."
+- **원문 (p.292)**:
+  > "...the network based PPA can be based on the assumption of the shortest
+  > path through the network being used by the individual."
+- **번역**: "이러한 고려사항은 PPA(잠재적 경로 영역) 구조를 도시 교통 네트워크의
+  형태로 정의함으로써 다룰 수 있다. 네트워크 표현은 도로(arc)가 개별 거리를,
+  노드(node)가 교차점을 나타내는 방식으로 구성한다..." / "...네트워크 기반
+  PPA는 개인이 네트워크를 통해 최단경로를 이용한다는 가정에 기반할 수 있다."
+- **비고**: 저널명은 1991년 당시 *...Information **Systems***(복수형)였으며,
+  현재의 *...Information **Science***(단수, GIScience)와 다름 — 인용 시 연도별
+  정확한 저널명 표기 필요.
+- **확인**: 사용자 확인 완료 (2026-07-21)
+
+### Dijkstra (1959) — ⚠️ 검증 보류 (사용자 직접 등재 예정)
+
+- **인용 위치**: 2.1절 — "Catchment Area는 출발 노드에서 Dijkstra 알고리즘
+  (Dijkstra, 1959)으로 최단경로를 탐색하고..."
+- **서지정보(추정, 미확인)**: Dijkstra, E. W. (1959). A note on two problems in
+  connexion with graphs. *Numerische Mathematik*, 1, 269-271.
+- **판단**: 특정 수치·주장이 아니라 "Dijkstra 알고리즘"이라는 표준 알고리즘
+  명칭의 출처 표기 — PDF 미확보. 사용자 결정(2026-07-21): 원문 검증 없이
+  일단 인용하고, 추후 사용자가 직접 PDF 확보해 정식 등재할 예정.
+- **확인**: ⚠️ 미검증 — 사용자 직접 등재 예정, 그 전까지 이 항목은 "가등록"
+  상태로만 취급.
 
 ### [신규] Kar et al. (2023)
 
@@ -921,3 +990,16 @@ OpenFOAM CFD(96 CPU, 72시간)를 사용하나 이는 슈퍼컴퓨팅 자원이 
   "72 h on 96 CPUs" 원문 위치 확인했으나 **사용자 확인 대기 중**(등재 보류).
   파일명 규칙(§"버전/작업로그 관리")에 따라 `2026-07-16_reference_list.md` →
   `2026-07-21_reference_list.md`로 리네임, v16→v17.
+- **2026-07-21 (v18)**: v4 기준 2.1절을 위에서부터 순서대로 검증 진행.
+  **Hägerstrand(1970)**(p.13-14, "Daily Prisms" — 스캔본이라 이미지로 직접
+  확인) 등록. **Miller(1991)**(p.291-292, network-based PPA 정의 — 저널명이
+  1991년 당시 "...Information **Systems**"였음을 확인, 현재의 "...Science"와
+  다름 주의) 등록. **Dijkstra(1959)**는 PDF 미확보 상태에서 사용자가 "표준
+  알고리즘 명칭 인용이라 검증 없이 진행, 추후 직접 등재하겠다"고 결정 —
+  가등록 상태로 표시. 사용자가 "Kar(2024)의 계보 서술을 그대로 가져다 써도
+  되지 않냐"고 질문 — **Kar의 요약을 차용하지 않고 직접 원문 검증한다는
+  원칙을 재확인**(El-Geneidy & Levinson 2006, Miller 2007, Kwan 1999는 아직
+  PDF 미확보 상태이므로 인용 보류, `2026-07-21_선행연구_v5_전체판.md`에 TODO로
+  명시). v4를 이어받아 2.1절에 place-based/person-based 이분법 보강 문단을
+  추가한 **v5** 신규 생성 — 이후 검증 기준 문서를 v5로 이전, v4 상단에 대체
+  안내 추가.
