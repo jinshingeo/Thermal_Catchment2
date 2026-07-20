@@ -1,9 +1,8 @@
 작성일: 2026-07-21
-버전: v19 (2.1절 Geurs & van Wee 2004 재인용 검증 + 오귀속 문장 발견·수정,
-Aydin "96 CPU×72시간" 사용자 확인 완료 — 2.1~2.4절 전 문장 검증 완료)
+버전: v20 (2.1절 place-based/person-based 문단 재구성 — Miller(2007) 등록,
+El-Geneidy&Levinson 2006/Kwan 1999는 확보만 하고 "미사용 후보 풀"로 분리 보관)
 상태: **Introduction 완료(12편) / Methods 8건 완료 / Related Work — v5 기준
-2.1~2.4절 전수 검증 완료(Dijkstra 가등록 제외). El-Geneidy & Levinson 2006,
-Miller 2007, Kwan 1999는 PDF 미확보로 인용 보류(TODO)**
+2.1~2.4절 전 문장 검증 완료(Dijkstra 가등록 제외)**
 
 ---
 
@@ -433,6 +432,58 @@ IPCC 2022(PDF 미확보, 검증 보류) — 1편 남음)*
   현재의 *...Information **Science***(단수, GIScience)와 다름 — 인용 시 연도별
   정확한 저널명 표기 필요.
 - **확인**: 사용자 확인 완료 (2026-07-21)
+
+### Miller (2007)
+
+- **인용 위치**: 2.1절 — "접근성 측정은 분석 단위에 따라 장소기반(place-based)과
+  개인기반(person-based) 측정으로 갈라져 발전해왔다(Miller, 2007)."
+- **서지정보**: Miller, H. J. (2007). Place-based versus people-based geographic
+  information science. *Geography Compass*, 1(3), 503-535.
+  DOI: 10.1111/j.1749-8198.2007.00025.x
+  (`references/all_papers/Miller2007_PlaceBasedPeopleBased_GIScience.pdf`)
+- **원문 (Abstract, p.503)**:
+  > "This article discusses the need to move beyond a place-based perspective
+  > in geographic information science to include a people-based perspective
+  > (i.e., the individual in space and time)."
+- **번역**: "이 논문은 지리정보과학에서 장소기반 관점을 넘어 개인기반 관점
+  (즉, 시공간 속 개인)을 포함해야 할 필요성을 논한다."
+- **판단**: "장소기반/개인기반 구분이 존재한다"는 정의적 인용으로만 사용 —
+  일치. **오귀속 방지 경과(2026-07-21)**: 초안 문장이 원래 이 논문을 "개인기반
+  측정은 일반화가 어렵다는 한계가 지적되어 왔다"의 근거로 인용했으나, 원문
+  전체에 "generaliz"라는 단어가 전혀 없고 오히려 이 논문은 **개인기반을
+  옹호하고 장소기반을 비판**하는 반대 논조임을 확인 — 사용자와 논의 후 해당
+  주장(일반화 한계)은 삭제하고, Miller(2007)는 "이분법이 존재한다"는 정의적
+  인용으로만 축소. 이 과정에서 "PPA(Miller 1991)를 개인기반 버전의 Catchment
+  Area로 볼 수 있다"는 것은 Miller가 명시한 바 없는 **본 연구의 해석**임을
+  확인(원문에 "catchment" 단어 없음, grep 확인) — 본문에 "본 연구는 ~라고
+  본다"로 명시해 저자 주장과 분리(사용자 지적으로 발견, 2026-07-21).
+- **확인**: 사용자 확인 완료 (2026-07-21)
+
+### 확보했으나 현재 미사용 — 향후 활용 후보 (석사논문 확장판 등)
+
+> SCI 논문은 분량 제약으로 2.1절을 Miller(2007) 하나로 압축했으나, PDF는 이미
+> 확보되어 있고 내용도 확인했으므로 버리지 않고 여기 정리해둔다. 국문
+> 석사논문(분량 여유 있음)이나 추후 논의 확장 시 재검토 대상.
+
+- **El-Geneidy & Levinson (2006)**. Access to Destinations: Development of
+  Accessibility Measures. Minnesota DOT 기술보고서 #MN/RC-2006-16, University
+  of Minnesota. (`references/all_papers/ElGeneidy2006_AccessToDestinations.pdf`)
+  - **원문 (p.4)**: "The traditional measure of accessibility is place-based,
+    and involves measurements of spatial separation of individuals and
+    certain activities. Recently 'people-based accessibility' measures have
+    been proposed in the literature (H. Miller, 2005)."
+  - **비고**: SCI 논문이 아니라 정부 기술보고서라 SCI 저널 인용 규칙에는
+    엄밀히 안 맞음(CLAUDE.md). 다만 "장소기반=전통적/표준 측정"이라는 내용
+    자체는 정확하고, 국문 석사논문에서는 기술보고서 인용이 문제되지 않으므로
+    후보로 유지.
+- **Kwan (1999)**. Gender and individual access to urban opportunities: a
+  study using space-time measures. *The Professional Geographer*, 51(2),
+  211-227. DOI: 10.1111/0033-0124.00158
+  (`references/all_papers/Kwan1999_GenderSpaceTimeAccess.pdf`)
+  - **비고**: 아직 원문 대조 안 함(이번 2.1절 재구성으로 불필요해져 검토
+    보류). 개인기반 접근성에 지각적 요소를 결합한 초기 사례로, Kar et
+    al.(2023/2024)의 "soft constraint" 계보를 더 깊이 다룰 때(예: 성별·
+    사회집단별 접근성 격차 논의) 후보로 재검토.
 
 ### Dijkstra (1959) — ⚠️ 검증 보류 (사용자 직접 등재 예정)
 
@@ -1041,3 +1092,18 @@ OpenFOAM CFD(96 CPU, 72시간)를 사용하나 이는 슈퍼컴퓨팅 자원이 
   이 문장의 인용을 제거하고 필자 서술로 전환(`v5` 반영 완료). **결과: v5
   기준 2.1~2.4절 전 문장 검증 완료**(Dijkstra 가등록, El-Geneidy&Levinson/
   Miller2007/Kwan1999 TODO 제외).
+- **2026-07-21 (v20)**: 사용자가 El-Geneidy & Levinson(2006)/Miller(2007)/
+  Kwan(1999) 3편 PDF를 직접 확보(Kar et al.2024 참고문헌에서 정확한 서지정보
+  확인 후 안내). El-Geneidy & Levinson(2006)은 SCI 논문이 아니라 Minnesota
+  DOT 기술보고서임을 이유로 미채택 결정. Miller(2007) 원문 확인 중 **오귀속
+  재발견**: 초안이 "개인기반은 일반화가 어렵다"의 근거로 이 논문을 인용했으나
+  원문에 "generaliz" 단어 자체가 없고 논지가 오히려 반대(개인기반 옹호, 장소
+  기반 비판)임을 확인 — 문단을 "장소기반/개인기반은 우열이 아니라 각자 쓰임이
+  다르다"는 중립 서술로 재구성, Miller(2007)는 "이분법이 존재한다"는 정의적
+  인용으로만 사용. 이 과정에서 사용자가 "PPA(Miller 1991)가 개인기반 버전의
+  Catchment Area 아니냐"는 통찰을 제시 — Miller(1991) 원문에 "catchment"
+  단어가 없음을 재확인해 이건 저자 주장이 아니라 **본 연구의 해석**임을
+  명시("본 연구는 ~라고 본다"로 문장 구분). 사용자 요청으로 미사용 2편도
+  삭제하지 않고 "확보했으나 현재 미사용 — 향후 활용 후보(석사논문 확장판 등)"
+  섹션으로 분리 보관(El-Geneidy&Levinson p.4 인용문 포함, Kwan은 원문 미대조
+  상태로 서지정보만).
