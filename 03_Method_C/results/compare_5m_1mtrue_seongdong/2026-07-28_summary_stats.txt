@@ -1,0 +1,7 @@
+[픽셀 평균 기준]
+Tmrt: MAE=1.219 RMSE=2.697 r=0.8576
+UTCI: MAE=0.271 RMSE=0.601 r=0.8573 HardCut38(pixel)=94.07%
+
+[링크 단위, n=16316]
+Tmrt: MAE=13.146 RMSE=13.846 r=0.5338
+UTCI: MAE=3.058 RMSE=3.208 r=0.5360 HardCut38(link)=22.05% (불일치 12719/16316)

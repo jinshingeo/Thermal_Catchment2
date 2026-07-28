@@ -1,0 +1,13 @@
+[픽셀 평균 기준 — 3자 비교]
+Tmrt v2-v3: MAE=0.253 RMSE=0.514 r=0.9939
+Tmrt v2-1mtrue: MAE=2.428 RMSE=3.807 r=0.6540
+Tmrt v3-1mtrue: MAE=2.387 RMSE=3.775 r=0.6577
+UTCI v2-v3: MAE=0.059 RMSE=0.119 r=0.9940
+UTCI v2-1mtrue: MAE=0.619 RMSE=0.859 r=0.6533
+UTCI v3-1mtrue: MAE=0.615 RMSE=0.851 r=0.6570
+HardCut38 일치(평균): v2-v3=99.55% v2-1mtrue=95.76% v3-1mtrue=95.78%
+
+[링크 단위, n=16316]
+v2-v3: Tmrt MAE=0.208 RMSE=0.334 r=0.9951 | UTCI MAE=0.048 RMSE=0.077 r=0.9951 | HardCut38 일치=99.74% (불일치 42/16316)
+v2-1mtrue: Tmrt MAE=1.322 RMSE=1.774 r=0.9163 | UTCI MAE=0.497 RMSE=0.580 r=0.9163 | HardCut38 일치=98.46% (불일치 252/16316)
+v3-1mtrue: Tmrt MAE=1.264 RMSE=1.706 r=0.9257 | UTCI MAE=0.494 RMSE=0.568 r=0.9256 | HardCut38 일치=98.57% (불일치 234/16316)
