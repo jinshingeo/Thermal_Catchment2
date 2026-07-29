@@ -1,7 +1,7 @@
-작성일: 2026-07-21
-버전: v21 (2.2절 Ali-Toudert & Mayer 2007, Kántor & Unger 2011 등록 —
-2.2절 4개 인용 전부 검증 완료)
-상태: **Introduction 완료(12편) / Methods 8건 완료 / Related Work — v5 기준
+작성일: 2026-07-29
+버전: v22 (Methods — Hard Cut 임계값 몬테카를로 방어용 나이대별 열스트레스
+내성 문헌 3편 등록: Thorsson 2014, Tousi/Evgenia 2024, Wolf 2023)
+상태: **Introduction 완료(12편) / Methods 11건 완료 / Related Work — v5 기준
 2.1~2.4절 전 문장 검증 완료(Dijkstra 가등록 제외)**
 
 ---
@@ -923,6 +923,87 @@ OpenFOAM CFD(96 CPU, 72시간)를 사용하나 이는 슈퍼컴퓨팅 자원이 
   DOI: 10.1007/s00484-024-02830-2 (드레스덴 모바일 열쾌적성 매핑) — 여러 관측소
   보간 없이 이동측정 경로 자체를 시계열로 씀, 풍속은 아예 측정 안 함("negligible
   wind conditions"). 우리 연구에 직접 참고할 방법론은 아니라 등재 보류.
+
+### Hard Cut 임계값 근거 — 나이대별 열스트레스 내성 (몬테카를로 임계값 방어, 2026-07-29 착수)
+
+> 배경: 지도교수(박진우 교수님) 문제제기 — Bröde et al.(2012) UTCI 급간표를 그대로
+> Hard Cut 임계값(38°C)의 근거로 쓰는 건 "왜 하필 38°C인가"라는 질문에 취약함.
+> 나이대별 열스트레스 내성 차이를 반영한 임계값 분포를 문헌에서 확보해 몬테카를로
+> 시뮬레이션(1000회, UTCI 30~48°C 히스토그램의 최빈값을 임계값으로 채택)으로
+> 임계값을 재도출하려는 시도. 아래 3편은 이 목적을 위해 확보·확인.
+
+#### Thorsson et al. (2014) — 핵심 근거, 나이대별 Tmrt 임계값 수치 제공
+
+- **서지정보**: Thorsson, S., Rocklöv, J., Konarska, J., Lindberg, F., Holmer, B.,
+  Dousset, B., & Rayner, D. (2014). Mean radiant temperature – A predictor of
+  heat related mortality. *Urban Climate*, 10, 332-345.
+  (`references/all_papers/Thorsson2014_MRT_HeatMortality.pdf`)
+- **원문 (Table 2, p.339, "Risk classification, short-term effects of daily
+  maximum mean radiant temperature (Tmrt) over lag 0–1")**:
+
+  | 위험단계 | 위험증가율 | 전연령 | 45–79세 | 80세 이상 |
+  |---|---|---|---|---|
+  | 0 | 0% | 47.4°C | 46.7°C | 47.6°C |
+  | 1 | 5% | 57.1°C | 58.8°C | 55.5°C |
+  | 2 | 10% | — | — | 59.4°C |
+
+- **번역**: "표 2. 일일 최대 평균복사온도(Tmrt)의 단기 영향에 따른 위험 분류(lag
+  0–1일)." — 위험증가율(%)별로 전연령/45–79세/80세 이상 각각의 Tmrt 임계값을
+  제시.
+- **비고**: 이 논문 자체는 **Tmrt(MRT) 기준**이지 UTCI 기준이 아니다. 저희 연구는
+  최종적으로 UTCI를 쓰므로, 이 임계값들을 그대로 쓰려면 (a) UTCI 대신 MRT를
+  몬테카를로 축으로 쓰거나 (b) 동일 기상조건 하에서 MRT→UTCI 변환식을 적용해
+  등가 UTCI 임계값으로 환산하는 절차가 필요함 — 아직 미확정, 방법론 설계 시
+  결정할 것.
+- **확인**: 사용자 확인 완료 (2026-07-29)
+
+#### Tousi(Evgenia), Mela & Tseliou (2024) — 제한적 활용(UTCI는 나이 무관 동일값 확인)
+
+- **서지정보**: Tousi, E., Mela, A., & Tseliou, A. (2024). Thermal Stress in
+  Outdoor Spaces During Mediterranean Heatwaves: A PET and UTCI Analysis of
+  Different Demographics. *Urban Science*, 8(4), 193.
+  DOI: 10.3390/urbansci8040193
+  (`references/all_papers/Evgenia2024_PET_UTCI_AgeDemographics.pdf`)
+- **원문 (§3.4.1, p.17-18)**:
+  > "At 10 a.m., the UTCI values for four distinct demographic groups—35-year-old
+  > males, 35-year-old females, 80-year-old males, and 8-year-old children—range
+  > between 28.94 °C (No thermal stress) and 51.36 °C (extreme heat stress)...
+  > While the UTCI values for all four demographic groups fall within the same
+  > range, the implications of these values vary significantly."
+- **번역**: "오전 10시, 35세 남성·35세 여성·80세 남성·8세 아동 네 집단의 UTCI
+  값은 28.94°C(무스트레스)~51.36°C(극심한 열스트레스) 사이였다... 네 집단 모두
+  UTCI 값 자체는 같은 범위 안에 있지만, 그 값이 의미하는 위험도는 집단별로
+  크게 다르다."
+- **판단**: 이 논문은 PET는 나이·체구에 따라 다른 값을 산출하지만, **UTCI 공식
+  자체에는 나이 변수가 없어 모든 집단이 동일한 UTCI 값을 받는다**는 것을
+  명시적으로 확인해준다 — 즉 "왜 UTCI 자체가 아니라 Thorsson(2014) 같은 외부
+  문헌에서 나이대별 임계값을 따로 가져와야 하는가"를 정당화하는 근거로 활용
+  (UTCI 수식이 나이를 반영 못 하므로 사후적으로 임계값을 나이대별로 조정해야
+  한다는 논리).
+- **확인**: 사용자 확인 완료 (2026-07-29)
+
+#### Wolf et al. (2023) — 일반적 근거(단위 불일치로 수치 직접 활용 불가)
+
+- **서지정보**: Wolf, S. T., Cottle, R. M., Fisher, K. G., Vecellio, D. J., &
+  Kenney, W. L. (2023). Heat stress vulnerability and critical environmental
+  limits for older adults. *Communications Earth & Environment*, 4, 386.
+  DOI: 10.1038/s43247-023-01159-9
+  (`references/all_papers/Wolf2023_HeatStress_ElderlyLimits.pdf`)
+- **원문 (Abstract)**:
+  > "We exposed fifty-one young (23 ± 4 yrs) and 49 older (71 ± 6 yrs) adults to
+  > progressive heat stress across a wide range of environments in an
+  > environmental chamber... Heat compensability curves were shifted leftward
+  > for older adults indicating age-dependent heat vulnerability (p < 0.01).
+  > During Minimal Activity, critical environmental limits were lower in older
+  > compared to young adults (p < 0.0001)."
+- **번역**: "청년(23±4세) 51명과 고령자(71±6세) 49명을 환경챔버에서 다양한
+  환경조건의 점증적 열스트레스에 노출시켰다... 고령자의 열보상곡선이 좌측으로
+  이동해 나이에 따른 열취약성을 보였다(p<0.01). 최소활동 조건에서 임계
+  환경한계는 고령자가 청년보다 낮았다(p<0.0001)."
+- **판단**: 실내 챔버 실험으로 건조구온도(Tdb)+수증기압(mmHg) 단위의 임계
+  환경한계를 실측 — **UTCI/MRT/PET 단위가 아니라 직접 수치 활용은 어려움**.
+  "나이에 따른 열내성 차이가 실측으로 확인된 사실"이라는 일반적 근거로만 활용.
+- **확인**: 사용자 확인 완료 (2026-07-29)
 
 ## 4. Results
 

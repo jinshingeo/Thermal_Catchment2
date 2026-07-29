@@ -1,0 +1,5 @@
+station,hour,hardcut_nodes,continuous_nodes,extra_nodes_continuous_only,continuous_only_edges,continuous_only_edges_hot_pct
+응봉역 인근,13,1,155,154,388,98.5
+성수역 인근,13,1,128,127,374,79.1
+응봉역 인근,7,809,331,0,0,0.0
+성수역 인근,7,575,286,0,0,0.0

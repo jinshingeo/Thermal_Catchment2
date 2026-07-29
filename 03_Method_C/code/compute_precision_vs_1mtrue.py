@@ -120,6 +120,10 @@ if __name__ == '__main__':
         os.path.join(BASE, '03_Method_C/results/utci_seongdong_5m_clean_local'),
         'Tmrt_2025_209', 'UTCI_seongdong_5m_clean'))
     results.append(run_for_resolution(
+        '15m', os.path.join(BASE, '03_Method_C/results/solweig_seongdong_15m_clean_local'),
+        os.path.join(BASE, '03_Method_C/results/utci_seongdong_15m_clean_local'),
+        'Tmrt_2025_209', 'UTCI_seongdong_15m_clean'))
+    results.append(run_for_resolution(
         '10m', os.path.join(BASE, '03_Method_C/results/solweig_seongdong_10m_clean_local'),
         os.path.join(BASE, '03_Method_C/results/utci_seongdong_10m_clean_local'),
         'Tmrt_2025_209', 'UTCI_seongdong_10m_clean'))
@@ -129,7 +133,7 @@ if __name__ == '__main__':
         'Tmrt_2025_209', 'UTCI_seongdong_30m_clean'))
 
     df = pd.DataFrame(results)
-    out_csv = os.path.join(STATS_DIR, f'{TODAY}_precision_vs_1mtrue.csv')
+    out_csv = os.path.join(STATS_DIR, f'{TODAY}_precision_vs_1mtrue_v2.csv')
     df.to_csv(out_csv, index=False)
     print(f'\n저장: {out_csv}')
     print(df.to_string(index=False))
