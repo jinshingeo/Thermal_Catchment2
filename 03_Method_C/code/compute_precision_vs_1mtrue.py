@@ -80,14 +80,14 @@ def run_for_resolution(res_label, tmrt_dir, utci_dir, tmrt_prefix, utci_prefix):
 
     # 링크 단위
     links = gpd.read_file(LINK_SRC)
-    links_buf = links.buffer(5.0)
-    st_t = zonal_stats(links_buf, t_avg, affine=ref_tr, stats=['mean'], nodata=np.nan)
+    links_buf = links.buffer(links['width_final'] / 2)
+    st_t = zonal_stats(links_buf, t_avg, affine=ref_tr, stats=['mean'], nodata=np.nan, all_touched=True)
     links['Tmrt_res'] = [s['mean'] for s in st_t]
-    st_u = zonal_stats(links_buf, u_avg, affine=ref_tr, stats=['mean'], nodata=np.nan)
+    st_u = zonal_stats(links_buf, u_avg, affine=ref_tr, stats=['mean'], nodata=np.nan, all_touched=True)
     links['UTCI_res'] = [s['mean'] for s in st_u]
-    st_t1 = zonal_stats(links_buf, m1t_avg, affine=ref_tr, stats=['mean'], nodata=np.nan)
+    st_t1 = zonal_stats(links_buf, m1t_avg, affine=ref_tr, stats=['mean'], nodata=np.nan, all_touched=True)
     links['Tmrt_1mtrue'] = [s['mean'] for s in st_t1]
-    st_u1 = zonal_stats(links_buf, m1u_avg, affine=ref_tr, stats=['mean'], nodata=np.nan)
+    st_u1 = zonal_stats(links_buf, m1u_avg, affine=ref_tr, stats=['mean'], nodata=np.nan, all_touched=True)
     links['UTCI_1mtrue'] = [s['mean'] for s in st_u1]
 
     lv = links.dropna(subset=['Tmrt_res', 'Tmrt_1mtrue', 'UTCI_res', 'UTCI_1mtrue'])
@@ -116,6 +116,9 @@ def run_for_resolution(res_label, tmrt_dir, utci_dir, tmrt_prefix, utci_prefix):
 if __name__ == '__main__':
     results = []
     results.append(run_for_resolution(
+        '1m', TMRT1_DIR, UTCI1_DIR,
+        'Tmrt_seongdong_1mtrue', 'UTCI_seongdong_1mtrue'))
+    results.append(run_for_resolution(
         '5m', os.path.join(BASE, '03_Method_C/results/solweig_seongdong_5m_clean_local'),
         os.path.join(BASE, '03_Method_C/results/utci_seongdong_5m_clean_local'),
         'Tmrt_2025_209', 'UTCI_seongdong_5m_clean'))
@@ -133,7 +136,7 @@ if __name__ == '__main__':
         'Tmrt_2025_209', 'UTCI_seongdong_30m_clean'))
 
     df = pd.DataFrame(results)
-    out_csv = os.path.join(STATS_DIR, f'{TODAY}_precision_vs_1mtrue_v2.csv')
+    out_csv = os.path.join(STATS_DIR, f'{TODAY}_precision_vs_1mtrue_v3.csv')
     df.to_csv(out_csv, index=False)
     print(f'\n저장: {out_csv}')
     print(df.to_string(index=False))
