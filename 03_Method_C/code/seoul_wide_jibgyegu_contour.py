@@ -13,9 +13,9 @@ import geopandas as gpd
 import networkx as nx
 from scipy.spatial import cKDTree
 
-WALK_SPEED = 4.5 * 1000 / 3600
+WALK_SPEED = 4.0 * 1000 / 3600  # Brode et al.(2012) p.483, UTCI 기준활동 보행속도
 TIME_BUDGET = 15 * 60
-THRESHOLDS = [38.0, 42.7]
+THRESHOLDS = [38.0, 42.4]
 HOURS = list(range(6, 20))
 
 NET_PATH = "/Users/jin/석사논문/Thermal_Catchment/data/network/seoul_walk_network.graphml"
@@ -23,7 +23,7 @@ UTCI_GPKG = "/Users/jin/석사논문/Thermal_Catchment/03_Method_C/results/2026-
 JIBGYEGU_SHP = "/Users/jin/석사논문/Thermal_Catchment/data/_tmp_boundary/집계구.shp"
 SUBWAY_GPKG = "/Users/jin/석사논문/Thermal_Catchment/data/facilities/seoul_subway_stations.gpkg"
 GTFS_STOPS = "/Users/jin/석사논문/TAVI/GTFS_Korea/GTFS_creation/gtfs_KTDB/stops.txt"
-OUT_CSV = "/Users/jin/석사논문/Thermal_Catchment/03_Method_C/results/2026-07-30_seoul_jibgyegu_contour_CA_vs_TCA_allhours.csv"
+OUT_CSV = "/Users/jin/석사논문/Thermal_Catchment/03_Method_C/results/2026-07-30_seoul_jibgyegu_contour_CA_vs_TCA_allhours_42-4_walk4kmh.csv"
 
 t0 = time.time()
 print("네트워크 로드...")
