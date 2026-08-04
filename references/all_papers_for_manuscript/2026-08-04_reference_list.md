@@ -1,9 +1,11 @@
 작성일: 2026-07-29 (최종 갱신: 2026-08-04)
-버전: v23 (Discussion — 병목 링크 분석 방법론 근거 2편 정식 등재: Jenelius
-et al. 2006, Nemhauser et al. 1978. Basu(2024) 서론 재인용 여부 미확정 항목 발생)
-상태: **Introduction 완료(12편, 단 Basu(2024) 재인용 여부 1건 미확정) /
-Methods 11건 완료 / Related Work — v5 기준 2.1~2.4절 전 문장 검증 완료
-(Dijkstra 가등록 제외) / Discussion 2편 신규 등재**
+버전: v24 (Discussion — 병목 링크 분석 방법론 근거 2편 정식 등재: Jenelius
+et al. 2006, Nemhauser et al. 1978. Methods — Colaninno(2024) 링크 UTCI
+할당 방법 원문 재검증. Basu(2024)·Yoon(2020) 미확정 항목 2건 발생)
+상태: **Introduction 완료(12편, 단 Basu(2024) 재인용·Yoon(2020) 신규추가
+여부 2건 미확정) / Methods 11건+링크UTCI할당 재검증 완료 / Related Work —
+v5 기준 2.1~2.4절 전 문장 검증 완료(Dijkstra 가등록 제외) / Discussion
+2편 신규 등재**
 
 ---
 
@@ -726,6 +728,35 @@ IPCC 2022(PDF 미확보, 검증 보류) — 1편 남음)*
   단일값. CFD/URock 언급 없음 — Basu(2024)와 동일한 팀 방법론 확인(교차검증).
 - **확인**: 사용자 확인 완료 (2026-07-15)
 
+### [id 021] Colaninno et al. (2024) — Methods 재인용 2 (링크 단위 UTCI 할당 방법)
+
+- **인용 위치**: 국문 학위논문 III장 §3(UTCI 산출 및 기상 입력 방식) — 우리
+  연구가 링크 지오메트리를 버퍼링(폭/2)한 뒤 겹치는 UTCI 픽셀의 평균값을
+  그 링크에 할당하는 방식(`rasterstats.zonal_stats(..., stats=['mean'])`)의
+  선례로 인용. 이 claim은 2026-08-04 이전까지 `study_note_
+  Colaninno2024_SidewalkHeatRisk.md`에 원문 인용 없이 요약("세그먼트 버퍼로
+  픽셀 평균")으로만 남아 있어 이번에 원문 대조로 정식 검증함.
+- **원문 (p.9~10, "Heat exposure index" 절)**:
+  > "We first computed the average UTCI value for each segment that
+  > represents the segment-level hazard. We created a buffer around each
+  > segment in the sidewalk network and overlaid it against the UTCI raster
+  > layer (that we had created with a 1-meter spatial resolution). We
+  > calculated the average UTCI across all the pixels that intersected with
+  > the segment buffer and assigned it to that segment as its heat hazard."
+- **번역**: "우리는 먼저 각 세그먼트의 위험도를 나타내는 평균 UTCI 값을
+  계산했다. 사이드워크 네트워크의 각 세그먼트 주변에 버퍼를 생성하고 이를
+  UTCI 래스터 레이어(1m 해상도로 제작)에 겹쳤다. 세그먼트 버퍼와 교차하는
+  모든 픽셀의 평균 UTCI를 계산해 그 세그먼트의 열위험값으로 할당했다."
+- **보조 원문 (p.10, "Heat risk" 절, 경로 단위 집계)**:
+  > "...we obtained all feasible routes to the selected critical
+  > destinations... and computed weighted averages of the segment-level
+  > hazard values, with segment lengths as weights and UTCI as heat hazard."
+- **번역**: "...선택된 핵심 목적지까지의 모든 가능한 경로를 구하고,
+  세그먼트 길이를 가중치로 하여 세그먼트별 위험값의 가중평균을 계산했다."
+- **판단**: "버퍼+픽셀 평균"·"세그먼트 길이 가중평균" 둘 다 우리 서술과
+  정확히 일치. 정식 검증 완료.
+- **확인**: 사용자 확인 완료 (2026-08-04)
+
 **종합 판단**: MIT 팀(Basu·Colaninno)의 SCI 논문 2편이 모두 "MRT만 공간적으로
 산출, 기온/습도/풍속은 재분석자료 기반 단일값"이라는 동일 방법론을 채택 —
 본 연구가 URock 등 보행자 수준 바람장 모델링 없이 met.txt 단일값 + SOLWEIG
@@ -1331,6 +1362,17 @@ OpenFOAM CFD(96 CPU, 72시간)를 사용하나 이는 슈퍼컴퓨팅 자원이 
   **교훈**: 이 세션에서 Claude가 원문을 확인하지 않고 "방법론적 근거가
   있습니다"라고 서술한 경우, 이 마스터 목록에 즉시 반영하지 않고 넘어가는
   일이 반복됐음 — 앞으로는 이 목록 확인·갱신을 원문 검증과 동시에 처리할 것.
+- **2026-08-04 (v24, 이어서)**: 사용자가 "더 찾을 거 없냐"고 재질문 —
+  같은 방식으로 이번 세션에서 언급된 다른 방법론 근거도 점검. **Colaninno
+  et al.(2024)**의 "링크 버퍼+픽셀 평균 UTCI 할당" 방법(III장 §3에서
+  우리 방법의 선례로 서술)이 `study_note_Colaninno2024_SidewalkHeatRisk.md`
+  에 원문 인용 없이 요약("세그먼트 버퍼로 픽셀 평균")으로만 남아 있었음을
+  발견 — 원문(p.9~10) 대조 후 Methods 섹션에 정식 등재(위 참고). **Yoon et
+  al.(2020)**은 서론 인용 후보로 원문(Abstract) 확인까지는 완료했으나
+  아직 마스터 초안에 반영은 안 한 상태 — "미확정" 섹션에 추가. **점검
+  결과**: Jenelius/Nemhauser/Colaninno 3건 원문 미검증 상태 발견·시정,
+  Basu/Yoon 2건은 사용자 결정 대기. 다른 인용은 기존 로그(v1~v23) 기준
+  전부 원문 대조 완료 상태로 확인됨.
 
 ### 미확정 — 사용자 재확인 필요 (2026-08-04)
 
@@ -1342,3 +1384,17 @@ OpenFOAM CFD(96 CPU, 72시간)를 사용하나 이는 슈퍼컴퓨팅 자원이 
   microclimates")이 있음 — 기존 결정을 유지할지, 이 문장으로 인용을
   추가할지 사용자 확인 필요. **현재 마스터 초안은 무인용 상태(기존 결정
   유지)로 되돌려놓음.**
+
+- **Yoon et al. (2020)** — 서론 1단락 IPCC(2022) 옆 추가 인용 후보. 원문
+  PDF 이미 확보(`references/all_papers/Yoon2020_HeatwaveKorea.pdf`,
+  `reference_list.csv` id 030에 등재만 되어 있고 실제 어디에도 미인용).
+  **원문 (Abstract 직접 확인, 2026-08-04)**: "Global warming and abnormal
+  climate change have resulted in an increase in the frequency of severe
+  heatwave events. Recently, a series of extreme heatwave events have
+  occurred in South Korea, and the damage from these events has also been
+  increasing." 군집분석으로 2000~2018년 한국 폭염일수가 1981~1999년 대비
+  유의하게 증가함을 실증(카나차카반도 지위고도 이상과 연관된 cluster 2
+  유형). 제안 문구: "...도시 내 폭염의 빈도와 강도는 더욱 증가하는
+  추세이며(IPCC, 2022), 국내에서도 최근 폭염일수가 과거 대비 유의하게
+  증가하는 것으로 확인된다(Yoon et al., 2020)." **아직 마스터 초안에
+  미반영 — 사용자 확인 대기.**
