@@ -17,6 +17,31 @@
 
 ---
 
+## Introduction 서론용 인용문 (2026-08-04 원문 PDF 직접 확인, p.2)
+
+우리 학위논문 서론 1번째 문단(생명 위협·기능성 위주 계획·이동수단별 위협)의
+근거를 스터디노트에서 못 찾아 "검증 필요"로 남겨뒀다가, 원문 PDF Introduction
+2~3번째 문단을 직접 읽고 확인함 — 전부 이 논문에서 그대로 온 문장이었음.
+
+> "The increasing number of hot days and frequent occurrences of heatwaves
+> can cause a **serious threat to human life**. Trips that entail physical
+> exertion outdoors, such as **walking** and biking trips, will increase
+> people's overall exposure to potentially dangerous urban microclimates."
+
+> "Unfortunately, **most urban walking spaces are planned by functionality,
+> with little consideration of thermal comfort**. If transportation planners
+> and urban designers exclude climate-conscious considerations in these
+> practices, the potential threat to public health and pedestrian comfort is
+> likely to be exacerbated as pedestrians are comparatively more exposed to
+> extreme weather conditions."
+
+→ "생명 위협", "실외 신체활동을 수반하는 보행이 특히 위협적", "기능성 위주
+계획·기후적 쾌적성 고려 부족" 세 주장 모두 이 두 문단에서 확인됨. 이전에
+"이동수단 중 보행이 특히 위협적" 문장은 무인용 상태였는데, 이 문헌으로
+인용 보강함.
+
+---
+
 ## 열환경 지표 및 산출 방법
 
 ### 사용 지표
