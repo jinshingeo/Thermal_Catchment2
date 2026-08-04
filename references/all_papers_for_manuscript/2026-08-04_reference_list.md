@@ -1,11 +1,12 @@
-작성일: 2026-07-29 (최종 갱신: 2026-08-04)
-버전: v27 (Introduction — Yoon et al.(2020) 정식 등재, 미확정 항목 전부
-해소. Methods — Moreno et al.(2021)·Lindberg 계보 5편(2008/2011/2016/
-2018, Wallenberg 2026) 신규 등재. 장별 인용근거정리 보조 파일 5개(II~VI장)
-신규 생성)
+작성일: 2026-07-29 (최종 갱신: 2026-08-05)
+버전: v28 (Results — McDonald et al.(2021) 스노우볼링 신규 확보·등재.
+Jia/Basu/Aydin/Colaninno 4편 전체 정독 + 스노우볼링 후보 다수 발견,
+상세는 `writing/02_선행연구/2026-08-05_4편_정독_스노우볼링_결과.md`
+별도 파일 참고 — 아직 본문 미반영, 후보 단계)
 상태: **Introduction 완료(13편, 미확정 항목 없음) / Methods 17건(SOLWEIG
 계보·Moreno 포함)+링크UTCI할당 재검증 완료 / Related Work — v5 기준
-2.1~2.4절 전 문장 검증 완료(Dijkstra 가등록 제외) /
+2.1~2.4절 전 문장 검증 완료(Dijkstra 가등록 제외) / Results 1건(McDonald
+2021, 후보 단계) /
 Discussion
 2편 신규 등재**
 
@@ -1142,7 +1143,35 @@ OpenFOAM CFD(96 CPU, 72시간)를 사용하나 이는 슈퍼컴퓨팅 자원이 
 
 ## 4. Results
 
-*(검증 완료 항목 없음)*
+### McDonald et al. (2021) — 스노우볼링 신규 확보(2026-08-05)
+
+- **후보 용도**: IV장 §4.2(자치구별 감소율과 고령인구·녹지비율의 관계)
+  탐색적 상관관계 논의를 뒷받침할 문헌으로 검토 중 — **아직 본문에
+  반영 안 됨, 후보 단계**.
+- **서지정보**: McDonald, R.I., Biswas, T., Sachar, C., Housman, I.,
+  Boucher, T.M., Balk, D., Nowak, D., Spotswood, E., Stanley, C.K., &
+  Leyk, S. (2021). The tree cover and temperature disparity in US
+  urbanized areas: Quantifying the association with income across 5,723
+  communities. *PLoS ONE*, 16(4), e0249715.
+  DOI: 10.1371/journal.pone.0249715
+  (`references/all_papers/McDonald2021_TreeCoverTemperatureDisparity.pdf`
+  — Colaninno(2024)의 스노우볼링 참고문헌에서 발견, PLoS ONE 오픈액세스라
+  Claude가 직접 확보)
+- **원문 (Abstract)**: "In 92% of the urbanized areas surveyed, low-income
+  blocks have less tree cover than high-income blocks. On average,
+  low-income blocks have 15.2% less tree cover and are 1.5°C hotter than
+  high-income blocks. The greatest difference between low- and
+  high-income blocks was found in urbanized areas in the Northeast of
+  the United States, where low-income blocks in some urbanized areas
+  have 30% less tree cover and are 4.0°C hotter."
+- **번역**: "조사된 도시화지역의 92%에서 저소득 블록이 고소득 블록보다
+  수목피복이 적었다. 평균적으로 저소득 블록은 수목피복이 15.2% 적고
+  1.5°C 더 더웠다. 저소득-고소득 블록 간 차이가 가장 큰 지역은 미국
+  북동부로, 일부 도시화지역에서 저소득 블록은 수목피복이 30% 적고
+  4.0°C 더 더웠다."
+- **확인**: 원문 PDF 1페이지(Abstract) 직접 확인 완료(2026-08-05). 본문
+  전체 대조는 아직 안 함 — IV장§4.2에 실제로 인용하기로 결정되면 추가
+  검증 필요.
 
 ## 5. Discussion
 
@@ -1623,3 +1652,19 @@ OpenFOAM CFD(96 CPU, 72시간)를 사용하나 이는 슈퍼컴퓨팅 자원이 
 - **잔여 미확정 항목(2026-08-04 기준)**: Yoon et al.(2020) 서론 추가
   인용 여부, 데이터·법령 출처 중 8건의 정확한 다운로드일/제공기관명,
   IV장 수치 중 6건의 정확한 생성 스크립트 경로.
+- **2026-08-05**: Yoon et al.(2020) 확정 반영(위 Introduction 섹션 참고,
+  미확정 목록에서 해소). 사용자 지시로 Jia(2022)·Basu(2024)·Aydin(2026)·
+  Colaninno(2024) 4편을 fork 4개로 병렬 전체 정독(본문+참고문헌) —
+  스노우볼링(후방 인용 추적) 방식으로 각 논문이 인용하는 문헌 중 우리
+  연구에 필요해 보이는 것 추출. 핵심 발견: "38°C 임계값 정당화" 논증
+  클러스터 — Basu(2024) Conclusion이 스스로 "임계값은 기후마다 다를
+  것으로 예상되며 다른 기후권 비교연구가 필요하다"고 요청한 문장 발견,
+  Aydin(2026)도 32°C를 싱가포르 현지 실측 평균에 맞춰 채택했음을 확인.
+  스노우볼링 후보 중 McDonald et al.(2021, PLoS ONE, 오픈액세스)은 직접
+  PDF 확보해 Abstract 검증 후 Results 섹션에 등재(위 참고) — Colaninno
+  (2024)의 참고문헌에서 발견. Wang et al.(2022, Frontiers)는 PMC 자동
+  차단으로 요약만 확보, 원문 PDF는 미확보. Hsu et al.(2021, Nature
+  Comms)는 로그인장벽으로 확보 실패. 나머지 상세(채굴 문장 전체, 다운로드
+  요청 목록 6편의 정확한 서지정보·제안 파일명)는 `writing/02_선행연구/
+  2026-08-05_4편_정독_스노우볼링_결과.md` 참고 — **이 파일의 내용은 전부
+  아직 "후보" 단계이며 본문에 반영되지 않음**.
