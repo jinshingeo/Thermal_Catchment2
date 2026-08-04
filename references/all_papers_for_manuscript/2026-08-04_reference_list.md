@@ -1,10 +1,11 @@
 작성일: 2026-07-29 (최종 갱신: 2026-08-04)
-버전: v26 (Methods — Moreno et al.(2021)·Lindberg 계보 5편(2008/2011/2016/
+버전: v27 (Introduction — Yoon et al.(2020) 정식 등재, 미확정 항목 전부
+해소. Methods — Moreno et al.(2021)·Lindberg 계보 5편(2008/2011/2016/
 2018, Wallenberg 2026) 신규 등재. 장별 인용근거정리 보조 파일 5개(II~VI장)
-신규 생성. Basu(2024) 3차 인용 확정, Yoon(2020)만 미확정으로 남음)
-상태: **Introduction 완료(12편, Yoon(2020) 신규추가 여부 1건만 미확정) /
-Methods 17건(SOLWEIG 계보·Moreno 포함)+링크UTCI할당 재검증 완료 /
-Related Work — v5 기준 2.1~2.4절 전 문장 검증 완료(Dijkstra 가등록 제외) /
+신규 생성)
+상태: **Introduction 완료(13편, 미확정 항목 없음) / Methods 17건(SOLWEIG
+계보·Moreno 포함)+링크UTCI할당 재검증 완료 / Related Work — v5 기준
+2.1~2.4절 전 문장 검증 완료(Dijkstra 가등록 제외) /
 Discussion
 2편 신규 등재**
 
@@ -106,6 +107,28 @@ IPCC 2022(PDF 미확보, 검증 보류) — 1편 남음)*
     2026-08-04 Claude가 원문 재확인 중 위 문장(더 직접적으로 일치)을
     추가로 발견해 사용자에게 보고, 사용자가 인용 추가로 확정.
 - **확인**: 사용자 확인 완료 (2026-08-04)
+
+### [id 030] Yoon et al. (2020)
+
+- **인용 위치**: 1단락 — "기후변화로 인해 도시 내 폭염의 빈도와 강도는
+  더욱 증가하는 추세이며(IPCC, 2022), 국내에서도 최근 폭염일수가 과거
+  대비 유의하게 증가하는 것으로 확인된다(Yoon et al., 2020)."
+- **서지정보**: Yoon, D. et al. (2020). Recent changes in heatwave
+  characteristics over Korea. *Climate Dynamics*, 55, 1685–1696.
+  DOI: 10.1007/s00382-020-05420-1
+  (`references/all_papers/Yoon2020_HeatwaveKorea.pdf`)
+- **원문 (Abstract)**: "Global warming and abnormal climate change have
+  resulted in an increase in the frequency of severe heatwave events.
+  Recently, a series of extreme heatwave events have occurred in South
+  Korea, and the damage from these events has also been increasing."
+- **번역**: "지구온난화와 이상기후는 심각한 폭염 사건의 빈도 증가를
+  가져왔다. 최근 한국에서도 일련의 극한 폭염 사건이 발생했으며, 이로
+  인한 피해도 증가하고 있다."
+- **판단**: 군집분석으로 2000~2018년 한국 폭염일수가 1981~1999년 대비
+  유의하게 증가함을 실증(카나차카반도 지위고도 이상과 연관된 cluster 2
+  유형 증가가 원인) — IPCC(2022)의 전지구적 일반론 옆에 한국 특정
+  실증 데이터를 추가해 서론 도입부를 보강.
+- **확인**: 사용자 확인 완료 (2026-08-04) — 마스터 초안 반영 완료
 
 ### [id 017] Geurs & van Wee (2004)
 
@@ -1564,20 +1587,6 @@ OpenFOAM CFD(96 CPU, 72시간)를 사용하나 이는 슈퍼컴퓨팅 자원이 
   전부 원문 대조 완료 상태로 확인됨.
 
 ### 미확정 — 사용자 재확인 필요 (2026-08-04)
-
-- **Yoon et al. (2020)** — 서론 1단락 IPCC(2022) 옆 추가 인용 후보. 원문
-  PDF 이미 확보(`references/all_papers/Yoon2020_HeatwaveKorea.pdf`,
-  `reference_list.csv` id 030에 등재만 되어 있고 실제 어디에도 미인용).
-  **원문 (Abstract 직접 확인, 2026-08-04)**: "Global warming and abnormal
-  climate change have resulted in an increase in the frequency of severe
-  heatwave events. Recently, a series of extreme heatwave events have
-  occurred in South Korea, and the damage from these events has also been
-  increasing." 군집분석으로 2000~2018년 한국 폭염일수가 1981~1999년 대비
-  유의하게 증가함을 실증(카나차카반도 지위고도 이상과 연관된 cluster 2
-  유형). 제안 문구: "...도시 내 폭염의 빈도와 강도는 더욱 증가하는
-  추세이며(IPCC, 2022), 국내에서도 최근 폭염일수가 과거 대비 유의하게
-  증가하는 것으로 확인된다(Yoon et al., 2020)." **아직 마스터 초안에
-  미반영 — 사용자 확인 대기.**
 
 - **2026-08-04 (v25)**: 사용자가 (1) Basu(2024) 3차 인용 확정 지시 — 마스터
   초안 반영 + 이 파일 1단락 항목을 "미확정"에서 확정으로 이전. (2) 이 마스터
