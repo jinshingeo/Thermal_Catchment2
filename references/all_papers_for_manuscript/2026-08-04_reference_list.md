@@ -1,12 +1,12 @@
 작성일: 2026-07-29 (최종 갱신: 2026-08-05)
-버전: v28 (Results — McDonald et al.(2021) 스노우볼링 신규 확보·등재.
-Jia/Basu/Aydin/Colaninno 4편 전체 정독 + 스노우볼링 후보 다수 발견,
-상세는 `writing/02_선행연구/2026-08-05_4편_정독_스노우볼링_결과.md`
-별도 파일 참고 — 아직 본문 미반영, 후보 단계)
+버전: v29 (Related Work — "38°C 임계값 정당화" 클러스터 5편(Pantavou 2018,
+Kruger 2017, Liu&Qin 2023, Jendritzky 2012) 원문 검증·등재. Results —
+McDonald(2021) 등재, Hsu(2021)는 우리 상관관계와 반대방향이라 ⚠️사용주의로
+등재, Wang(2022)은 15분 근거 대체 실패로 판정. 전부 아직 본문 미반영)
 상태: **Introduction 완료(13편, 미확정 항목 없음) / Methods 17건(SOLWEIG
 계보·Moreno 포함)+링크UTCI할당 재검증 완료 / Related Work — v5 기준
-2.1~2.4절 전 문장 검증 완료(Dijkstra 가등록 제외) / Results 1건(McDonald
-2021, 후보 단계) /
+2.1~2.4절 전 문장 검증 완료 + 38°C 클러스터 4편 신규(Dijkstra 가등록
+제외) / Results 3건(McDonald 후보, Hsu 사용주의, Wang 용도재검토) /
 Discussion
 2편 신규 등재**
 
@@ -419,6 +419,104 @@ IPCC 2022(PDF 미확보, 검증 보류) — 1편 남음)*
 - **확인**: 사용자 확인 완료 (2026-07-14)
 
 ## 2. Related Work (선행연구 검토)
+
+### "38°C 임계값 정당화" 클러스터 — 스노우볼링 확보 5편 (2026-08-05)
+
+> 인용 목적(공통): II장§2 또는 V장§3("왜 UTCI를 직접 쓰는가")에 "임계값은
+> 지역 기후에 맞춰 정하는 것이 학계 관행이며, 서울처럼 더운 여름 기후에서는
+> 38°C 이상 구간이 실제로 흔하게 관측되므로 38°C를 본문 기준값으로 채택한다"
+> 논거를 보강하기 위해 사용자가 다운로드 → Claude가 fork로 각각 원문 정독.
+> **아직 실제 학위논문 본문에는 반영 안 됨 — 문단 작성은 별도 단계.**
+
+#### Pantavou et al. (2018)
+
+- **서지정보**: Pantavou, K., Lykoudis, S., Nikolopoulou, M., & Tsiros, I.X.
+  (2018). Thermal sensation and climate: a comparison of UTCI and PET
+  thresholds in different climates. *International Journal of
+  Biometeorology*, 62, 1695–1708. DOI: 10.1007/s00484-018-1569-4
+- **원문(Abstract, p.1695)**: "The results indicated that the calibrated
+  UTCI and PET thresholds increase with the climate normal annual air
+  temperature of the survey city... The average increase of the
+  respective thresholds... was about 0.6°C for each 1°C increase of the
+  normal annual air temperature for both indices."
+- **번역**: 보정된 UTCI·PET 임계값은 조사도시의 평년 연평균기온에 따라
+  증가하며, 연평균기온 1°C 상승마다 임계값이 약 0.6°C씩 상승한다.
+- **⚠️ 오버클레임 주의(fork가 명시적으로 경고)**: 이 논문은 유럽 온대
+  도시(연평균 6.9~16.7°C)의 "중립(neutral)" 등급 경계 이동을 다룬 것이지,
+  우리가 쓰는 "Very Strong Heat Stress(38°C 이상)" 같은 극한 등급 자체를
+  지역별로 재정의해야 한다고 직접 주장하지 않는다. "임계값은 지역 기후에
+  따라 상대적"이라는 **일반 원리**의 근거로만 쓸 것 — "그러므로 서울은
+  38°C를 써야 한다"는 결론까지 이 논문이 내리는 것처럼 인용하면 오귀속.
+- **확인**: 원문 PDF 전체 대조 완료 (2026-08-05)
+
+#### Krüger, Rossi & Drach (2017)
+
+- **서지정보**: Krüger, E., Rossi, F., & Drach, P. (2017). Calibration of
+  the physiological equivalent temperature index for three different
+  climatic regions. *International Journal of Biometeorology*, 61,
+  1323–1336. DOI: 10.1007/s00484-017-1310-8 (원문 저자 표기는 이니셜만:
+  "E Krüger, F Rossi, P Drach")
+- **원문(Abstract, p.1323)**: "there is a need for adjusting comfort/
+  stress ranges of a given index when using it in different climatic
+  contexts."
+- **원문(Table 6, p.1334 — 가장 강력한 수치 근거)**: 동일한 "Strong heat
+  stress" 등급의 PET 임계값이 도시마다 **Glasgow 27°C, Curitiba 37°C,
+  Tianjin 40°C, Rome 45°C, Rio de Janeiro 49°C**로, 같은 스트레스 등급인데
+  최대 22°C까지 차이남.
+- **번역**: "지표를 다른 기후 맥락에서 사용할 때는 쾌적/스트레스 구간의
+  조정이 필요하다." 표 수치는 "같은 등급이라도 도시마다 실제 온도값이
+  최대 22°C 차이난다"는 실증.
+- **확인**: 원문 PDF 전체 대조 완료 (2026-08-05) — 우리 논증에 가장
+  강력한 정량적 근거
+
+#### Liu & Qin (2023)
+
+- **서지정보**: Liu, L. & Qin, X. (2023). Analysis of heatwaves based on
+  the universal thermal climate index and apparent temperature over
+  mainland Southeast Asia. *International Journal of Biometeorology*,
+  67(12), 2055–2068. DOI: 10.1007/s00484-023-02562-9
+- **원문(p.2062)**: "the area with high HWA values measured by UTCI, with
+  HWA values up to 40°C for AT and **45°C for UTCI**... The significantly
+  higher value of UTCI compared to other indices indicates the actual
+  human perceptions during heatwave may be more heat-stressed than what
+  is assessed based on air temperature alone."
+- **번역**: 동남아 본토 폭염일의 UTCI가 최대 45°C까지 도달했으며, 이는
+  단순 기온보다 실제 체감 스트레스가 더 큼을 보여준다.
+- **판단**: 더운 몬순·아열대 기후에서는 UTCI 38°C 이상(Very Strong Heat
+  Stress) 구간이 예외가 아니라 정례적으로 관측되는 범위임을 보여주는
+  실측 사례 — Basu(2024, 보스턴 최댓값 37.3°C)와 정확히 대비됨. 다만 "지역별
+  임계값 비교 정당화" 자체는 이 논문의 주제가 아님(Kruger·Pantavou가 그
+  역할) — "우리 지역엔 38°C가 실제로 흔하다"는 사실관계 근거로만 사용.
+- **확인**: 원문 PDF pp.1-8, 12-14 대조 완료 (2026-08-05). Discussion/
+  Conclusion(pp.9-11 추정)은 미확인 — 필요시 추가 확인 권장.
+
+#### Jendritzky, de Dear & Havenith (2012)
+
+- **서지정보**: Jendritzky, G., de Dear, R., & Havenith, G. (2012). UTCI—
+  why another thermal index? *International Journal of Biometeorology*,
+  56(3), 421–428. DOI: 10.1007/s00484-011-0513-7
+- **원문 ①(p.421)**: "ISB Commission 6 took up the idea of developing a
+  Universal Thermal Climate Index (UTCI)... COST Action 730 so that
+  finally over 45 scientists from 23 countries... worked together."
+- **원문 ②(p.423, UTCI 설계 요구조건)**: "The UTCI must meet the following
+  requirements: ... (3) **Valid in all climates, seasons, and time and
+  spatial scales**"
+- **원문 ③(p.422)**: "The tolerance to thermal extremes depends on
+  personal characteristics (Havenith 2001, 2005): age, fitness, gender,
+  acclimatisation, morphology, and fat thickness being among the most
+  significant."
+- **번역**: ① ISB 위원회6+COST Action 730(23개국 45명 이상 과학자)이
+  UTCI를 개발했다. ② UTCI는 "모든 기후·계절·시공간 스케일에서 유효해야
+  한다"는 게 공식 설계 요구조건이다. ③ 극한열 내성은 나이·체력·성별·순응도
+  등 개인 특성에 좌우된다(=UTCI 자체는 이 개인차를 반영하지 못함).
+- **용도**: ①은 II장§2 UTCI 채택 근거(Bröde 2012 옆) 보강. ②는 "서울
+  여름처럼 더운 기후에도 UTCI를 그대로 쓸 수 있는가"에 대한 **UTCI 설계
+  자체의 공식 답변**으로 강력함. ③은 **"UTCI는 연령별 차별화 안 되는
+  지표"라는 우리 V장§6 한계 서술이 지금까지 근거 논문 없이 서술돼
+  있었는데, 그 원 근거로 사용 가능**.
+- **확인**: 원문 PDF 5페이지 전체 대조 완료 (2026-08-05)
+
+---
 
 ### Hägerstrand (1970)
 
@@ -1173,6 +1271,56 @@ OpenFOAM CFD(96 CPU, 72시간)를 사용하나 이는 슈퍼컴퓨팅 자원이 
   전체 대조는 아직 안 함 — IV장§4.2에 실제로 인용하기로 결정되면 추가
   검증 필요.
 
+### Hsu et al. (2021) — ⚠️ 사용 주의 (2026-08-05 원문 확인)
+
+- **후보 용도(원래 기대)**: IV장§4.2 보강 — 인종/소득별 열섬노출 격차.
+- **서지정보**: Hsu, A., Sheriff, G., Chakraborty, T., & Manya, D.
+  (2021). Disproportionate exposure to urban heat island intensity
+  across major US cities. *Nature Communications*, 12, 2721.
+  DOI: 10.1038/s41467-021-22799-5 (오픈액세스, CC BY)
+- **원문(Abstract)**: "the average person of color lives in a census
+  tract with higher SUHI intensity than non-Hispanic whites in all but
+  6 of the 175 largest urbanized areas... A similar pattern emerges for
+  people living in households below the poverty line."
+- **⚠️ 핵심 경고 — 우리 상관관계와 반대 방향**: 이 논문 본문(p.2, p.4)은
+  "**연령 자체는 SUHI 노출 격차의 강한 설명변수가 아니며, 오히려 65세
+  이상 인구가 86%의 미국 도시에서 65세 미만보다 SUHI 노출이 낮다**"고
+  명시한다("people over 65 have lower SUHI exposure than those under 65
+  in 86% of US cities", p.4). 우리 IV장§4.2는 "09시 감소율이 고령인구
+  비율과 양의 상관(r=0.39)"이라고 서술하는데, 이 논문을 그대로 병치
+  인용하면 **오귀속** — 지표(SUHI 강도 vs 우리의 TCA 감소율)와 메커니즘
+  (거주지 패턴 vs 네트워크 위상)이 다르다는 점을 명시하지 않고 인용하면
+  독자가 "선행연구와 반대 결과"로 오인할 위험.
+- **권고**: 인종/소득 부분(핵심 결과)은 우리 IV장§4.2가 다루는 변수
+  (고령인구·녹지비율)와 정확히 일치하지 않아 직접 인용 가치가 낮음.
+  **연령 관련 부분은 인용하지 않거나, 인용 시 반드시 지표 차이를 명시할
+  것.** 전반적으로 이 논문은 우리 IV§4.2 보강용으로 McDonald(2021)보다
+  적합성이 낮다고 판단.
+- **확인**: 원문 PDF 대조 완료 (2026-08-05)
+
+### Wang et al. (2022) — 15분 근거 대체 실패, 별도 용도로 재검토
+
+- **후보 용도(원래 기대)**: III장§4 "15분 시간예산"을 Moreno(2021)보다
+  정밀하게 뒷받침 — **원문 확인 결과 기대에 못 미침**.
+- **서지정보**: Wang, Y., He, B-J., Kang, C., Yan, L., Chen, X., Yin, M.,
+  Liu, X., & Zhou, T. (2022). Assessment of walkability and walkable
+  routes of a 15-min city for heat adaptation: Development of a dynamic
+  attenuation model of heat stress. *Frontiers in Public Health*, 10,
+  1011391. DOI: 10.3389/fpubh.2022.1011391 (오픈액세스, CC BY)
+- **원문 확인 결과**: "왜 15분인가"에 대한 별도의 수치적 도출/정당화는
+  이 논문에도 없음 — Moreno(2021)와 마찬가지로 "15분 도시" 개념(citation
+  36)을 전제로 받아들일 뿐. 다만 이 논문 고유의 실험(128명, 4단계
+  열스트레스, 15분 도보)에서는 15분을 실제 프로토콜로 사용:
+  "a 15-min walkability experiment was conducted... A total of 128
+  residents attended... requested to walk for 15 min at four levels of
+  heat stress" (p.8).
+- **판단**: **III장§4의 15분 근거는 Moreno(2021) 그대로 유지 — 이 논문으로
+  교체/보강 불필요.** 다만 이 논문 고유의 DAM(Dynamic Attenuation Model,
+  R_t = H − S_t, Eq.3, p.8) 방법론은 "잔여 열내성"이라는 개념이 흥미로워
+  V장(향후연구, 개인별 열내성 반영 확장) 참고자료로는 남겨둘 만함 — 우선
+  순위 낮음.
+- **확인**: 원문 PDF 대조 완료 (2026-08-05)
+
 ## 5. Discussion
 
 ### Jenelius, Petersen & Mattsson (2006)
@@ -1668,3 +1816,15 @@ OpenFOAM CFD(96 CPU, 72시간)를 사용하나 이는 슈퍼컴퓨팅 자원이 
   요청 목록 6편의 정확한 서지정보·제안 파일명)는 `writing/02_선행연구/
   2026-08-05_4편_정독_스노우볼링_결과.md` 참고 — **이 파일의 내용은 전부
   아직 "후보" 단계이며 본문에 반영되지 않음**.
+- **2026-08-05 (v29)**: 사용자가 다운로드 요청 6편을 전부 받아 제공 —
+  fork 6개로 병렬 원문 타겟검증(각자 특정 주장에 필요한 정확한 문구만
+  확인). 결과: Pantavou(2018)·Kruger(2017)·Liu&Qin(2023)·Jendritzky
+  (2012) 4편은 "38°C 임계값 정당화" 논증에 유효 확인, Related Work
+  섹션 최상단에 전용 클러스터로 등재(Kruger의 Table 6 도시별 임계값
+  비교가 가장 강력한 수치 근거). McDonald(2021)는 Results에 등재
+  (후보 단계). **Hsu(2021)는 확인 결과 우리 IV장§4.2 상관관계(고령인구
+  비율과 양의 상관)와 반대 방향(고령층이 SUHI 노출 더 낮음)임을
+  fork가 발견 — ⚠️사용주의로 등재, 오귀속 위험 명시**. Wang(2022)도
+  기대(15분 근거 보강)와 달리 원문에 "왜 15분인가"의 수치적 근거가
+  없어 **III장§4는 Moreno(2021) 그대로 유지하기로 판정**. 6편 모두
+  원문 PDF 전체 또는 목표 구간 대조 완료.
