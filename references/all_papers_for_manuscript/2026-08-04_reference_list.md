@@ -1,8 +1,9 @@
-작성일: 2026-07-29
-버전: v22 (Methods — Hard Cut 임계값 몬테카를로 방어용 나이대별 열스트레스
-내성 문헌 3편 등록: Thorsson 2014, Tousi/Evgenia 2024, Wolf 2023)
-상태: **Introduction 완료(12편) / Methods 11건 완료 / Related Work — v5 기준
-2.1~2.4절 전 문장 검증 완료(Dijkstra 가등록 제외)**
+작성일: 2026-07-29 (최종 갱신: 2026-08-04)
+버전: v23 (Discussion — 병목 링크 분석 방법론 근거 2편 정식 등재: Jenelius
+et al. 2006, Nemhauser et al. 1978. Basu(2024) 서론 재인용 여부 미확정 항목 발생)
+상태: **Introduction 완료(12편, 단 Basu(2024) 재인용 여부 1건 미확정) /
+Methods 11건 완료 / Related Work — v5 기준 2.1~2.4절 전 문장 검증 완료
+(Dijkstra 가등록 제외) / Discussion 2편 신규 등재**
 
 ---
 
@@ -1011,7 +1012,75 @@ OpenFOAM CFD(96 CPU, 72시간)를 사용하나 이는 슈퍼컴퓨팅 자원이 
 
 ## 5. Discussion
 
-*(검증 완료 항목 없음)*
+### Jenelius, Petersen & Mattsson (2006)
+
+- **인용 위치**: 국문 학위논문 V장 §2(정책적 함의) — "도로망 취약성 분석의
+  기존 표준 방법론(Jenelius, Petersen & Mattsson, 2006 — 링크를 하나씩
+  복구/폐쇄했을 때 접근성이 얼마나 회복/감소하는지로 링크의 '중요도'를
+  정의하는 전체망 스캔 방식)을 그대로 적용하였다" 및 결론·초록 등 총 8곳
+  재인용(전부 같은 근거).
+- **서지정보**: Jenelius, E., Petersen, T., & Mattsson, L.-G. (2006).
+  Importance and exposure in road network vulnerability analysis.
+  *Transportation Research Part A: Policy and Practice*, 40(7), 537–560.
+  (`references/all_papers/Jenelius2006_rodenetwork_vulnerability.pdf`)
+- **원문 (p.537~538, Abstract/Introduction)**:
+  > "The concepts of link importance and site exposure are introduced. In
+  > this paper, several link importance indices and site exposure indices
+  > are derived, based on the increase in generalised travel cost when
+  > links are closed."
+  > "...following Nicholson and Du (1994), we call the consequences for a
+  > collection of sites of a failing link or group of links the importance
+  > of that link/group of links. As a measure of the consequences of
+  > failure we use the increase in generalised travel cost."
+- **번역**: "링크 중요도와 지점 노출이라는 개념을 도입한다. 본 논문에서는
+  링크가 폐쇄되었을 때 일반화된 통행비용이 얼마나 증가하는지를 기반으로
+  여러 링크 중요도 지수와 지점 노출 지수를 도출한다." / "...Nicholson과
+  Du(1994)를 따라, 하나의 링크(또는 링크 집합)의 고장이 여러 지점에
+  미치는 결과를 그 링크(집합)의 '중요도'라 부른다. 고장의 결과를 측정하는
+  척도로는 일반화된 통행비용의 증가를 사용한다."
+- **판단**: "링크 제거/복구 → 접근성 변화로 중요도를 정의"라는 우리 서술과
+  정확히 일치. "일반화된 비용(generalised cost)"이라는 표현도 우리가 V장
+  §2에서 "누적 길이(m)"를 개입 규모 단위로 쓰는 근거("일반화된 비용으로
+  중요도를 정의하는 관행")와 정확히 부합 — 원문에 그대로 있는 용어였음.
+- **확인**: 사용자 확인 완료 (2026-08-04, 사용자가 PDF 직접 다운받아 제공)
+
+### Nemhauser, Fisher & Wolsey (1978)
+
+- **인용 위치**: 국문 학위논문 V장 §2 — "Nemhauser, Fisher & Wolsey(1978)의
+  탐욕적 집합함수 최적화 방식(매 단계 한계이득이 가장 큰 후보를 선택)을
+  그대로 유지하되, 이득이 동점일 때는 출발지로부터의 거리가 가까운 후보를
+  우선하는 지연 규칙(tie-breaking)을 추가하여 재계산하였다."
+- **서지정보**: Nemhauser, G.L., Wolsey, L.A., & Fisher, M.L. (1978). An
+  analysis of approximations for maximizing submodular set functions—I.
+  *Mathematical Programming*, 14(1), 265–294.
+  (`references/all_papers/Nemhauser1978_approximations.pdf`)
+- **원문 (p.276, §4 "The greedy heuristic for submodular set functions")**:
+  > "A natural way to find solutions to problem (1.6) quickly is to start
+  > from the null set and add elements one at a time, taking at each step
+  > that element which increases z the most. The resulting solution is
+  > called a 'greedy' solution..."
+- **번역**: "문제(1.6)의 해를 빠르게 찾는 자연스러운 방법은, 공집합에서
+  시작해 원소를 하나씩 추가하되 매 단계 z를 가장 많이 증가시키는 원소를
+  선택하는 것이다. 이렇게 구해진 해를 '탐욕적(greedy)' 해라고 부른다..."
+- **판단**: 저자명 표기 주의 — 원문 표지의 저자 순서는 **Nemhauser, Wolsey,
+  Fisher**이나(논문 헤더 확인), 국문 학위논문·본 목록 모두 관행적으로
+  통용되는 "Nemhauser, Fisher & Wolsey"로 표기해왔음 — 실제로는 저자 3인
+  동일 논문이라 인용 자체는 문제없으나, 정확한 원문 저자 순서와 다르다는
+  점은 기록해둠(추후 참고문헌 목록 표기 시 원문 순서로 통일할지 사용자
+  결정 필요). "매 단계 한계이득 최대 원소 선택"이라는 우리 서술과 원문의
+  greedy heuristic 정의가 정확히 일치.
+- **확인**: 사용자 확인 완료 (2026-08-04, 사용자가 PDF 직접 다운받아 제공)
+
+### Jenelius (2010) — 참고용 보조 자료(직접 인용 아님)
+
+- **성격**: Jenelius, Petersen & Mattsson(2006)의 1저자 Erik Jenelius의
+  박사학위논문(KTH, *Large-Scale Road Network Vulnerability Analysis*,
+  2010) — 위 2006년 논문을 본인 학위논문의 "Paper I"로 명시하며 동일한
+  importance/exposure 개념을 더 상세히 정식화함
+  (`references/all_papers/Jenelius2010_PhDThesis_RoadNetworkVulnerability.pdf`).
+- **용도**: 2026-08-04 당시 2006년 원논문(페이월) 접근 전, 같은 개념을
+  가진 대체 자료로 먼저 확인했던 것. 2006년 원논문을 사용자가 직접
+  확보해준 뒤로는 본 학위논문은 더 이상 인용에 쓰지 않음 — 기록만 남김.
 
 ## 6. Conclusion
 
@@ -1237,3 +1306,39 @@ OpenFOAM CFD(96 CPU, 72시간)를 사용하나 이는 슈퍼컴퓨팅 자원이 
   without trees"(갤러리+가로수 병용) 확인. **Kántor & Unger(2011)** Abstract
   "the most important parameter... variable in spatial... manner" 확인 —
   둘 다 초안 인용과 정확히 일치. **결과: 2.2절 4개 인용 전부 검증 완료.**
+- **2026-08-04 (v23)**: 국문 학위논문 V장 §2(정책적 함의 — 병목 링크 분석)에서
+  이번 세션 동안 여러 차례 인용해온 **Jenelius, Petersen & Mattsson(2006)**·
+  **Nemhauser, Fisher & Wolsey(1978)** 두 편이 이 마스터 목록에 등재는커녕
+  PDF조차 읽지 않은 채(WebSearch 서지정보만으로) 본문에 8회+1회 인용되어
+  있었음을 사용자가 지적해 발견. 즉시 시정: (1) WebSearch로 오픈액세스 대체
+  자료(Jenelius의 2010년 박사학위논문, KTH)를 먼저 확보해 개념을 교차확인했으나
+  원논문 자체는 아니었음을 사용자에게 보고, (2) 사용자가 원논문 2편을 직접
+  다운로드해 제공, (3) 두 편 모두 원문 PDF 대조 완료 — Jenelius(2006) p.537
+  "importance"·"generalised cost" 정의, Nemhauser et al.(1978) p.276 greedy
+  heuristic 정의 확인, 초안 서술과 정확히 일치. 5. Discussion 섹션에 정식
+  등재(기존 이 섹션은 공란이었음). **동시에 별도로 발견된 문제**: 국문
+  학위논문 서론 1단락의 "여러 이동 방식 중 실외에서 신체 활동이... 위협이
+  더욱 커질 것이다" 문장에 Claude가 세션 중 임의로 (Basu et al., 2024)
+  인용을 추가했으나, 이 파일(1단락 Basu 항목, 65~68행)에 **이미 2026-07-14에
+  "유사하지만 저자 본인의 논리적 추론으로 무인용 처리하기로 확정"**된 기록이
+  있었음이 드러나 즉시 원복(마스터 초안 및 본 파일 미변경, 결정 유지) — 단,
+  당시 대조했던 문구("pedestrians are comparatively more exposed to extreme
+  weather conditions")와 별개로, 같은 단락 바로 앞의 "Trips that entail
+  physical exertion outdoors, such as walking and biking trips, will
+  increase people's overall exposure to potentially dangerous urban
+  microclimates"(p.2)라는 더 직접적으로 일치하는 문장을 추가로 발견 — 재인용
+  여부는 사용자 재확인 필요 항목으로 남겨둠(미확정, 아래 참고).
+  **교훈**: 이 세션에서 Claude가 원문을 확인하지 않고 "방법론적 근거가
+  있습니다"라고 서술한 경우, 이 마스터 목록에 즉시 반영하지 않고 넘어가는
+  일이 반복됐음 — 앞으로는 이 목록 확인·갱신을 원문 검증과 동시에 처리할 것.
+
+### 미확정 — 사용자 재확인 필요 (2026-08-04)
+
+- **Basu et al.(2024)** — 서론 1단락 "이동수단 중 보행이 특히 위협적" 문장.
+  기존 결정(2026-07-14, 위 1단락 항목 참고): 무인용 유지. 신규 발견
+  (2026-08-04): Introduction p.2에 이 문장과 훨씬 가까운 원문("Trips that
+  entail physical exertion outdoors, such as walking and biking trips,
+  will increase people's overall exposure to potentially dangerous urban
+  microclimates")이 있음 — 기존 결정을 유지할지, 이 문장으로 인용을
+  추가할지 사용자 확인 필요. **현재 마스터 초안은 무인용 상태(기존 결정
+  유지)로 되돌려놓음.**
