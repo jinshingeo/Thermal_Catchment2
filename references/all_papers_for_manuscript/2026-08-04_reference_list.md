@@ -1,10 +1,11 @@
 작성일: 2026-07-29 (최종 갱신: 2026-08-04)
-버전: v24 (Discussion — 병목 링크 분석 방법론 근거 2편 정식 등재: Jenelius
-et al. 2006, Nemhauser et al. 1978. Methods — Colaninno(2024) 링크 UTCI
-할당 방법 원문 재검증. Basu(2024)·Yoon(2020) 미확정 항목 2건 발생)
-상태: **Introduction 완료(12편, 단 Basu(2024) 재인용·Yoon(2020) 신규추가
-여부 2건 미확정) / Methods 11건+링크UTCI할당 재검증 완료 / Related Work —
-v5 기준 2.1~2.4절 전 문장 검증 완료(Dijkstra 가등록 제외) / Discussion
+버전: v26 (Methods — Moreno et al.(2021)·Lindberg 계보 5편(2008/2011/2016/
+2018, Wallenberg 2026) 신규 등재. 장별 인용근거정리 보조 파일 5개(II~VI장)
+신규 생성. Basu(2024) 3차 인용 확정, Yoon(2020)만 미확정으로 남음)
+상태: **Introduction 완료(12편, Yoon(2020) 신규추가 여부 1건만 미확정) /
+Methods 17건(SOLWEIG 계보·Moreno 포함)+링크UTCI할당 재검증 완료 /
+Related Work — v5 기준 2.1~2.4절 전 문장 검증 완료(Dijkstra 가등록 제외) /
+Discussion
 2편 신규 등재**
 
 ---
@@ -708,6 +709,70 @@ IPCC 2022(PDF 미확보, 검증 보류) — 1편 남음)*
   위 Introduction id 007 항목(Table 3)과 동일.
 
 ## 3. Methods (연구자료 구축 및 방법론)
+
+### Moreno et al. (2021) — 15분 시간예산 근거
+
+- **인용 위치**: 국문 학위논문 III장 §4 — "출발지에서 15분(Moreno et al.,
+  2021) 시간 예산 내 도달 가능한 노드 집합을 산출하며..."
+- **서지정보**: Moreno, C., Allam, Z., Chabaud, D., Gall, C., & Pratlong, F.
+  (2021). Introducing the "15-Minute City": Sustainability, Resilience and
+  Place Identity in Future Post-Pandemic Cities. *Smart Cities*, 4(1), 93–111.
+  (`references/all_papers/Moreno2021_15MinuteCity.pdf`)
+- **원문 (Abstract, Introduction)**: "...the re-emergence of a concept,
+  initially proposed in 2016 by Carlos Moreno: the '15-Minute City'." /
+  "...the 15-minute walkable neighborhood proposed by Weng et al. [9]..."
+- **번역**: "...2016년 Carlos Moreno가 처음 제안한 개념인 '15분 도시'가
+  재부상하였다." / "...Weng et al.이 제안한 15분 보행권 근린 개념..."
+- **판단**: "15분 보행권"이라는 시간예산 자체의 개념적 출처로 적합 — 다만
+  이 논문 자체는 정책·도시계획 관점의 개관 논문(perspective paper)이라
+  "15분이 왜 접근성 분석의 표준 시간예산인가"를 수치적으로 증명하지는
+  않음(그 성격의 논문 아님). 개념 출처 인용으로는 정당, 수치적 근거로
+  오인되지 않도록 유의.
+- **확인**: 사용자 확인 완료 (2026-08-04, 원문 PDF 직접 확인 — 기존에
+  마스터 파일 미등재 상태로 III장에 인용되고 있었음을 발견해 시정)
+
+### SOLWEIG 계보 4편 — Lindberg et al.(2008/2016), Lindberg & Grimmond(2011), Wallenberg et al.(2026)
+
+- **인용 위치**: 국문 학위논문 III장 §2(MRT 산출) — SOLWEIG 성능(R²=0.94,
+  RMSE=4.8K), 식생 스킴(R²=0.91, RMSE=3.1K, τ=0.05), 지표재질 스킴,
+  벽면온도 스킴(±2.5°C) 4개 수치.
+- **검증 경위**: 2026-08-04 III장 인용근거정리 작업 중 마스터 파일에
+  formal 등재가 안 돼 있음을 발견 — 단, `references/study_note_
+  Lindberg2008_SOLWEIG1.md` 등 개별 스터디노트에는 이미 원문 수치가
+  확인되어 있었음(작성일 2026-06~07월경, 원문 대조 완료 상태).
+- **Lindberg et al.(2008)** — SOLWEIG 1.0, *Int J Biometeorol*, 52(7),
+  697–713. 예테보리 현장검증 R²=0.94, RMSE=4.8K(스터디노트 p.127-128
+  확인 기록).
+- **Lindberg & Grimmond(2011)** — 식생 스킴(SOLWEIG 2.0), *Theoretical
+  and Applied Climatology*, 105(3), 311–323. R²=0.91, RMSE=3.1K, 캐노피
+  투과율 τ=0.05 권장(완전히 잎 달린 여름 조건)(스터디노트 p.66-81 확인
+  기록).
+- **Lindberg et al.(2016)** — 지표재질 스킴, *Int J Biometeorol*, 60(9),
+  1439–1452. 재질별 알베도·방사율 값(아스팔트 ε=0.95/α=0.18 등, Table 1)
+  확인 기록.
+- **Wallenberg et al.(2026)** — 벽면온도 step heating 스킴,
+  *Geoscientific Model Development*, 19, 1321–1336. 새 스킴 적용 시
+  T_mrt 최대 ±2.5°C 차이(스터디노트 §7.2 확인 기록, 단 CIBSE(2015) 표
+  인용값이라는 점도 함께 기록돼 있음).
+- **판단**: 4편 모두 스터디노트 단계에서는 원문 대조가 이미 돼 있었으나
+  이 마스터 파일에는 옮겨적히지 않았던 상태 — 이번에 위치만 정식
+  등재. 개별 수치의 원문 페이지·직접 인용문은 각 스터디노트 파일 참고
+  (이미 확인된 내용이라 여기서 재복사하지 않음).
+- **확인**: 사용자 확인 완료 (스터디노트 단계 2026-06~07월, 마스터파일
+  정식 등재 2026-08-04)
+
+### Lindberg et al. (2018) — UMEP
+
+- **인용 위치**: III장 §2 — "SOLWEIG는 QGIS 기반 오픈소스 플랫폼
+  UMEP(Lindberg et al., 2018)에 통합되어 배포되며..."
+- **서지정보**: Lindberg, F. et al. (2018). Urban Multi-scale Environmental
+  Predictor (UMEP). *Environmental Modelling & Software*, 99, 70–87.
+  (`references/all_papers/Lindberg2018_UMEP.pdf`)
+- **원문**: "...the implications of green infrastructure on runoff
+  (SUEWS); microscale heat stress (**SOLWEIG**); solar energy production
+  (SEBE)..." — SOLWEIG가 UMEP 플러그인의 구성 도구 중 하나임을 명시.
+- **판단**: "SOLWEIG가 UMEP에 통합돼 있다"는 사실관계 확인 완료.
+- **확인**: 사용자 확인 완료 (2026-08-04)
 
 ### [id 022] Basu et al. (2024) — Methods 재인용
 
@@ -1533,3 +1598,19 @@ OpenFOAM CFD(96 CPU, 72시간)를 사용하나 이는 슈퍼컴퓨팅 자원이 
 - **원칙 재확인**: "마스터 파일에 없는 논문은 인용하지 않는다" — 이후
   모든 신규 인용은 이 파일에 원문 검증 없이 본문에 먼저 쓰지 않기로
   확정(사용자 지시, 2026-08-04).
+- **2026-08-04 (v26)**: 사용자가 "다른 장도 같은 패턴으로 다 만들어놔"
+  지시 — II~VI장 전체를 마스터 파일과 대조하며 인용근거정리 보조 파일
+  5개 신규 생성(`writing/02_선행연구/`, `04_방법론_결정노트/`,
+  `05_결과/`, `06_논의/`(신규 폴더), `07_결론/`(신규 폴더)). 이 과정에서
+  III장 §2·§4에서 추가로 미검증 인용 6건 발견·시정: **Moreno et
+  al.(2021)**(15분 시간예산 근거, 마스터파일에 아예 없었음), **Lindberg
+  et al.(2008/2016/2018)·Lindberg & Grimmond(2011)·Wallenberg et
+  al.(2026)**(SOLWEIG 계보 5편 — 스터디노트 단계에서는 이미 원문 검증돼
+  있었으나 마스터 파일 Methods 섹션에 옮겨지지 않은 상태였음, 뒤늦게
+  정식 등재). II장·IV장·V장·VI장은 기존 인용이 전부 이미 검증된 상태로
+  확인됨(IV장은 선행연구 인용이 3건뿐이라 논문 인용보다 "수치가 어느
+  스크립트에서 나왔는지" 대응표 형태로 작성). CLAUDE.md 최상단에 이
+  마스터 파일 확인 원칙을 명문화(사용자 지시).
+- **잔여 미확정 항목(2026-08-04 기준)**: Yoon et al.(2020) 서론 추가
+  인용 여부, 데이터·법령 출처 중 8건의 정확한 다운로드일/제공기관명,
+  IV장 수치 중 6건의 정확한 생성 스크립트 경로.
