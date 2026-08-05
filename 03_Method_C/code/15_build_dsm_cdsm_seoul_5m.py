@@ -11,9 +11,10 @@ CDSM = 수목높이만 (magl)
 """
 
 import os
-os.environ.setdefault(
-    'PROJ_DATA',
-    '/opt/miniconda3/lib/python3.13/site-packages/rasterio/proj_data')
+# 셸 환경변수 PROJ_DATA가 버전 호환 안 되는 proj.db(/opt/miniconda3/share/proj)를
+# 가리키고 있어 rasterio의 CRS 조회가 깨짐 — rasterio 번들 proj_data로 강제 지정
+# (pyproj/geopandas는 자체 proj_dir을 써서 영향 없음, rasterio만 문제였음)
+os.environ['PROJ_DATA'] = '/opt/miniconda3/lib/python3.13/site-packages/rasterio/proj_data'
 
 import numpy as np
 import geopandas as gpd

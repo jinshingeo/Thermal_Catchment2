@@ -63,3 +63,17 @@ build/
 # 캐시
 cache/
 *.cache
+
+# 개인정보/신청서류/저작권 자료 — 공개 저장소에 포함 금지
+데이터 신청/
+references/all_papers/
+references/올_페이퍼/
+references/ScienceDirect_files_*/
+
+# 원시 결과 데이터(CSV) 전체 — 코드로 재현 가능, 그림(PNG)만 남김
+03_Method_C/results/**/*.csv
+04_MeteoComparison/**/*.csv
+!03_Method_C/results/**/*.csv.gitkeep
+
+# Word 임시 잠금 파일
+~$*.docx
