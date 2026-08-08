@@ -17,7 +17,7 @@ matplotlib.rcParams['font.family'] = 'Apple SD Gothic Neo'
 
 PROJ = '/Users/jin/석사논문/Thermal_Catchment'
 JBG_PATH = '/Users/jin/석사논문/통계지역경계/집계구.shp'
-NET_PATH = os.path.join(PROJ, 'data', 'network', 'seoul_walk_network.gpkg')
+NET_PATH = os.path.join(PROJ, 'data', 'network', '2026-08-02_seoul_walk_api_network.gpkg')
 FAC_PATH = os.path.join(PROJ, 'data', 'F_FAC_BUILDING_서울', 'F_FAC_BUILDING_11_202606.shp')
 TL_PATH = '/Users/jin/석사논문/TAVI/03_건물데이터/(도로명주소)건물_서울/TL_SPBD_BULD_11_202603.shp'
 OUT_DIR = os.path.join(PROJ, 'figures', '발표용_20260805', '3d')
@@ -81,7 +81,8 @@ fac = fac[fac.geometry.is_valid & ~fac.geometry.is_empty].copy()
 
 # ── 네트워크 ────────────────────────────────────────────────────────────
 print("네트워크 로드...")
-edges = gpd.read_file(NET_PATH, layer='edges').to_crs(TARGET_CRS)
+edges = gpd.read_file(NET_PATH).to_crs(TARGET_CRS)
+edges = edges[edges['LNKG_TYPE_CD'].astype(str).str.startswith('1')].copy()
 edges = gpd.clip(edges, area)
 
 # ── 렌더 ────────────────────────────────────────────────────────────────

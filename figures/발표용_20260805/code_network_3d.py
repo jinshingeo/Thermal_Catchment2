@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 matplotlib.rcParams['font.family'] = 'Apple SD Gothic Neo'
 
 PROJ = '/Users/jin/석사논문/Thermal_Catchment'
-NET_PATH = os.path.join(PROJ, 'data', 'network', 'seoul_walk_network.gpkg')
+NET_PATH = os.path.join(PROJ, 'data', 'network', '2026-08-02_seoul_walk_api_network.gpkg')
 JBG_PATH = '/Users/jin/석사논문/통계지역경계/집계구.shp'
 OUT_DIR = os.path.join(PROJ, 'figures', '발표용_20260805', '3d')
 
@@ -68,7 +68,8 @@ def render(edges, boundary, out_path, lw=0.4):
 
 
 print("네트워크 로드...")
-edges = gpd.read_file(NET_PATH, layer='edges').to_crs('EPSG:5186')
+edges = gpd.read_file(NET_PATH).to_crs('EPSG:5186')
+edges = edges[edges['LNKG_TYPE_CD'].astype(str).str.startswith('1')].copy()
 
 print("집계구 경계 로드...")
 jbg = gpd.read_file(JBG_PATH)
