@@ -1439,7 +1439,11 @@ OpenFOAM CFD(96 CPU, 72시간)를 사용하나 이는 슈퍼컴퓨팅 자원이 
 
 - **지면(DEM)**: Copernicus GLO-30(30m, 오픈소스, ESA). 서울 영역
   `N37_E126.tif`, `N37_E127.tif` → `GLO30_Seoul_EPSG5186_30m.tif`로 병합.
-  파일 생성일 2026-07-01(⚠️ 추정 — 다운로드 스크립트 미확인).
+  파일 생성일 2026-07-01(⚠️ 추정 — 다운로드 스크립트 미확인). **인용**:
+  European Space Agency (2024). *Copernicus Global Digital Elevation
+  Model*. Distributed by OpenTopography. https://doi.org/10.5069/G9028PQB
+  (OpenTopography 데이터셋 메타데이터 페이지 "Dataset Citation" 섹션에서
+  직접 확인, 2026-08-10).
 - **건물 높이**: 건축물대장 통합정보 `F_FAC_BUILDING`(국토교통부/
   국가공간정보포털 계열로 추정) — HEIGHT·지상층수(GRND_FLR) 필드 실측값
   사용, 결측 시 도로명주소 건물자료(TL_SPBD_BULD)로 층수 보완(BD_MGT_SN
