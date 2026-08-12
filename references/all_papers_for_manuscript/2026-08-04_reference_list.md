@@ -1853,3 +1853,36 @@ OpenFOAM CFD(96 CPU, 72시간)를 사용하나 이는 슈퍼컴퓨팅 자원이 
   텍스트에서 Yoon(2020) 인용이 빠져있어 확인한 결과 실제 파일에는 이상
   없음 확인(로컬 워드 파일이 최신 md 갱신을 반영 못 하고 있었던 것으로
   판명 — 파일 동기화 문제였을 뿐 실제 인용 손실 아님).
+
+### Erbs, Klein & Duffie (1982) — 일사량 직달·확산 분리모델
+
+- **인용 위치**: III장 §2(Data) / §2(MRT 산출) — "일사량은 SOLWEIG
+  입력이므로 ASOS 단일 관측소(108)값을 유지하며... Erbs et al.(1982)
+  직달·확산 분리모델"
+- **서지정보**: Erbs, D. G., Klein, S. A., & Duffie, J. A. (1982).
+  Estimation of the diffuse radiation fraction for hourly, daily and
+  monthly-average global radiation. *Solar Energy*, 28(4), 293–302.
+  (`references/all_papers/Erbs1982_DirectDiffuseSplit.pdf`)
+- **원문 확인**: PDF 1페이지(Abstract) 직접 확인 — 시간별 청명지수(kT)와
+  확산비(Id/I)의 관계를 미국 4개 지점 관측자료로 구축한 경험적 상관식임을
+  확인. 저자·저널·권호·페이지 전부 일치.
+- **용도**: SOLWEIG 입력용 전천일사량을 직달·확산 성분으로 분리하는
+  표준 절차의 출처 — 수치를 직접 인용하는 것이 아니라 방법론(알고리즘)
+  출처로만 사용.
+- **확인**: 2026-08-12 원문 1페이지 직접 열람 후 등재.
+
+### Boeing (2017) — OSMnx
+
+- **인용 위치**: III장 §2(Data) — "보행 네트워크는 서울시 도보 네트워크
+  API 및 OpenStreetMap(Boeing, 2017)을 사용한다"
+- **서지정보**: Boeing, G. (2017). OSMnx: New methods for acquiring,
+  constructing, analyzing, and visualizing complex street networks.
+  *Computers, Environment and Urban Systems*, 65, 126–139.
+  (`references/all_papers/Boeing2017_OSMnx.pdf`)
+- **원문 확인**: PDF 1페이지(Abstract) 직접 확인 — OpenStreetMap 데이터를
+  자동 다운로드·구축·분석·시각화하는 Python 도구 OSMnx를 소개하는
+  논문임을 확인. 저자·저널·권·페이지 전부 일치.
+- **판단**: 본문 표기 "OpenStreetMap(Boeing, 2017)"은 엄밀히는 OSM 원본이
+  아니라 OSM 데이터를 가공하는 도구(OSMnx)를 가리키므로, 표기를
+  "OpenStreetMap(OSMnx; Boeing, 2017)"으로 명확히 하는 것을 권장.
+- **확인**: 2026-08-12 원문 1페이지 직접 열람 후 등재.
