@@ -26,7 +26,7 @@ import mapclassify
 
 PROJ = '/Users/jin/석사논문/Thermal_Catchment'
 RESULT_CSV = os.path.join(PROJ, '03_Method_C', 'results',
-                           '2026-08-17_seoul_jibgyegu_contour_CA_vs_SEAR_allhours_kma_pixel_nobuffer.csv')
+                           '2026-08-18_seoul_jibgyegu_contour_CA_vs_SEAR_api_network_nobuffer.csv')
 JIBGYEGU_SHP = os.path.join(PROJ, 'data', '_tmp_boundary', '집계구.shp')
 ADM_SHP = os.path.join(PROJ, 'data', '_tmp_boundary', '행정구역.shp')
 WATER_GPKG = os.path.join(PROJ, 'data', '_tmp_boundary', 'seoul_water.gpkg')
